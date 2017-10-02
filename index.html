@@ -1,7 +1,7 @@
 <html>
 <head>
 
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700" rel="stylesheet">
 	
 </head>
 
@@ -14,78 +14,140 @@
 		background-position: center;
 		color: white;
 		font-family: 'Raleway', sans-serif;
+		font-weight: 300;
 	}
 	
 	.h1 {
 		font-size: 48pt;
 		color: white;
 		font-family: 'Raleway', sans-serif;
-		text-align: center;
 		width: 750px;
 		height: 150px;
 		position: fixed;
-		top: 300px;
-		left: 200px;
+		top: 350px;
+		left: 230px;
 	}
 	
-	.h1 p {
+	.h1 p, .block p {
 		margin: 0px 0px 0px 0px;
 	}
 	
 	.block {
 		width: 200px;
 		height: 200px;
-		border: 5px solid;
-		font-size: 28pt;
-		text-align: center;
+		border: 2px solid;
+		font-size: 20pt;
+		font-weight: bold;
+		text-align: left;
 		vertical-align: middle;
 		position: fixed;
-	}
-	
-	.block p {
-		vertical-align: middle;
-		margin-top: 70px;
+		border-radius: 40px;
+		transition: all 0.2s ease-out; 
 	}
 	
 	body .block:nth-child(1) {
 		border-color: blue;
+		background-color: rgba(173, 222, 255, 0.7);
+	}
+	
+	.block p:nth-child(1) {
+		vertical-align: middle;
+		margin-top: 70px;
+		margin-left: 25px;
+		text-transform: uppercase;
 		
 	}
+	.block > p:nth-child(2) {
+		vertical-align: middle;
+		margin-top: 10px;
+		margin-left: 25px;
+		font-size: 12pt;
+		font-weight: 300;
+		max-width: 160px;
+		color: #F0F0F0;
+	}
+	
 	body .block:nth-child(2) {
 		border-color: red;
-		left: 256px;
-		
+		margin-left: 240px;
+		background-color: rgba(255, 206, 173, 0.7);
+	}
+	body .block:nth-child(3) {
+		border-color: green;
+		margin-top: 240px;
+		background-color: rgba(181, 255, 173, 0.7);
+	}
+	body .block:nth-child(4) {
+		border-color: purple;
+		background-color: rgba(247, 173, 255, 0.7);
+		margin-top: 240px;
+		margin-left: 240px;
+	}
+	
+	.blockContainer {
+		position: fixed;
+		left: 950px;
+		top: 250px;
+	}
+	
+	body .block:nth-child(1):hover {
+		background-color: rgba(173, 222, 255, 0.85);
+		border-width: 6px;
+	}
+	body .block:nth-child(2):hover {
+		background-color: rgba(255, 206, 173, 0.85);
+		border-width: 6px;
+	}
+	body .block:nth-child(3):hover {
+		background-color: rgba(181, 255, 173, 0.85);
+		border-width: 6px;
+	}
+	body .block:nth-child(4):hover {
+		background-color: rgba(247, 173, 255, 0.85);
+		border-width: 6px;
 	}
 </style>
 
 <body>
 
 <div class="h1">
-	<p>An Apeeling Solution to </br>Panama Disease</p>
+	<img src="img/logoWide.jpg" />
+	<p>An Apeeling Solution </br>to Panama Disease</p>
 </div>
+<div class="blockContainer"> 
 
 <div class="block">
 <p>Projects</p>
+<p>Saving the Cavendish banana</p>
 </div>
 
 <div class="block">
 <p>Outreach</p>
+<p>Increasing access to synthetic biology for high schools</p>
 </div>
 
 <div class="block">
 <p>Notebook</p>
+<p>Take a look through our journey</p>
 </div>
 
 <div class="block">
 <p>About Us</p>
+<p>Learn more about UMaryland iGEM</p>
+</div>
+
 </div>
 
 </body>
 
 
-<script type="text/javascript" src="js/jquery-3.2.1.min.js">
-</script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" scr="js/panzoom.js"></script>
 <script type="text/javascript">
+
+$(document).ready(function() {
+    $('body').panzoom();
+  });
 
 </script>
 </html>
