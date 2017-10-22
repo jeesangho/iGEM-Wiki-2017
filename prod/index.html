@@ -381,8 +381,8 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	
 	.subBlock:nth-child(5) {
 		position: absolute;
-		left: 1100px;
-		top: 700px;
+		left: 1200px;
+		top: 900px;
 	}
 	
 	.subBlock:nth-child(5) .block:nth-child(2) {
@@ -432,7 +432,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	.subBlock:nth-child(4) {
 		position: absolute;
 		left: -400px;
-		top: 800px;
+		top: 900px;
 	}
 	
 	.subBlock:nth-child(4) .block:nth-child(2) {
@@ -463,7 +463,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	}
 	.subBlock:nth-child(4) .block:nth-child(3):hover {
 		background-color: rgba(128, 62,162, 0.85);
-		border-width: 6px;
+		border-width: 6px;60vw
 	}
 	.subBlock:nth-child(4) .block:nth-child(4):hover {
 		background-color: rgba(88, 18,123, 0.85);
@@ -501,7 +501,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		top:0px;
 		left:-100vw;
 		z-index:1000;
-		background-color: rgba( 0,0,0,0.5);
+		background-color: rgba( 0,0,0,0.7);
 	}
 	
 	.exitOverlay {
@@ -555,7 +555,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				<p>From saving the Cavendish to expanding synthetic biology</p>
 			</div>
 			<div class="block" data-target="banana">
-				<p>An Appeling Solution</p>
+				<p>An Apeeling Solution</p>
 				<p>to save the Cavendish</p>
 			</div>
 			<div class="block" data-target="cas9">
@@ -635,34 +635,163 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 
 	</div>
 </div>
+<style>
+	.contentContainer {
+		display: none;
+	}
+	
+	.subContainer ul {
+		list-style: none;
+	}
+	
+	.subContainer {
+		margin-top: 50px;
+	}
+	
+	.subContainer nav {
+		margin-top: 60px;
+		font-size: 14pt;
+		float: left;
+		height: 100vh;
+		margin-right: 30px;
+	}
+	
+	.subContainer ul li {
+		padding-right: 60px;
+		padding-left: 10px;
+		margin-bottom: 10px;
+	}
+	
+	.subContainer .content {
+		font-size: 12pt;
+		height: 100vh;
+		overflow: auto;
+		width: 65vw;
+	}	
+	
+	.subContainer .h2 {
+		font-weight: bold;
+		font-size: 24pt;
+		margin-top: 15px;
+		margin-bottom: 30px;
+	}	
+	
+	.subContainer p {
+		padding-bottom: 20px;
+	}
+	
+	
+	/*project subcontainer*/
+	
+	
+	.subContainerProjects ul li:hover {
+		cursor: pointer;
+		opacity: 0.8;
+		background-color: rgba(8,113,196,0.5) !important;
+	}
+	
+	.subContainerOutreach ul li:hover {
+		cursor: pointer;
+		opacity: 0.8;
+		background-color: rgba(180, 73,100,0.5) !important;
+	}
+	
+	.subContainerNotebook ul li:hover {
+		cursor: pointer;
+		opacity: 0.8;
+		background-color: rgba(134,224,125,0.5) !important;
+	}
+	
+	.subContainerAbout ul li:hover {
+		cursor: pointer;
+		opacity: 0.8;
+		background-color: rgba(128, 62,162,0.5) !important;
+	}
+	.subContainer ul li {
+		opacity: 1;
+		background-color: transparent;
+	}
+	
+	.subContainerProjects ul li:nth-child(1) {
+		opacity: 1;
+		background-color: rgba(8,113,196,1);
+	}
+	
+	.subContainerOutreach ul li:nth-child(1) {
+		opacity: 1;
+		background-color: rgba(180, 73,100,1);
+	}
+	
+	.subContainerNotebook ul li:nth-child(1) {
+		opacity: 1;
+		background-color: rgba(134,224,125,1);
+	}
+	
+	.subContainerAbout ul li:nth-child(1) {
+		opacity: 1;
+		background-color: rgba(128, 62,162,1);
+	}
+	
+</style>
 <div class="contentContainer">
-	<div id="container-banana">
+	<div id="container-banana" class="subContainer subContainerProjects">
+		<nav> 
+			<ul>
+				<li>Background</li>
+				<li>Design</li>
+				<li>Experiments</li>
+				<li>Results</li>
+				<li>Proof</li>
+				<li>Integrated Practices</li>
+			</ul>
+		</nav>
+		<div class="content">
+			<div class="h2">An Apeeling Solution to Panama Disease</div>
+			<p>The banana is the most popular fruit in the world, with a whopping 160 million tons produced annually. In America, we think of the banana as a fruit, something we love but could live without. However, the same cannot be said for over 400 million people in poor countries. These individuals rely on bananas as their biggest, and sometimes, sole source of calories and nutrition. Terrifyingly enough, 7% of the world’s population could lose its sole source of food as the banana crop is being ravaged by a devastating pandemic: Panama disease.</p>
+			<p>Panama disease is caused by the fungus Fusarium oxysporum f. sp. Cubense race 4, which is deadly to the Cavendish banana. This fungus is able to first infect the roots of the plant, secreting different hydrolytic enzymes, and subsequently infect the xylem, blocking water and nutrient flow, leading to the death of the plant (Dong, Chunyu Li). Symptoms, however, are typically not visible until four months after infection, providing ample time for the fungus to spread without notice.  (http://www.cabi.org/isc/datasheet/24621, http://www.promusa.org/Fusarium+wilt ). Additionally, the fungus remains in the soil in the form of spores for up to a decade, ready to infect the next set of plants. Therefore, there is a need to develop a method of protecting the Cavendish banana from Fusarium oxysporum and eliminating the fungus from the soil. 
+			</p>
+		</div>
 	</div>
-	<div id="container-cas9">
+	<div id="container-cas9" class="subContainer subContainerProjects">
+		<nav> 
+			<ul>
+				<li>Background</li>
+				<li>Design</li>
+				<li>Experiments</li>
+				<li>Results</li>
+				<li>Proof</li>
+				<li>Integrated Practices</li>
+			</ul>
+		</nav>
+		<div class="content">
+			<div class="h2">Cas9 Mutagenesis Projects</div>
+			<p>We are attempting to apply Cas9 in a novel way by using it to screen for mutants. If we introduce Cas9 with an sgRNA identical to a region of interest within a gene, it is possible to cleave plasmids containing an unmutated version of that gene. Coupling this method of selection with random mutagenesis creates a powerful tool that can greatly reduce the amount of screening that needs to be completed following a mutagenesis operation. This screening method creates a way to discover the functions of specific regions in genes, or as a tool for directed evolution of a protein.</p>
+			<p></p>
+		</div>
 	</div>
-	<div id="container-diy">
+	<div id="container-diy" class="subContainer subContainerProjects">
 	</div>
-	<div id="container-metal">
+	<div id="container-metal" class="subContainer subContainerProjects">
 	</div>
-	<div id="container-panama">
+	<div id="container-panama" class="subContainer">
 	</div>
-	<div id="container-teaching">
+	<div id="container-teaching" class="subContainer">
 	</div>
-	<div id="container-community">
+	<div id="container-community" class="subContainer">
 	</div>
-	<div id="container-students">
+	<div id="container-students" class="subContainer">
 	</div>
-	<div id="container-advisors">
+	<div id="container-advisors" class="subContainer">
 	</div>
-	<div id="container-funding">
+	<div id="container-funding" class="subContainer">
 	</div>
-	<div id="container-ack">
+	<div id="container-ack" class="subContainer">
 	</div>
-	<div id="container-parts">
+	<div id="container-parts" class="subContainer">
 	</div>
-	<div id="container-modeling">
+	<div id="container-modeling" class="subContainer">
 	</div>
-	<div id="container-notebook">
+	<div id="container-notebook" class="subContainer">
 	</div>
 </div>
 </body>
@@ -726,12 +855,12 @@ $(document).ready(function() {
 	
 	$('.mainBlock .block:nth-child(3)').click( function() {
 		$('.pageCanvas').css('transition', '.7s ease-in-out');
-		$('.pageCanvas').css('transform', 'matrix(1,0,0,1,-1522,-743)');
+		$('.pageCanvas').css('transform', 'matrix(1,0,0,1,-1595,-886)');
 	})
 	
 	$('.mainBlock .block:nth-child(4)').click( function() {
 		$('.pageCanvas').css('transition', '.7s ease-in-out');
-		$('.pageCanvas').css('transform', 'matrix(1,0,0,1,51,-935)');
+		$('.pageCanvas').css('transform', 'matrix(1,0,0,1,53,-1004)');
 	})
 	
 	$('.leftArrow').click( function() {
@@ -739,9 +868,16 @@ $(document).ready(function() {
 		$('.pageCanvas').css('transform', 'matrix(1,0,0,1,0,1)');
 	})
   
-  
+  //change blocks
   $('.subBlock .block').click( function() {
-	$('.pageCanvas').css('opacity', '0.2');
+	$('.pageCanvas').animate({
+		opacity: '0.1'
+	})
+	
+	$('.contentContainer').prepend($('.overlay .subContainer'));
+	
+	target = $(this).attr('data-target')
+	$('.overlay').prepend( $('#container-' + target));
 	$('.overlay').css('display', 'block');;
 	
 	$('.overlay').css('transition', 'ease-in-out, 2s');
@@ -751,16 +887,47 @@ $(document).ready(function() {
   });
   
   $('.exitOverlay').click( function() {
-	$('.pageCanvas').css('opacity', '1');
+	$('.pageCanvas').animate({
+		opacity: '1'
+	})
 	
 	$('.overlay').css('transition', 'ease-in-out, 2s');
 	$('.overlay').animate({
 		left: '-100vw'
-	},function() {
-	$('.overlay').css('display', 'none');
 	});
   });
   
+  $('.subContainerProjects li').click( function() {
+		color = $(this).css('background-color');
+		if (color != 'transparent') {
+			$('.subContainerProjects li').css('background-color', 'transparent')
+			$(this).css('background-color', 'rgba(8,113,196,1)');
+		}
+	})
+	
+	$('.subContainerOutreach li').click( function() {
+		color = $(this).css('background-color');
+		if (color != 'transparent') {
+			$('.subContainerProjects li').css('background-color', 'transparent')
+			$(this).css('background-color', 'rgba(180, 73,100,1)');
+		}
+	})
+	
+	$('.subContainerNotebook li').click( function() {
+		color = $(this).css('background-color');
+		if (color != 'transparent') {
+			$('.subContainerProjects li').css('background-color', 'transparent')
+			$(this).css('background-color', 'rgba(134,224,125,1)');
+		}
+	})
+	
+	$('.subContainerAbout li').click( function() {
+		color = $(this).css('background-color');
+		if (color != 'transparent') {
+			$('.subContainerProjects li').css('background-color', 'transparent')
+			$(this).css('background-color', 'rgba(128, 62,162,1)');
+		}
+	})
 </script>
 
 </p>
