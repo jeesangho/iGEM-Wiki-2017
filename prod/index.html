@@ -70,7 +70,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 <head>
 
 	<link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700" rel="stylesheet">
-	
+	</script>
 </head>
 <script>
 		/* Hiding stupid stuff*/
@@ -516,125 +516,6 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	}
 </style>
 
-<body>
-<div class="overlay">
-	<div class="exitOverlay">
-	<p>X</p>
-	</div>
-</div>
-<div class="pageCanvas">
-	<div class="h1 animated bounceIn">
-		<img src="img/logoWide.jpg" />
-		<p>An Apeeling Solution </br>to Panama Disease</p>
-	</div>
-	<div class="blockContainer"> 
-		<div class="mainBlock animated bounceIn">
-
-			<div class="block">
-			<p>Projects</p>
-			<p>Saving the Cavendish banana</p>
-			</div>
-
-			<div class="block">
-			<p>Outreach</p>
-			<p>Increasing access to synthetic biology for high schools</p>
-			</div>
-
-			<div class="block">
-			<p style="margin-top: 30px; line-height: 1.8em;">Parts</br>Modeling</br>Notebook</p>
-			</div>
-
-			<div class="block">
-			<p>About Us</p>
-			<p>Learn more about UMaryland iGEM</p>
-			</div>
-		</div>
-		<div class="subBlock">
-			<div class="blockDescription">
-				<p><span class="leftArrow">&#8592;</span> Projects</p>
-				<p>From saving the Cavendish to expanding synthetic biology</p>
-			</div>
-			<div class="block" data-target="banana">
-				<p>An Apeeling Solution</p>
-				<p>to save the Cavendish</p>
-			</div>
-			<div class="block" data-target="cas9">
-				<p>Cas9 Mutant Screening</p>
-				<p>Screening for mutants using CRISPR/Cas9</p>
-			</div>
-			<div class="block" data-target="diy">
-				<p>Lab-in-a-box</p>
-				<p>Low cost DIY lab equipment</p>
-			</div>
-			<div class="block" data-target="metal">
-				<p>Metal Detection</p>
-				<p>Teaching synthetic biology using real world examples</p>
-			</div>
-		</div>
-			
-		<div class="subBlock">
-			<div class="blockDescription">
-				<p><span class="leftArrow">&#8592;</span> Outreach</p>
-				<p>Reaching out to the community about synthetic biology</p>
-			</div>
-			<div class="block" data-target="panama">
-				<p>Knowing Panama Disease</p>
-				<p>Feedback, concerns, and feasiblity</p>
-			</div>
-			<div class="block" data-target="teaching">
-				<p>Teaching the Next Generation</p>
-				<p>of synthetic biologists</p>
-			</div>
-			<div class="block" data-target="community">
-				<p>Talking with the Community</p>
-				<p>about synthetic biology</p>
-			</div>
-		</div>
-
-		<div class="subBlock">
-			<div class="blockDescription">
-				<p><span class="leftArrow">&#8592;</span> About Us</p>
-				<p>UMaryland iGEM - Since 2014</p>
-			</div>
-			<div class="block" data-target="students">
-				<p>Students</p>
-				<p>The next generation of scientists</p>
-			</div>
-			<div class="block" data-target="advisors">
-				<p>Advisors</p>
-				<p>Guiding our efforts</p>
-			</div>
-			<div class="block" data-target="funding">
-				<p>Funding</p>
-				<p>Providing support for the team</p>
-			</div>
-			<div class="block" data-target="ack">
-				<p>Acknowl-</br>edgements</p>
-				<p>Those who helped us get here</p>
-			</div>
-		</div>
-			
-		<div class="subBlock">
-			<div class="blockDescription">
-				<p><span class="leftArrow">&#8592;</span> Application</p>
-				<p>Contributing to the scientific community</p>
-			</div>
-			<div class="block" data-target="parts">
-				<p>Parts</p>
-				<p>Contributions to the Registry</p>
-			</div>
-			<div class="block" data-target="modeling">
-				<p>Modeling</p>
-				<p>Applying engineering principles</p>
-			</div>
-			<div class="block" data-target="notebook">
-				<p>Notebook</p>
-				<p>Follow our progress throughout our experience</p>
-			</div>
-		</div>
-
-	</div>
-</div>
 <style>
 	.contentContainer {
 		display: none;
@@ -666,7 +547,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		font-size: 12pt;
 		height: 100vh;
 		overflow: auto;
-		width: 65vw;
+		width: 70vw;
 	}	
 	
 	.subContainer .h2 {
@@ -727,29 +608,214 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		background-color: rgba(134,224,125,1);
 	}
 	
-	.subContainerAbout ul li:nth-child(1) {
+	.subContainerAbout ul:nth-child(1) li:nth-child(1) {
 		opacity: 1;
 		background-color: rgba(128, 62,162,1);
 	}
 	
+	#disableFirst {
+		opacity: 1;
+		background-color: transparent;
+	}
+	
+	#container-students {
+		scroll-behavior: smooth;
+	}
+	
+	#container-students table{
+		display: block;
+		background: transparent;
+		width: 100%;
+		color: white;
+	}
+	
+	#container-students td:nth-child(1) {
+		vertical-align: top;
+		width: 25%;
+		padding-left: 25px;
+		padding-right: 25px;
+		height: 350px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	
+	#container-students tr {
+		min-height: 200px;
+	}
+	
+	#container-students td:nth-child(2) {
+		vertical-align: top;
+		width: 70%;
+		padding-left: 25px;
+		padding-right: 25px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	
+	#container-students img {
+		margin-top: 10px;
+		max-width: 300px;
+	}
+	
+	#container-students p:nth-child(1) {
+		font-weight: bold;
+		font-size: 20pt;
+	}
+	
+	#container-students p:nth-child(2) {
+		font-size: 14pt;
+	}
+	
+	.content-advisors {
+		display: none;
+	}
+	
+	/*general subContainer */
+	
+	.content .h2:nth-child(1) {
+		margin-top: 60px;
+	}
+	
+	
 </style>
+<body>
+<div class="overlay">
+	<div class="exitOverlay">
+	<p>X</p>
+	</div>
+</div>
+<div class="pageCanvas">
+	<div class="h1 animated bounceIn">
+		<img src="img/logoWide.jpg" />
+		<p>An Apeeling Solution </br>to Panama Disease</p>
+	</div>
+	<div class="blockContainer"> 
+		<div class="mainBlock animated bounceIn">
+
+			<div class="block">
+			<p>Projects</p>
+			<p>Saving the Cavendish banana</p>
+			</div>
+
+			<div class="block">
+			<p>Outreach</p>
+			<p>Increasing access to synthetic biology for high schools</p>
+			</div>
+
+			<div class="block">
+			<p style="margin-top: 30px; line-height: 1.8em;">Parts</br>Modeling</br>Notebook</p>
+			</div>
+
+			<div class="block">
+			<p>About Us</p>
+			<p>Learn more about UMaryland iGEM</p>
+			</div>
+		</div>
+		<div class="subBlock">
+			<div class="blockDescription">
+				<p><span class="leftArrow">&#8592;</span> Projects</p>
+				<p>From saving the Cavendish to expanding synthetic biology</p>
+			</div>
+			<div class="block projectBlock" data-target="banana">
+				<p>An Apeeling Solution</p>
+				<p>to save the Cavendish</p>
+			</div>
+			<div class="block projectBlock" data-target="cas9">
+				<p>Cas9 Mutant Screening</p>
+				<p>Screening for mutants using CRISPR/Cas9</p>
+			</div>
+			<div class="block projectBlock" data-target="diy">
+				<p>Lab-in-a-box</p>
+				<p>Low cost DIY lab equipment</p>
+			</div>
+			<div class="block projectBlock" data-target="metal">
+				<p>Metal Detection</p>
+				<p>Teaching synthetic biology using real world examples</p>
+			</div>
+		</div>
+			
+		<div class="subBlock">
+			<div class="blockDescription">
+				<p><span class="leftArrow">&#8592;</span> Outreach</p>
+				<p>Reaching out to the community about synthetic biology</p>
+			</div>
+			<div class="block outreachBlock" data-target="panama">
+				<p>Knowing Panama Disease</p>
+				<p>Feedback, concerns, and feasiblity</p>
+			</div>
+			<div class="block outreachBlock" data-target="teaching">
+				<p>Teaching the Next Generation</p>
+				<p>of synthetic biologists</p>
+			</div>
+			<div class="block outreachBlock" data-target="community">
+				<p>Talking with the Community</p>
+				<p>about synthetic biology</p>
+			</div>
+		</div>
+
+		<div class="subBlock">
+			<div class="blockDescription">
+				<p><span class="leftArrow">&#8592;</span> About Us</p>
+				<p>UMaryland iGEM - Since 2014</p>
+			</div>
+			<div class="block aboutBlock" data-target="students">
+				<p>Students</p>
+				<p>The next generation of scientists</p>
+			</div>
+			<div class="block aboutBlock" data-target="advisors">
+				<p>Advisors</p>
+				<p>Guiding our efforts</p>
+			</div>
+			<div class="block aboutBlock" data-target="funding">
+				<p>Funding</p>
+				<p>Providing support for the team</p>
+			</div>
+			<div class="block aboutBlock" data-target="ack">
+				<p>Acknowl-</br>edgements</p>
+				<p>Those who helped us get here</p>
+			</div>
+		</div>
+			
+		<div class="subBlock">
+			<div class="blockDescription">
+				<p><span class="leftArrow">&#8592;</span> Application</p>
+				<p>Contributing to the scientific community</p>
+			</div>
+			<div class="block notebookBlock" data-target="parts">
+				<p>Parts</p>
+				<p>Contributions to the Registry</p>
+			</div>
+			<div class="block notebookBlock" data-target="modeling">
+				<p>Modeling</p>
+				<p>Applying engineering principles</p>
+			</div>
+			<div class="block notebookBlock" data-target="notebook">
+				<p>Notebook</p>
+				<p>Follow our progress throughout our experience</p>
+			</div>
+		</div>
+
+	</div>
+</div>
 <div class="contentContainer">
 	<div id="container-banana" class="subContainer subContainerProjects">
 		<nav> 
 			<ul>
-				<li>Background</li>
-				<li>Design</li>
-				<li>Experiments</li>
-				<li>Results</li>
-				<li>Proof</li>
-				<li>Integrated Practices</li>
+				<li data-select-target="background">Background</li>
+				<li data-select-target="design">Design</li>
+				<li data-select-target="experiments">Experiments</li>
+				<li data-select-target="results">Results</li>
+				<li data-select-target="proof">Proof</li>
+				<li data-select-target="integrated">Integrated Practices</li>
 			</ul>
 		</nav>
 		<div class="content">
-			<div class="h2">An Apeeling Solution to Panama Disease</div>
-			<p>The banana is the most popular fruit in the world, with a whopping 160 million tons produced annually. In America, we think of the banana as a fruit, something we love but could live without. However, the same cannot be said for over 400 million people in poor countries. These individuals rely on bananas as their biggest, and sometimes, sole source of calories and nutrition. Terrifyingly enough, 7% of the world’s population could lose its sole source of food as the banana crop is being ravaged by a devastating pandemic: Panama disease.</p>
-			<p>Panama disease is caused by the fungus Fusarium oxysporum f. sp. Cubense race 4, which is deadly to the Cavendish banana. This fungus is able to first infect the roots of the plant, secreting different hydrolytic enzymes, and subsequently infect the xylem, blocking water and nutrient flow, leading to the death of the plant (Dong, Chunyu Li). Symptoms, however, are typically not visible until four months after infection, providing ample time for the fungus to spread without notice.  (http://www.cabi.org/isc/datasheet/24621, http://www.promusa.org/Fusarium+wilt ). Additionally, the fungus remains in the soil in the form of spores for up to a decade, ready to infect the next set of plants. Therefore, there is a need to develop a method of protecting the Cavendish banana from Fusarium oxysporum and eliminating the fungus from the soil. 
-			</p>
+			<div class="subContent content-background">
+				<div class="h2">An Apeeling Solution to Panama Disease</div>
+				<p>The banana is the most popular fruit in the world, with a whopping 160 million tons produced annually. In America, we think of the banana as a fruit, something we love but could live without. However, the same cannot be said for over 400 million people in developing countries. These individuals rely on bananas as their biggest, and sometimes, sole source of calories and nutrition. Terrifyingly enough, 7% of the world’s population could lose its sole source of food as the banana crop is being ravaged by a devastating pandemic: Panama disease.</p>
+				<p>Panama disease is caused by the fungus Fusarium oxysporum f. sp. Cubense race 4, which is deadly to the Cavendish banana. This fungus is able to first infect the roots of the plant, secreting different hydrolytic enzymes, and subsequently infect the xylem, blocking water and nutrient flow, leading to the death of the plant (Dong, Chunyu Li). Symptoms, however, are typically not visible until four months after infection, providing ample time for the fungus to spread without notice.  (http://www.cabi.org/isc/datasheet/24621, http://www.promusa.org/Fusarium+wilt ). Additionally, the fungus remains in the soil in the form of spores for up to a decade, ready to infect the next set of plants. Therefore, there is a need to develop a method of protecting the Cavendish banana from Fusarium oxysporum and eliminating the fungus from the soil. 
+				</p>
+			</div>
 		</div>
 	</div>
 	<div id="container-cas9" class="subContainer subContainerProjects">
@@ -773,25 +839,253 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	</div>
 	<div id="container-metal" class="subContainer subContainerProjects">
 	</div>
-	<div id="container-panama" class="subContainer">
+	<div id="container-panama" class="subContainer subContainerOutreach">
 	</div>
-	<div id="container-teaching" class="subContainer">
+	<div id="container-teaching" class="subContainer subContainerOutreach">
 	</div>
-	<div id="container-community" class="subContainer">
+	<div id="container-community" class="subContainer subContainerOutreach">
 	</div>
-	<div id="container-students" class="subContainer">
+	<div id="container-students" class="subContainer subContainerAbout">
+		<nav> 
+			<ul>
+				<li class="levelOne" data-select-target="students">Students</li>
+				<div class="levelTwo">
+					<ul>
+						<li data-img-src="http://2017.igem.org/wiki/images/9/92/T--UMaryland--asha.jpg" class="li-students" data-scrollTo="asha">Asha Kodan</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/f/f8/T--UMaryland--cameron.jpg" class="li-students" data-scrollTo="cameron">Cameron Harner</li>
+						<li data-img-src="" data-scrollTo="deven">Deven Appel</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/7/74/T--UMaryland--chunmun.jpg" class="li-students" data-scrollTo="chun">Chun Mun Loke</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/6/6b/T--UMaryland--cynthia.jpg" class="li-students" data-scrollTo="cynthia">Cynthia Uzoukwu</li>
+						<li data-img-src="" class="li-students" data-scrollTo="jacob">Jacob Premo</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/d/d4/T--UMaryland--joyce.jpg" class="li-students" data-scrollTo="joyce">Joyce Song</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/0/0c/T--UMaryland--paula.jpg" class="li-students" data-scrollTo="paula">Paula Kleyman</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/8/8c/T--UMaryland--richa.jpg" class="li-students" data-scrollTo="richa">Richa Beher</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/b/bb/T--UMaryland--rohith.jpg" class="li-students" data-scrollTo="rohith">Rohith Battina</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/8/8f/T--UMaryland--sangho.jpg" class="li-students" data-scrollTo="sangho">SangHo Jee</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/e/e2/T--UMaryland--seth.jpg" class="li-students" data-scrollTo="seth">Seth Cohen</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/b/bf/T--UMaryland--thea.jpg" class="li-students" data-scrollTo="thea">Thea Orstein</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/7/79/T--UMaryland--yuzhu.jpg" class="li-students" data-scrollTo="yuzhu">Yuzhu Shi</li>
+					</ul>
+				</div>
+				<li class="levelOne" data-select-target="advisors" >Advisors</li>
+				<!--<div class="levelTwo">
+					<ul>
+						<li data-img-src="http://2017.igem.org/wiki/images/d/d0/T--UMaryland--kahn.jpg" id="disableFirst" class="li-advisors" data-scrollTo="kahn">Dr. Jason Kahn</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/5/50/T--UMaryland--eisenstein.jpg" class="li-advisors" data-scrollTo="eisenstein">Dr. Edward Eisenstein</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/1/15/T--UMaryland--quimby.jpg" class="li-advisors" data-scrollTo="quimby">Dr. Booth 'Boots' Quimby</li>
+						<li data-img-src="http://2017.igem.org/wiki/images/a/a1/T--UMaryland--naren.jpeg" class="li-advisors" data-scrollTo="naren">Naren Bhokisham</li>
+					</ul>
+				</div>-->
+				<li class="levelOne" data-select-target="funding">Funding</li>
+				<li class="levelOne" data-select-target="ack">Acknowledgements</li>
+			</ul>
+		</nav>
+		<div class="content">
+			<div class="subContent content-students">
+				<div class="h2">UMaryland iGEMers</div>
+				<p>UMaryland iGEM is made of dedicated undergraduates who are passionate about improving the world through synthetic biology. They are from a variety of backgrounds, majors, and interest that contribute their talents through lab work, outreach, fundraising, wiki coding, video editing, social media, and photography. They dedicate their time through a spring seminar, summer work, and finishing up of the project in the fall.</p>
+				<p>
+					<table>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/9/92/T--UMaryland--asha.jpg" />
+						</td>
+						<td id="asha" class="scrollCheck">
+							<p>Asha Kodan</p>
+							<p>Asha is a rising sophomore who is majoring in Biology with a minor in Religious Studies. This is her first year on the UMaryland iGEM team! In addition to her passion for synthetic biology, she is an avid writer and opinion columnist for the Diamondback Newspaper. She also helps with behavioral inhibition research at UMD's Child Development Lab. During her free time she enjoys traveling and watching true crime documentaries.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/f/f8/T--UMaryland--cameron.jpg" />
+						</td>
+						<td id="cameron" class="scrollCheck">
+							<p>Cameron Harner</p>
+							<p>Cameron is a senior in Bioengineering. After graduating he plans to work as a consultant in the healthcare industry. He joined iGEM to get hands on lab experience and work on a project with real world applications. Outside of lab he enjoys sports, game of thrones, and just about anything outdoors.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="" />
+						</td>
+						<td id="deven" class="scrollCheck">
+							<p>Deven Appel</p>
+							<p>Deven is a junior bioengineering major on the pre-medical track. With a desire to explore synthetic biology, he found iGEM had the perfect goals for him. iGEM also provided a first-hand look at how these principles of biology and engineering could be applied to actual, beneficial goals in the world, and he was happy to see such a passionate, determined team around him at the University of Maryland. Deven is also the president of an a cappella group and assists with a biophysics lab on campus. </p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/7/74/T--UMaryland--chunmun.jpg" />
+						</td>
+						<td id="chun" class="scrollCheck">
+							<p>Chun Mun Loke</p>
+							<p></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/6/6b/T--UMaryland--cynthia.jpg" />
+						</td>
+						<td id="cynthia" class="scrollCheck">
+							<p>Cynthia Uzoukwu</p>
+							<p>Cynthia is a senior with a double major in bioengineering and criminal justice. After she graduates, she hopes to go on to medical school to become a neurosurgeon. She joined iGEM because she likes that students get to choose their own research topic, based on their analysis of what real life problems synthetic biology could help combat. Apart from science, she likes anything involving criminal law.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="" />
+						</td>
+						<td id="jacob" class="scrollCheck">
+							<p>Jacob Premo</p>
+							<p></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/d/d4/T--UMaryland--joyce.jpg" />
+						</td>
+						<td id="joyce" class="scrollCheck">
+							<p>Joyce Song</p>
+							<p>Joyce is a sophomore neurobiology & physiology major. She joined iGEM because she loved the concept of a student-ran research team that tackles real world issues with synthetic biology. In her free time, she loves to go play with her dog, go on hikes, and binge-watch Netflix.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/0/0c/T--UMaryland--paula.jpg" />
+						</td>
+						<td id="paula" class="scrollCheck">
+							<p>Paula Kleyman</p>
+							<p>Paula is a junior studying bioengineering. This is her second year on the UMaryland iGEM team. She really enjoyed working on the team the year before and learning how to design and create a novel synthetic biology project and came back for more. She is also interested in pursuing a career in education, possibly finding a way to integrate her biology and engineering knowledge with classroom work. Her favorite activities outside of academics are running, singing, and playing guitar (but not at the same time).</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/8/8c/T--UMaryland--richa.jpg" />
+						</td>
+						<td id="richa" class="scrollCheck">
+							<p>Richa Beher</p>
+							<p>Richa is a sophomore Cell Biology and Genetics major at the University of Maryland who aspires to become a physician-scientist. She joined iGEM to gain research experience and explore synthetic biology applications with like-mided individuals. On campus, she is part of service organizations, Terrapin Trail Club, and the Club Triathlon team! In her free time, she enjoys eating good food, backpacking, listening to music, and hanging out with friends.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/b/bb/T--UMaryland--rohith.jpg" />
+						</td>
+						<td id="rohith" class="scrollCheck">
+							<p>Rohith Battina</p>
+							<p>Rohith is a sophomore biochemistry major at UMD. He is interested in pursuing a career in the field of infectious diseases research. He enjoys doing iGEM because of its application to real world problems and how it fosters teamwork. In his spare time, he plays tennis and reads books.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/8/8f/T--UMaryland--sangho.jpg" />
+						</td>
+						<td id="sangho" class="scrollCheck">
+							<p>SangHo Jee</p>
+							<p>He is currently coding the wiki for the team.....</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/e/e2/T--UMaryland--seth.jpg" />
+						</td>
+						<td id="seth" class="scrollCheck">
+							<p>Seth Cohen</p>
+							<p>Seth is a junior biochemistry major at the University of Maryland. Outside of science his favorite things to do are play basketball and write fiction. His favorite food is probably falafel on pita bread with tomatoes, cucumbers, feta, lettuce, tahini, and hummus. His favorite animal is definitely the elephant. Another kind of interesting fact about him is that he is vegetarian. That's pretty much all you need to know about Seth!</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/b/bf/T--UMaryland--thea.jpg" />
+						</td>
+						<td id="thea" class="scrollCheck">
+							<p>Thea Orstein</p>
+							<p>Thea Orstein is a rising Junior at the University of Maryland, College Park, majoring in Bioengineering with a concentration in Biotechnology and Therapeutics Engineering. After graduating from UMD, She plans to pursue a PhD in Biophysics or Molecular Biology. This summer, she is working as a lab member and as a project developer on the UMaryland iGEM team. In her free time she enjoys running, hiking, and hanging out with friends.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/7/79/T--UMaryland--yuzhu.jpg" />
+						</td>
+						<td id="yuzhu" class="scrollCheck">
+							<p>Yuzhu Shi</p>
+							<p>Yuzhu is a sophomore biochemistry and microbiology major. She loves doing research and thought that iGEM would be a great way to further pursue that interest. Her other hobbies include trying out new foods and restaurants, going to the gym, and hanging out with friends. </p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="" />
+						</td>
+						<td>
+							<p></p>
+							<p></p>
+						</td>
+						<td>
+							<img src="" />
+						</td>
+						<td>
+							<p></p>
+							<p></p>
+						</td>
+					</tr>
+					</table>
+				</p>
+			</div>
+			<div class="subContent content-advisors">
+				<p class="h2">UMaryland iGEM Advisors</p>
+				<p>UMaryland iGEM is lead by two faculty advisers: Dr. Edward Eisenstein in the Fischell Department of Bioengineering, and Dr. Jason Kahn in the Department of Chemistry and Biochemistry. We were founded with the help of Dr. Boots Quimby, former Assistant Director of the Integrated Life Sciences Honors Program at the University of Maryland, College Park. They help evaluate project proposals, attend regular lab meetings, connect us to resources on and off campus.</p>
+				<table>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/d/d0/T--UMaryland--kahn.jpg" />
+						</td>
+						<td id="kahn">
+							<p>Dr. Jason Kahn</p>
+							<p>Dr. Jason D. Kahn is a biophysical chemist who studies protein-nucleic acid interaction and engineering. He is best known for studies of DNA looping, bending, twisting, and cyclization, as well as hybridization thermodynamics for modified bases. He teaches a variety of chemistry, biochemistry, and molecular biology courses, which he credits for initiating his interest in synthetic biology. Dr. Kahn was a graduate student at UC Berkeley and a post-doc at Yale before coming to Maryland in 1994.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/5/50/T--UMaryland--eisenstein.jpg" />
+						</td>
+						<td id="eisenstein">
+							<p>Dr. Edward Eisenstein</p>
+							<p>Dr. Edward Eisenstein is a Fellow in the Institute for Bioscience and Biotechnology Research and an Associate Professor in the Fischell Department of Bioengineering at the University of Maryland. Trained in modern structural enzymology, his current research interests are focused on protein and biosystem engineering for discovery and application in plants and microorganisms.</p>
+						</td>
+					</tr>
+					<tr>
+						<td id="quimby">
+							<img src="http://2017.igem.org/wiki/images/1/15/T--UMaryland--quimby.jpg" />
+						</td>
+						<td>
+							<p>Dr. Booth "Boots" Quimby</p>
+							<p>Dr. Quimby is the former Associate Director of the Integrated Life Sciences honors program in the Honors College at the University of Maryland. Prior to joining the Department of Cell Biology and Molecular Genetics at UMD as a full-time instructor, she earned her Master's of Arts in teaching from the University of South Carolina, after which she taught high school science in Atlanta, Georgia for eight years. She then returned to graduate school and received her doctorate in genetics and molecular biology from Emory University.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/a/a1/T--UMaryland--naren.jpeg" />
+						</td>
+						<td id="naren">
+							<p>Naren Bhokisham</p>
+							<p>Naren is a Graduate Student in Molecular and Cell Biology at the University of Maryland, College Park. He received his undergraduate degree in Industrial Biotechnology from St. Joseph’s College of Engineering, Anna University, India. He works in the intersection of synthetic biology, metabolic engineering and biomaterials, involving assembly of enzyme cascades on various interfaces to generate small molecules and engineering microbes to display novel phenotypes in response to small molecules. Apart from science, his pursuits include traveling, running and latin dancing.</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
 	</div>
-	<div id="container-advisors" class="subContainer">
+	<div id="container-advisors" class="subContainer subContainerAbout">
 	</div>
-	<div id="container-funding" class="subContainer">
+	<div id="container-funding" class="subContainer subContainerAbout">
 	</div>
-	<div id="container-ack" class="subContainer">
+	<div id="container-ack" class="subContainer subContainerAbout">
 	</div>
-	<div id="container-parts" class="subContainer">
+	<div id="container-parts" class="subContainer subContainerNotebook">
 	</div>
-	<div id="container-modeling" class="subContainer">
+	<div id="container-modeling" class="subContainer subContainerNotebook">
 	</div>
-	<div id="container-notebook" class="subContainer">
+	<div id="container-notebook" class="subContainer subContainerNotebook">
 	</div>
 </div>
 </body>
@@ -813,55 +1107,45 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 <script type="text/javascript" src="http://timmywil.github.io/jquery.panzoom/dist/jquery.panzoom.js"></script>
 <script type="text/javascript">
 
-$(document).ready(function() {
-	$('#overruled').css('overflow', 'visible');
-    $('.pageCanvas').panzoom({
-		cursor: "-webkit-grab"
-	});
-	
-	//define block array
-	blockArray = [
-		banana,
-		cas9,
-		diy,
-		metal,
-		panama,
-		teaching,
-		community,
-		students,
-		advisors,
-		funding,
-		ack,
-		parts,
-		modeling,
-		notebook
-	];
 
-
-	
-  });
-  
 	$('.pageCanvas').css('display', 'block');
 	
 	$('.mainBlock .block:nth-child(1)').click( function() {
-		$('.pageCanvas').css('transition', '.7s ease-in-out');
-		$('.pageCanvas').css('transform', 'matrix(1,0,0,1,57,1079)');	
+		goToSubBlock(1);
 	})
 	
 	$('.mainBlock .block:nth-child(2)').click( function() {
-		$('.pageCanvas').css('transition', '.7s ease-in-out');
-		$('.pageCanvas').css('transform', 'matrix(1,0,0,1,-1277,754)');
+		goToSubBlock(2);
 	})
 	
 	$('.mainBlock .block:nth-child(3)').click( function() {
-		$('.pageCanvas').css('transition', '.7s ease-in-out');
-		$('.pageCanvas').css('transform', 'matrix(1,0,0,1,-1595,-886)');
+		goToSubBlock(3);
 	})
 	
 	$('.mainBlock .block:nth-child(4)').click( function() {
-		$('.pageCanvas').css('transition', '.7s ease-in-out');
-		$('.pageCanvas').css('transform', 'matrix(1,0,0,1,53,-1004)');
+		goToSubBlock(4);
 	})
+	
+	function goToSubBlock(blockNum) {
+		switch (blockNum) {
+			case 1:
+				$('.pageCanvas').css('transition', '.7s ease-in-out');
+				$('.pageCanvas').css('transform', 'matrix(1,0,0,1,57,1079)');	
+				break;
+			case 2:
+				$('.pageCanvas').css('transition', '.7s ease-in-out');
+				$('.pageCanvas').css('transform', 'matrix(1,0,0,1,-1277,754)');
+				break;
+			case 3:
+				$('.pageCanvas').css('transition', '.7s ease-in-out');
+				$('.pageCanvas').css('transform', 'matrix(1,0,0,1,-1595,-886)');
+				break;	
+			case 4:
+				$('.pageCanvas').css('transition', '.7s ease-in-out');
+				$('.pageCanvas').css('transform', 'matrix(1,0,0,1,53,-1004)');
+				break;
+		}
+	}
 	
 	$('.leftArrow').click( function() {
 		$('.pageCanvas').css('transition', '.7s ease-in-out');
@@ -877,8 +1161,49 @@ $(document).ready(function() {
 	$('.contentContainer').prepend($('.overlay .subContainer'));
 	
 	target = $(this).attr('data-target')
-	$('.overlay').prepend( $('#container-' + target));
-	$('.overlay').css('display', 'block');;
+	if (target == 'advisors' || target == 'funding' || target == 'ack') {
+		$('.overlay').prepend( $('#container-students'));
+		$('.subContent').css('display','none');
+		$('.subContainerAbout li').css('background-color', 'transparent');
+		switch (target) {
+			case 'advisors':
+				var child = 2;
+				$('.levelOne:nth-child(3)').css('background-color', 'rgba(128, 62,162,1)');
+				break;
+			case 'funding':
+				var child = 3;
+				$('.levelOne:nth-child(4)').css('background-color', 'rgba(128, 62,162,1)');
+				break;
+			case 'ack':
+				var child = 4;
+				$('.levelOne:nth-child(5)').css('background-color', 'rgba(128, 62,162,1)');
+				break;
+		}
+		$('#container-students .subContent:nth-child('+child+')').css('display', 'block');
+		
+	} else {
+		$('.overlay').prepend( $('#container-' + target));
+		$('#container-' + target + ' ' + '.subContent:nth-child(1)').css('display', 'block');
+		$('.subContainerAbout li').css('background-color', 'transparent');
+		switch (target) {
+			case "projectBlock":
+				var color = 'rgba(8,113,196,1)'
+				break;
+			case "outreachBlock":
+				var color = 'rgba(180, 73,100,1)'
+				break;
+			case "aboutBlock":
+				var color = 'rgba(128, 62,162,1)';
+				break;
+			case "notebookBlock":
+				var color = 'rgba(134,224,125,1)'
+				break;
+		}
+		$('nav li:nth-child(1)').css('background-color', color );
+		$('nav .levelTwo:nth-child(1) li:nth-child(1)').css('background-color', color);
+		
+	}
+	$('.overlay').css('display', 'block');
 	
 	$('.overlay').css('transition', 'ease-in-out, 2s');
 	$('.overlay').animate({
@@ -899,16 +1224,23 @@ $(document).ready(function() {
   
   $('.subContainerProjects li').click( function() {
 		color = $(this).css('background-color');
-		if (color != 'transparent') {
+		if (color == 'rgba(8, 113, 196, 0.5)') {
+			var target = $(this).attr('data-select-target');
+			$('.subContent').css('display', 'none');
+			$('.content-'+target).css('margin-left','100px');
+			$('.content-'+target).css('display','block');
+			$('.content-'+target).animate({
+				'margin-left': '0px'
+			},100,'linear')
 			$('.subContainerProjects li').css('background-color', 'transparent')
 			$(this).css('background-color', 'rgba(8,113,196,1)');
-		}
+		};
 	})
 	
 	$('.subContainerOutreach li').click( function() {
 		color = $(this).css('background-color');
 		if (color != 'transparent') {
-			$('.subContainerProjects li').css('background-color', 'transparent')
+			$('.subContainerOutreach li').css('background-color', 'transparent')
 			$(this).css('background-color', 'rgba(180, 73,100,1)');
 		}
 	})
@@ -916,18 +1248,100 @@ $(document).ready(function() {
 	$('.subContainerNotebook li').click( function() {
 		color = $(this).css('background-color');
 		if (color != 'transparent') {
-			$('.subContainerProjects li').css('background-color', 'transparent')
+			$('.subContainerNotebook li').css('background-color', 'transparent')
 			$(this).css('background-color', 'rgba(134,224,125,1)');
 		}
 	})
 	
 	$('.subContainerAbout li').click( function() {
-		color = $(this).css('background-color');
-		if (color != 'transparent') {
-			$('.subContainerProjects li').css('background-color', 'transparent')
-			$(this).css('background-color', 'rgba(128, 62,162,1)');
+		var color = $(this).css('background-color');
+		var selected = $(this).parent().parent().prev('.levelOne').css('background-color')
+		if (selected == 'rgba(0, 0, 0, 0)') {
+			var target = $(this).parent().parent().prev('.levelOne').attr('data-select-target');
+			$('.subContent').css('display', 'none');
+			$('.content-'+target).css('margin-left','100px');
+			$('.content-'+target).css('display','block');
+			$('.content-'+target).animate({
+				'margin-left': '0px'
+			},100,'linear')
 		}
+		
+		var attr = $(this).attr('data-select-target');
+		if ( attr == 'funding' || attr == 'ack' || attr == 'students' || attr == 'advisors') {
+			var target = $(this).attr('data-select-target');
+			$('.subContent').css('display', 'none');
+			$('.content-'+target).css('margin-left','100px');
+			$('.content-'+target).css('display','block');
+			$('.content-'+target).animate({
+				'margin-left': '0px'
+			},100,'linear')
+		}
+		
+		if (color != 'rgba(0, 0, 0, 0)') {
+			$('.subContainerAbout li').css('background-color', 'transparent')
+			$(this).css('background-color', 'rgba(128, 62,162,1)');
+			$(this).parent().parent().prev('.levelOne').css('background-color', 'rgba(128, 62,162,1)');
+		}
+			if (attr == 'students') {
+					$('.levelTwo:nth-child(2) li:nth-child(1)').css('background-color','rgba(128, 62,162,1)');
+			}
+			if (attr == 'advisors') {
+				$('.levelTwo:nth-child(4) li:nth-child(1)').css('background-color','rgba(128, 62,162,1)');
+			}
 	})
+	
+	$('.li-students').click( function() {
+		var scrollTo = $(this).attr('data-scrollTo');
+		$("#"+scrollTo).get(0).scrollIntoView();
+	});
+	$('.content').scroll(function() {
+		var selected = $('.levelTwo li').filter( function() {
+			 return ( $(this).css('background-color') == 'rgba(128, 62,162,1)' );
+		}).attr('data-scrollTo');
+		var offsetClose = $('.scrollCheck').filter( function() {
+			return ( $(this).offset().top < 20);
+		}).filter( function() {
+			return ( $(this).offset().top > 0);
+		}).attr('id');
+		
+		if (selected != offsetClose) {
+			$('.subContainerAbout li').css('background-color', 'transparent')
+			$('.levelTwo li').filter( function() {
+				return ( $(this).attr('data-scrollTo') == offsetClose )
+			}).css('background-color','rgba(128, 62,162,1)');
+			$('.levelOne:nth-child(1)').css('background-color','rgba(128, 62,162,1)');
+
+		}
+	});
+	
+$(document).ready(function() {
+	$('#overruled').css('overflow', 'visible');
+    $('.pageCanvas').panzoom({
+		cursor: "-webkit-grab"
+	});
+	
+	//define block array
+	blockArray = [
+		'banana',
+		'cas9',
+		'diy',
+		'metal',
+		'panama',
+		'teaching',
+		'community',
+		'students',
+		'advisors',
+		'funding',
+		'ack',
+		'parts',
+		'modeling',
+		'notebook'
+	];
+
+
+	
+  });
+  
 </script>
 
 </p>
