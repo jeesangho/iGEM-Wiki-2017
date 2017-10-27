@@ -516,6 +516,12 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		background-color: rgba(66,183, 54, 0.7);
 	}
 	
+	.subBlock:nth-child(5) .block:nth-child(5) {
+		border-color: rgba(  0, 58,  0, 1);
+		margin-left: 720px;
+		background-color: rgba(  0, 58,  0, 0.7);
+	}
+	
 	.subBlock:nth-child(5) .block:nth-child(2):hover {
 		background-color: rgba(180,239,174, 0.85);
 		border-width: 6px;
@@ -526,6 +532,11 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	}
 	.subBlock:nth-child(5) .block:nth-child(4):hover {
 		background-color: rgba(66,183, 54, 0.85);
+		border-width: 6px;
+	}
+	
+	.subBlock:nth-child(5) .block:nth-child(5):hover {
+		background-color: rgba(  0, 58,  0, 0.85);
 		border-width: 6px;
 	}
 	
@@ -802,6 +813,19 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		text-align: center;
 		margin-left: auto;
 		margin-right: auto;
+		margin-top: 15px;
+		margin-bottom: 15px;
+		display: block;
+	}
+	
+	.contentVideo {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		width: 85%;
+		max-height: 550px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	
 	.subContent {
@@ -813,6 +837,32 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		font-size: 12pt;
 		line-height: 1.2em;
 	}
+	
+	.projectTable td {
+		padding: 10px 10px 10px 10px;
+		border: 1px solid white;
+	}
+	
+	.projectTable thead tr td:nth-child(1) {
+		width: 20%;
+	}
+	
+	.projectTable thead tr td:nth-child(2) {
+		width: 30%;
+	}
+	
+	.projectTable thead tr td:nth-child(3) {
+		width: 50%;
+	}
+	
+	.projectTable {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		background-color: transparent;
+		color: white;
+		border: 2px solid white;
+	}
+	
 </style>
 <body>
 <div class="overlay">
@@ -925,6 +975,10 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				<p>Modeling</p>
 				<p>Applying engineering principles</p>
 			</div>
+			<div class="block notebookBlock" data-target="collaboration">
+				<p>Collabor-</br>ations</p>
+				<p>Working together with other synthetic biologists</p>
+			</div>
 			<div class="block notebookBlock" data-target="notebook">
 				<p>Notebook</p>
 				<p>Follow our progress throughout our experience</p>
@@ -949,9 +1003,9 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			<div class="subContent content-background">
 				<div class="h2">An Apeeling Solution to Panama Disease</div>
 				<div class="h3">The Issue</div>
-				<p>The banana is the most popular fruit in the world, with a whopping 160 million tons produced annually. In America, we think of the banana as a fruit, something we love but could live without. However, the same cannot be said for over 400 million people in developing countries. These individuals rely on bananas as their biggest, and sometimes, sole source of calories and nutrition. Terrifyingly enough, 7% of the world’s population could lose its sole source of food as the banana crop is being ravaged by a devastating pandemic: Panama disease.</p>
-				<p>Panama disease is caused by the fungus <em>Fusarium oxysporum</em> f. sp. Cubense race 4, which is deadly to the Cavendish banana. This fungus is able to first infect the roots of the plant, secreting different hydrolytic enzymes, and subsequently infect the xylem, blocking water and nutrient flow, leading to the death of the plant. Symptoms, however, are typically not visible until four months after infection, providing ample time for the fungus to spread without notice. Additionally, the fungus remains in the soil in the form of spores for up to a decade, ready to infect the next set of plants. Therefore, there is a need to develop a method of protecting the Cavendish banana from <em>Fusarium oxysporum</em> and eliminating the fungus from the soil. 
-				</p>
+				<p>The banana is the most popular fruit in the world, with a whopping 160 million tons produced annually. In America, we think of the banana as a fruit, something we love but could live without. However, the same cannot be said for over 400 million people in developing countries. These individuals rely on bananas as their biggest, and sometimes, sole source of calories and nutrition. Terrifyingly enough, 7% of the world’s population could lose its sole source of food as the banana crop is being ravaged by a devastating pandemic: Panama disease. </p>
+				<img src="http://2017.igem.org/wiki/images/4/4a/T--UMaryland--diseased.png" class="contentImg" style="max-height: 400px;" />
+				<p>Panama disease is caused by the fungus Fusarium oxysporum f. sp. Cubense race 4, which is deadly to the Cavendish banana. This fungus is able to first infect the roots of the plant, secreting different hydrolytic enzymes, and subsequently infect the xylem, blocking water and nutrient flow, leading to the death of the plant. Symptoms, however, are typically not visible until four months after infection, providing ample time for the fungus to spread without notice. Additionally, the fungus remains in the soil in the form of spores for up to a decade, ready to infect the next set of plants. Therefore, there is a need to develop a method of protecting the Cavendish banana from Fusarium oxysporum and eliminating the fungus from the soil.</p>
 				<div class="h3">Our Approach</div>
 				<p>Many eukaryotes produce a class of proteins known as thaumatin-like proteins (TLPs) in response to attack and stress. Some of these TLPs are known to have antifungal properties against <em>F. oxysporum</em>. Among these are the TLP from <em>Oryza sativa</em> (rice) and <em>Arachis diogoi</em> (wild peanut plant). </p>
 				<p>Current methods of fungal inhibition are too detrimental and cannot be used for extended periods of time. However, recent studies have shown that biocontrol methods using disease-suppressive soils have been quite effective at fungal inhibition. <em>Bacillus amyloliquefaciens</em> (BA) NJN-6 is a common Bacillus strain found in the Cavendish banana rhizosphere. BA has been found to produce some antifungal compounds that are fairly effective at suppressing fungal growth. By combining BA with compost to make a fertilizer and applying it to soil already infected by <em>F. oxysporum</em>, the susceptibility of the banana plants to the fungus was greatly reduced. While quite effective, the bacteria alone is unable to kill the fungus. 
@@ -963,14 +1017,78 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			</div>
 			<div class="subContent content-design">
 				<div class="h2">Our Design</div>
-				<div class="h3">Summary of components</div>
+				
+				<img figure 1/>
+				<caption><strong>A.</strong><em>Bacillus amyloliquefaciens</em>, a bacterium that grows synergistically with the roots of the Cavendish banana plant, senses <em>Fusarium oxysporum</em>, the fungus causing Panama disease. <strong>B.</strong> In response, <em>B. amyloliquefaciens</em> produces TLP, an antifungal, to fight off the pathogen.</caption>
+				<div class="h3" style="margin-top: 30px;">Summary of components</div>
+				<p>There is currently a lot of stigma around and distrust of genetically modified foods. As a result, we wanted to focus on creating a genetically modified organism that would serve as a probiotic treatment for banana plants. </p>
 				<p>Our initial steps will involve making plasmid designs for <em>E. coli</em> (as <em>E. coli</em> will the the initial chassis used for proof of concept). Our <em>E. coli</em> must be able to sense <em>F. oxysporum</em>. Upon presence, the bacteria should produce the antifungal TLP and there should be a mechanism for the TLP to be able to interact with the fungus. In addition, the <em>E. coli</em> must also be able to survive in the conditions that result from the presence of the fungus. In summary, the basic components of our circuit are a <em>F. oxysporum</em> sensing system, a fungal killing mechanism, and a chassis survival mechanism. 
 </p>
-				<img src="http://2017.igem.org/wiki/images/b/b2/T--UMaryland--fusaric.png" class="contentImg" />
+				<img src="http://2017.igem.org/wiki/images/b/b2/T--UMaryland--fusaric.png" class="contentImg" style="float: left; margin-right: 15px;" />
 				<p>We wanted to find a way to uniquely sense <em>F. oxysporum</em>, such that a response is only triggered in its presence. We found that <em>F. oxysporum</em> produces fusaric acid, a small weakly acidic (pKa 1.1) mycotoxin and phytotoxin that is able to diffuse across the cellular membrane. Fusaric acid contributes to the virulence of the fungus. It causes super polarization, suppressed H<sup>+</sup> pumping, and K<sup>+</sup> leakage in plant cells. It also reduces oxygen absorption by mitochondria and causes malic acid oxidation. Downstream effects include the creation of reactive oxygen species and changes in membrane polarity and permeability .  Fusaric acid is also toxic to several bacterial species, including <em>E. coli</em>, posing a possible issue for testing that we addressed later on.
 </p>
-				<p>Different bacterial species have shown unique sensitivities to fusaric acid. Some organisms that are resistant to the compound are able to produce efflux pumps in its presence. These include <em>Pseudomonas putida</em> and <em>Stenotrophomonas maltophilia</em>, which both incorporate an efflux system that is repressed when there is an absence of fusaric acid. Our initial plans were to design a plasmid with TLP regulated by a promoter that was repressed by these fusaric acid-sensitive repressors. However, the operators have not yet been identified, making it difficult to adjust the system to <em>E. coli</em>.
+				<p style="clear: both;">Different bacterial species have shown unique sensitivities to fusaric acid. Some organisms that are resistant to the compound are able to produce efflux pumps in its presence. These include <em>Pseudomonas putida</em> and <em>Stenotrophomonas maltophilia</em>, which both incorporate an efflux system that is repressed when there is an absence of fusaric acid. Our initial plans were to design a plasmid with TLP regulated by a promoter that was repressed by these fusaric acid-sensitive repressors. However, the operators have not yet been identified, making it difficult to adjust the system to <em>E. coli</em>.
 				</p>
+				<p>Fusaric acid has also been shown to suppress the production of an antimicrobial compound, 2,4-diacetylphloroglucinol (DAPG), produced in Pseudomonas fluorescens.  In this system, fusaric acid is able to induce the phlF repressor that is then able to suppress expression of the adjacent phlA gene. Concentrations of 500uM completely repress transcription, 300 uM produce some inhibition, and 100 uM have no effect. In 2015 Glasgow combined the characterized operator of the phlF sensitive promoter native to P. fluorescens and incorporated it into a strong <em>E. coli</em> Anderson promoter. We will use both the repressor and synthetic promoter in our design to make our bacteria sensitive to fusaric acid. The DNA following this part will have suppressed transcription in the presence of fusaric acid. </p>
+				<img src="http://2017.igem.org/wiki/images/e/e3/T--UMaryland--banana3.png" class="contentImg" style="max-width: 900px; max-height: 350px;" />
+				<p>The natural system follows the sensing of <em>F. oxysporum</em> with inhibition of the next component, which was opposite of the circuit we wanted. Therefore, we created an intermediate step in the circuit that turned inhibition into activation by having the phlF repressor act on a gene responsible for repressing the killing mechanism in normal conditions.</p>
+				<p>The killing mechanism required us to produce an antifungal that will target F. oxysporum. For this part, we chose to incorporate rice thaumatin-like protein (TLP) into our design. Plant TLPs are defense pathogenesis related proteins of family 5. Rice TLP has shown antifungal activity both when over-expressed in the rice plant and also when expressed in E. coli. The exact mechanism is still being studied, but TLPs are suspected to disrupt the cell walls of fungi by binding to glucans and acting as glucanases. &beta;-glucan is the most abundant polysaccharide found in fungal cell walls and its degradation destabilizes the fungal cell wall. TLP may also provide resistance to fungal disease as a xylanase inhibitor, inhibiting an enzyme that breaks down a component of plant cell walls. Because literature sources have confirmed the antifungal properties of rice TLP, as well as its ability to be produced by E. coli, we chose to use this protein as our fungal attack piece.</p>
+				<p>Amounts of 5 ug of rice TLP extracted from recombinant <em>E. coli</em> were enough to inhibit fungal growth of 7 mm mycelial discs and concentrations of 500 ug / mL of TLP showed over eighty percent inhibition of spore germination of <em>F. oxysporum</em> f. sp cubense.</p>
+				<p>From the components we had gathered through research, we created three initial design ideas.</p>
+				<video controls loop class="contentVideo">
+					<source src="http://2017.igem.org/wiki/images/4/40/T--UMaryland--banana4.webm" type="video/webm" >
+					<source src="http://2017.igem.org/wiki/images/0/08/T--UMaryland--banana4.mp4" type="video/mp4" >
+				</video>
+				<caption><strong>TetR Design.</strong> In this design, the TLP gene is under a pTet repressor and is therefore repressed in the presence of TetR. TetR expression is regulated by the phlF repressor, which is induced by fusaric acid. When fusaric acid is not present, phlF is not able to repress and TetR is freely transcribed and translated, therefore binding to pTet and repressing TLP transcription. In the presence of fusaric acid, phlF is activated, TetR is no longer transcribed and degraded in the cell, thereby allowing for the transcription and translation of TLP.</caption>
+				<video controls loop class="contentVideo">
+					<source src="http://2017.igem.org/wiki/images/8/89/T--UMaryland--banana5.webm" type="video/webm" >
+					<source src="http://2017.igem.org/wiki/images/5/53/T--UMaryland--banana5.mp4" type="video/mp4" >
+				</video>
+				<caption><strong>Antisense Design.</strong> In this design, translation of TLP is inhibited by the expression of antisense RNA. Similar to the mechanism of the TetR design, TetR is replaced by TLP complementary DNA.</caption>
+				<video controls loop class="contentVideo">
+					<source src="http://2017.igem.org/wiki/images/4/40/T--UMaryland--banana6.webm" type="video/webm" >
+					<source src="http://2017.igem.org/wiki/images/7/74/T--UMaryland--banana6.mp4" type="video/mp4" >
+				</video>
+				<caption><strong>T7 Design.</strong> This design is similar to (A), except a T7 polymerase is controlled by pTet, which is repressed by TetR when fusaric acid is not present. The TLP is transcribed by this polymerase. Only when the T7 polymerase is expressed can the TLP be expressed.</caption>
+				<table class="projectTable">
+				<thead style="font-weight: bold;">
+					<tr>
+						<td>Design</td>
+						<td>Pros</td>
+						<td>Cons</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>TetR</td>
+						<td>Simple, easiest to construct</td>
+						<td>Low expression of TLP (weaker promoter), iffy time scale (would TetR be degraded fast enough)</td>
+					</tr>
+					<tr>
+						<td>Antisense</td>
+						<td>Pretty neat idea, more novel, quick RNA degradation rates, smaller plasmid</td>
+						<td>Need correct ratio - causes need to limit TLP transcript number, slightly harder to make</td>
+					</tr>
+					<tr>
+						<td>T7</td>
+						<td>Optimized for production - T7 very fast, efficient polymerase</td>
+						<td>Higher metabolic toll, bigger plasmid</td>
+					<tr>
+						<td>All</td>
+						<td></td>
+						<td>Unsure if E. coli will survive before production of TLP</br>Unsure if TLP will be able to go outside of cells</br>Unsure if amount TLP produced will show significant changes in fungal growth
+						</td>
+					</tr>
+				</tbody>
+				</table>
+				<p>All three of these designs have the same logical format: If there is no fusaric acid in the environment, something will inhibit TLP production. When fusaric acid is present, that inhibition will be taken off and expression will occur.</p>
+				<p>After some mathematical modelling and assessments, we decided that the antisense system was the best option, and so it was incorporated into our final design.</p>
+				<p>Additionally, we initially predicted that eventually the overexpression of the TLP will kill the cell causing TLP release to the exterior surroundings. This TLP would be available to interact with and attack the fungi. However, we were advised that this method was not reliable due to the possibility of protein aggregation and so we decided to secrete the protein instead. We found several iGEM teams had worked with protein secretion in <em>E. coli</em>, including Unicamp - EMSE Brazil 2011 and used the information they provided as well as their results to create a secretion part. We found that gram negative bacteria, like <em>E. coli</em>, have a secretion system that involves HlyB, HlyD, and TolC proteins. HlyB is an ATP-binding cassette transporter. HlyD is a membrane fusion protein, and TolC is an outer membrane protein. HlyB and HlyD are not present in all strains, so there was a necessity to express them in our bacteria and incorporate the two proteins into our part. In order for a protein of interest to be secreted through this system, it must be labeled with an HlyA signal sequence, which we decided to add to the C terminus of our TLP. </p>
+				<p>We integrated all the different parts and components to one design.</p>
+				<img src="http://2017.igem.org/wiki/images/d/d4/T--UMaryland--banana7.png" class="contentImg" style="max-height: 500px;" />
+				<caption><strong>Overview of circuit design.</strong> The phlF repressor and TLP genes are always constitutively expressed.  A. Without Fusaric Acid: Without fusaric acid the repressor remains “off.” An antisense RNA that compliments the TLP gene is expressed under the pPhlf promoter. TLP translation is inhibited by the binding of TLP RNA to the antisense RNA. B. With Fusaric Acid: The phlF repressor activated by fusaric acid. Once activated, phlF is able to bind to the operator on the Pphlf promoter, thus inhibiting the expression of the antisense RNA. Without the antisense RNA inhibiting translation, TLP is produced. C. Protein Secretion: The TLP is labeled with an HlyA signal sequence that will allow it to be secreted out of the cell via an HlyB-HlyD-TolC transport complex.</caption>
+				<img src="http://2017.igem.org/wiki/images/0/0a/T--UMaryland--banana8.png" class="contentImg" style="max-height: 600px;"/>
+				<caption><strong>Plasmid Design.</strong> Our final plasmid for an <em>E. coli</em> chassis includes a “sensing” system controlled by the phlF repressor and the PphlF promoter it acts on, a “silencing” mechanism with antisense TLP expressed in normal conditions, a “killing” system that produces antifungal TLP, and an export system that utilizes the HlyA signal and HlyB and HlyD export proteins.</p>
 			</div>
 			<div class="subContent content-design">
 				<div class="h2"></div>
