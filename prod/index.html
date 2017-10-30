@@ -187,6 +187,15 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 
 <script type="text/javascript" src="http://timmywil.github.io/jquery.panzoom/dist/jquery.panzoom.js"></script>
 	<script>
+	
+	function getUrlVars() {
+		var vars = {};
+		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+			vars[key] = value;
+		});
+		return vars;
+	}
+
 		$('body').css('visibility', 'hidden');
 		$('.mainBlock').css('display', 'none');
 		$('.h1').css('display', 'none');
@@ -198,6 +207,10 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			$('.h1').css('display', 'block');
 			$('.mainBlock').addClass('animated bounceIn');
 			$('.h1').addClass('animated bounceIn');
+			var targetClick = getUrlVars()["target"];
+			if (targetClick != undefined) {
+				targetRedir(targetClick);
+			}
 		})
 	</script>
 </head>
@@ -253,8 +266,9 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		width: 650px;;
 		height: 150px;
 		position: absolute;
-		top: 2000px;
+		top: 1868px;
 		left: 0px;
+		text-align: center;
 	}
 	
 	.blockContainer {
@@ -863,6 +877,74 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		border: 2px solid white;
 	}
 	
+	.h4 {
+		font-size: 20pt;
+		margin-top: 40px;
+	}
+	
+	.h5 {
+		font-size: 14pt;
+	}
+	
+	.content-ack ol {
+		line-height: 1.25em;
+		list-style-type: none;
+	}
+	.content-ack ol li{
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	
+	a:link, a:visited {
+		color: #A7A7A7;
+		text-decoration: underline;
+	}
+	
+	a:hover, a:active {
+		opacity: 0.8;
+		text-decoration: underline;
+	}
+	
+	.subContainer a {
+		padding: 0 0 0 0 !important;
+	}
+	
+	.content-funding p {
+		margin-top: 15px;
+	}
+	
+	.caption {
+		text-align: center;
+	}
+	
+	.partsTable td {
+		padding: 10px 10px 10px 10px;
+		border: 1px solid white;
+	}
+	
+	.partsTable thead tr td:nth-child(1) {
+		width: 10%;
+	}
+	
+	.partsTable thead tr td:nth-child(2) {
+		width: 25%;
+	}
+	
+	.partsTable thead tr td:nth-child(3) {
+		width: 50%;
+	}
+	
+	.partsTable thead {
+		font-weight: bold;
+	}
+	
+	.partsTable {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		background-color: transparent;
+		color: white;
+		border: 2px solid white;
+	}
 </style>
 <body>
 <div class="overlay">
@@ -872,7 +954,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 </div>
 <div class="pageCanvas">
 	<div class="h1">
-		<img src="img/logoWide.jpg" />
+		<img src="http://2017.igem.org/wiki/images/e/e1/T--UMaryland--logo.png" width="600px"/>
 		<p>An Apeeling Solution </br>to Panama Disease</p>
 	</div>
 	<div class="blockContainer"> 
@@ -993,10 +1075,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			<ul>
 				<li data-select-target="background">Background</li>
 				<li data-select-target="design">Design</li>
-				<li data-select-target="experiments">Experiments</li>
 				<li data-select-target="results">Results</li>
-				<li data-select-target="proof">Proof</li>
-				<li data-select-target="integrated">Integrated Practices</li>
 			</ul>
 		</nav>
 		<div class="content">
@@ -1017,9 +1096,6 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			</div>
 			<div class="subContent content-design">
 				<div class="h2">Our Design</div>
-				
-				<img figure 1/>
-				<caption><strong>A.</strong><em>Bacillus amyloliquefaciens</em>, a bacterium that grows synergistically with the roots of the Cavendish banana plant, senses <em>Fusarium oxysporum</em>, the fungus causing Panama disease. <strong>B.</strong> In response, <em>B. amyloliquefaciens</em> produces TLP, an antifungal, to fight off the pathogen.</caption>
 				<div class="h3" style="margin-top: 30px;">Summary of components</div>
 				<p>There is currently a lot of stigma around and distrust of genetically modified foods. As a result, we wanted to focus on creating a genetically modified organism that would serve as a probiotic treatment for banana plants. </p>
 				<p>Our initial steps will involve making plasmid designs for <em>E. coli</em> (as <em>E. coli</em> will the the initial chassis used for proof of concept). Our <em>E. coli</em> must be able to sense <em>F. oxysporum</em>. Upon presence, the bacteria should produce the antifungal TLP and there should be a mechanism for the TLP to be able to interact with the fungus. In addition, the <em>E. coli</em> must also be able to survive in the conditions that result from the presence of the fungus. In summary, the basic components of our circuit are a <em>F. oxysporum</em> sensing system, a fungal killing mechanism, and a chassis survival mechanism. 
@@ -1089,6 +1165,24 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				<caption><strong>Overview of circuit design.</strong> The phlF repressor and TLP genes are always constitutively expressed.  A. Without Fusaric Acid: Without fusaric acid the repressor remains “off.” An antisense RNA that compliments the TLP gene is expressed under the pPhlf promoter. TLP translation is inhibited by the binding of TLP RNA to the antisense RNA. B. With Fusaric Acid: The phlF repressor activated by fusaric acid. Once activated, phlF is able to bind to the operator on the Pphlf promoter, thus inhibiting the expression of the antisense RNA. Without the antisense RNA inhibiting translation, TLP is produced. C. Protein Secretion: The TLP is labeled with an HlyA signal sequence that will allow it to be secreted out of the cell via an HlyB-HlyD-TolC transport complex.</caption>
 				<img src="http://2017.igem.org/wiki/images/0/0a/T--UMaryland--banana8.png" class="contentImg" style="max-height: 600px;"/>
 				<caption><strong>Plasmid Design.</strong> Our final plasmid for an <em>E. coli</em> chassis includes a “sensing” system controlled by the phlF repressor and the PphlF promoter it acts on, a “silencing” mechanism with antisense TLP expressed in normal conditions, a “killing” system that produces antifungal TLP, and an export system that utilizes the HlyA signal and HlyB and HlyD export proteins.</p>
+				<div class="h3">Future Directions</div>
+				<p>We have also considered adding a fusaric acid detoxification component into our system in efforts to promote the survival of the <em>E. coli</em>. It was discovered that <em>Klebsiella oxytoca</em> has a three enzyme detoxification system that was identified and sequenced, fdt-1, fdt-2, and fdt-3. While it may be needed for testing purposes later, as the survival of E. coli in our induced conditions is invaluable, this part will not have an analog in our <em>Bacillus amyloliquefaciens</em> system, as <em>B. amyloliquefaciens</em> has its own mechanisms of protection.</p>
+				<p>As we hope to apply this basic design to a <em>B. amyloliquefaciens</em> vector, we also designed an analogous system. We found proposed sequences for promoters and ribosome binding sites native to <em>B. amyloliquefaciens</em> to swap out our E. coli sequences. For our sensing mechanism we plan to incorporate the operator phlF interacts with upstream of the antisense component. The same paper provided a proposed signal sequence for export used on the n-terminus of an amylase gene. We propose to put this sequence on the n-terminus of our TLP gene and remove the entire secretory system of our <em>E. coli</em> design. We also found a proposed terminator sequence. We plan to codon optimize the protein coding regions and adjust the antisense accordingly. </p>
+				
+				<p><strong>Bibliography</strong></p>
+<ol>
+<li><span style="font-weight: 400;">Chunyu Li, Cunwu Zuo, Guiming Deng, Ruibin Kuang, Qiaosong Yang, Chunhua Hu, Ou Sheng, Sheng Zhang, Lijun Ma, Yuerong Wei, Jing Yang, Siwen Liu, Manosh Kumar Biswas, Altus Viljoen, and Ganjun Yi, </span><em><span style="font-weight: 400;">Contamination of Bananas with Beauvericin and</span></em> <em><span style="font-weight: 400;">Fusaric Acid Produced by Fusarium oxysporum f. sp. cubense</span></em><span style="font-weight: 400;">. PLoS ONE 8 (2013), no. 7.</span></li>
+<li><span style="font-weight: 400;">O&rsquo;Neill, W. T., Henderson, J., Pattemore, J. A., O&rsquo;Dwyer, C., Perry, S., Beasley, D. R., &nbsp;and Shivas, R. G., </span><em><span style="font-weight: 400;">Detection of Fusarium oxysporum f. sp. cubense tropical race 4 strain in northern Queensland</span></em><span style="font-weight: 400;">. Australasian Plant Disease Notes (2016), 11(1), 33.</span></li>
+<li><span style="font-weight: 400;">Anne V&eacute;zina, </span><em><span style="font-weight: 400;">Fusarium wilt of banana</span></em><span style="font-weight: 400;">. Knowledge and Information on Bananas (2017)</span></li>
+<li><span style="font-weight: 400;">Rouh Mei Hu, Sih Ting Liao, Chiang Ching Huang, Yi Wei Huang, and Tsuey Ching Yang, </span><em><span style="font-weight: 400;">An Inducible Fusaric Acid Tripartite Efflux Pump Contributes to the Fusaric Acid Resistance in Stenotrophomonas maltophilia</span></em><span style="font-weight: 400;">. PLoS ONE 7 (2012), no. 12, 1&ndash;8.</span></li>
+<li><span style="font-weight: 400;">Regina Notz, Monika Maurhofer, and Helen Dubach, </span><em><span style="font-weight: 400;">Fusaric acid-producing strains of Fusarium oxysporum alter 2, 4-diacetylphloroglucinol biosynthetic gene expression in Pseudomonas fluorescens CHA0 in vitro</span></em><span style="font-weight: 400;">. Applied and Environmental Microbiology 68 (2002), no. 5, 2229&ndash;2235.</span></li>
+<li><span style="font-weight: 400;">Jun Jun Liu, Rona Sturrock, and Abul K.M. Ekramoddoullah, </span><em><span style="font-weight: 400;">The superfamily of thaumatin-like proteins: Its origin, evolution, and expression towards biological function</span></em><span style="font-weight: 400;">. Plant Cell Reports 29 (2010), no. 5, 419&ndash;436.</span></li>
+<li><span style="font-weight: 400;">J Jayaraj, R Velazhahan, D Fu, G H Liang, and S Muthukrishnan, </span><em><span style="font-weight: 400;">Bacterially produced rice thaumatin-like protein shows in vitro antifungal activity, Zeitschrift fur Pflanzenkrankheiten und Pflanzenschutz</span></em><span style="font-weight: 400;">. Journal of Plant Diseases &amp; Protection 111 (2004), no. 4, 334&ndash;344.</span></li>
+<li><span style="font-weight: 400;">Su, L., Chen, S., Yi, L., Woodard, R. W., Chen, J., &amp; Wu, J., </span><em><span style="font-weight: 400;">Extracellular overexpression of recombinant Thermobifida fusca cutinase by alpha-hemolysin secretion</span></em> <em><span style="font-weight: 400;">system in E. coli BL21(DE3).</span></em><span style="font-weight: 400;"> Microbial Cell Factories (2012), 11, 8.</span></li>
+<li><span style="font-weight: 400;"> H. Toyoda, K. Katsuragi, T. Tamai, and S. Ouchi, </span><em><span style="font-weight: 400;">DNA Sequence of Genes for Detoxification of Fusaric Acid, a Wilt-inducing Agent Produced by Fusarium Species</span></em><span style="font-weight: 400;">. Journal of Phytopathology 133 (1991), no. 4, 265&ndash;277.</span></li>
+<li><span style="font-weight: 400;"> Palva, I., Pettersson, R. F., Kalkkinen, N., Lehtovaara, P., Sarvas, M., S&ouml;derlund, H., K&auml;&auml;ri&auml;inen, L., </span><em><span style="font-weight: 400;">Nucleotide sequence of the promoter and NH2-terminal signal peptide region of the alpha-amylase gene from Bacillus amyloliquefaciens</span></em><span style="font-weight: 400;">. Gene (1981), </span><em><span style="font-weight: 400;">15</span></em><span style="font-weight: 400;">(1), 43&ndash;51.</span></li>
+<li><span style="font-weight: 400;">Lehtovaara, P., Ulmanen, I., &amp; Palva, I., </span><em><span style="font-weight: 400;">In vivo transcription initiation and termination sites of an alpha-amylase gene from Bacillus amyloliquefaciens cloned in Bacillus subtilis</span></em><span style="font-weight: 400;">. Gene (1984), </span><em><span style="font-weight: 400;">30</span></em><span style="font-weight: 400;">(1&ndash;3), 11&ndash;16.</span></li>
+</ol>
 			</div>
 			<div class="subContent content-design">
 				<div class="h2"></div>
@@ -1097,30 +1191,118 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				<p></p>
 			</div>
 		</div>
+			<div class="subContent content-results">
+				<p class="h2">Results</p>
+				<p>Unfortunately, we were unable to create our full, composite plasmid, but we did create it in three separate parts - a sensing part, an antisense RNA part, and a TLP export part. Our experiments involved testing the sensing and TLP export parts individually. To do this, we created a test part that combined our sensing part with a GFP reporter and another test part of constitutively expressed TLP with a histidine tag for easy isolation and detection.</p>
+				<p class="h3">Sensing Results</p>
+				<p>To test how our sensing system responded to the presence of fusaric acid, we created a construct with our constitutively expressed fusaric acid activated repressor (phlF), respective promoter (PphlF), and a GFP reporter. We grew our construct in different molarities of fusaric acid (0&#181;M, 100&#181;M, and 500 &#181;M) along with a negative control without a GFP reporter and a positive control with a constitutive GFP reporter. We found that sensing-reporting bacteria did not grow in any concentrations of fusaric acid, while our controls did. Therefore, we were unable to characterize our proposed sensing mechanism. Had our test worked, we expected to see decreased fluorescence with the presence of fusaric acid, with a more dramatic lowering than our positive control. We tried this test again using salicylate, another compound found to stabilize the phlF repressor, in hopes to get results of sensing. Fortunately, this compound was not toxic to the cells, but our results showed no significant decrease in fluorescence upon addition of salicylate.</p>
+				<p class="h3">TLP Expression</p>
+				<p>We planned several tests to see if TLP was being produced and if it was working properly. Our first set of tests were assays for basic TLP expression. Had these tests been successful, we planned to move on to test the ability to TLP to act as an antifungal, and ultimately the ability of our <em>E. coli</em> to kill <em>F. oxysporum.</em></p>
+				<p><strong>SDS-PAGE</strong></p>
+				<p>Our initial basic proof of concept to test was to analyze whether our TLP was being expressed. To do this, we created a part that constitutively expressed TLP with a 10x histidine tag allowing for column purification. We first tested to see if TLP was expressed by sonicating our TLP producing cells and running the product through a column that would purify the histidine tagged TLP.</p>
+				<img src="http://2017.igem.org/wiki/images/f/fe/T--UMaryland--page.png" class="contentImg" style="max-height:550px;" />
+				<p class="caption"><em><strong>SDS PAGE of purified protein</strong> - An SDS PAGE of the product from his-tag purification was performed. The left lane is a standard ladder and the right lane is our purified product. We expected to see a thick band around 18kDa but saw no significant banding at any location.</em></p>
+				<p>We tried again with different conditions and different cell fractions, and again were not seeing the band we anticipated to see. We decided to try to test for expression in two other ways - performing a Western Blot using anti-histidine antibodies and creating a T7 promoter controlled TLP part where expression would be obvious with the induction of T7 polymerase expression. We were not able to assemble the part described in time.</p>
+				<p><strong>Western Blot</strong></p>
+				<p>Using anti-histidine antibodies, we performed a Western Blot to see if our TLP was being expressed. We used a positive control of GFP with a histidine tag and a negative control of a construct without a histidine tag. We did not see any expression of TLP.</p>
+				<p><strong>Efficacy of TLP as an antifungal</strong></p>
+				<p>We planned to test the ability of TLP and the TLP-producing <em>E. coli</em> to inhibit fungal growth or cause fungal death. To do this, we initially planned to perform a disc-diffusion assay with our purified protein product and <em>F. oxysporum</em> and qualitatively measure difference in fungal growth between that and a control. We planned to plate the fungus and add a drop of either a purified protein product or control (positive and negative) onto filter paper around the edge of the fungal growth (for growth inhibition) and in the fungal culture (for death). </p>
+				<p>Our next step would have been to repeat this procedure, but use a cell lysate instead of protein product. This test would be to determine if our bacteria could produce enough TLP to have an effect on <em>F. oxysporum</em>.</p>
+				<p>Following that, our final test would be to grow <em>E. coli</em> with the <em>F. oxysporum</em> on plates and observe any fungal growth inhibition or death beyond that observed in a negative control. This test would be to determine if our bacteria had antifungal properties.</p>
+				<img src="http://2017.igem.org/wiki/images/1/1f/T--UMaryland--oxy.png" class="contentImg" style="max-height: 500px;" />
+				<p>A sample of our bacteria and fungus test. The fungus was spread vertically in columns one third of the way to the center. The bacteria was spread horizontally across the center.</p>
+			</div>
+		</div>
 	</div>
 	<div id="container-cas9" class="subContainer subContainerProjects">
 		<nav> 
 			<ul>
 				<li data-select-target="background">Background</li>
-				<li>Design</li>
-				<li>Experiments</li>
+				<li data-select-target="designC">Design</li>
+				<li data-select-target="expC">Experiments</li>
 				<li>Results</li>
-				<li>Proof</li>
-				<li>Integrated Practices</li>
 			</ul>
 		</nav>
 		<div class="content">
 			<div class="subContent content-background">
 				<div class="h2">Cas9 Mutagenesis Projects</div>
-				<div class="h3">Our Design</div>
-				<p>We are attempting to apply Cas9 in a novel way by using it to screen for mutants. If we introduce Cas9 with an sgRNA identical to a region of interest within a gene, it is possible to cleave plasmids containing an unmutated version of that gene. Coupling this method of selection with random mutagenesis creates a powerful tool that can greatly reduce the amount of screening that needs to be completed following a mutagenesis operation. This screening method creates a way to discover the functions of specific regions in genes, or as a tool for directed evolution of a protein.</p>
+				<div class="h3">Background</div>
+				<p><span style="font-weight: 400;">During our research for the fight against </span><em><span style="font-weight: 400;">Fusarium oxysporum, </span></em><span style="font-weight: 400;">we encountered literature that suggested the PhlF protein was weakly active without the presence of its inducer. PhlF is a repressor induced by compounds such as fusaric acid and salicylate. In our circuit, its activation triggers a TLP-producing response through a system that represses the off-switch to TLP production. Constitutive weak repressing activity causes the unnecessary metabolic strain of producing TLP in conditions without </span><em><span style="font-weight: 400;">F. oxysporum</span></em><span style="font-weight: 400;">. In the interest of reducing this metabolic stress placed upon our bacterial strain of choice, we decided to pursue efforts to modify this protein in order to alter its repression profile. The hope was to create a PhlF protein that would only have repressive activity in the presence of its inducer.</span></p>
+				<p><span style="font-weight: 400;">Typically, mutating a protein in hopes of increasing its aptitude for a particular task is difficult and likely to fail. In all likelihood, the selective pressures of evolution will have already selected for the most streamlined, functional variant(s) long ago. The PhlF protein, however, is a multifunctional repressor capable of performing a variety of tasks and responding to multiple stimuli. As such, we reasoned that it may be possible to mutate the protein in such a way that it would be unfit for use in the natural environment, &nbsp;but ideally suited for our particular application of it in our genetic circuit.</span></p>
+			</div>
+			<div class="subContent content-designC">
+				<div class="h2">Cas9 Mutagenesis Projects</div>
+				<div class="h3">Design</div>
 				<img src="http://2017.igem.org/wiki/images/d/db/T--UMaryland--cas9Schematic.png" class="contentImg" style="max-height: 500px" />
+				<p class="caption"><strong><em>Cas9 screening method &nbsp;- &nbsp;A. </em></strong><em><span style="font-weight: 400;">A target sequence is mutated &nbsp;in a plasmid containing an antibiotic resistance. </span></em><strong><em>B.</em></strong><em><span style="font-weight: 400;"> The plasmid of interest is transformed &nbsp;into competent cells with the Cas9/ sgRNA machinery. </span></em><strong><em>C.</em></strong><em><span style="font-weight: 400;"> Expression of Cas9 and its sgRNA that compliments the wild type target sequence is induced. Plasmids mutated in the target region evade Cas9 cleavage. Plasmids retaining the wild type, non-mutated sequence are cleaved by Cas9 and degraded. </span></em><strong><em>D. </em></strong><em><span style="font-weight: 400;">The transformed bacteria are plated with the selected antibiotic. Cells with mutations in the region of interest maintain antibiotic resistance and survive. Cells without mutations lose their resistance and do not grow. </span></em></p>
+				<p><span style="font-weight: 400;">For the actual process of mutating the </span><em><span style="font-weight: 400;">phlF </span></em><span style="font-weight: 400;">gene, we set our sights on altering the operator binding region. This was a small section within the gene and to select for mutants within it we decided to adapt a side project that we had been mulling over. The goal of this project was to utilize Cas9 and an sgRNA with a base pairing region corresponding to a region of interest within a gene in order to select against non-mutants in that particular domain. This Cas9 selected mutagenesis project was originally going to be geared towards screening genomic mutants, but we elected to alter the project design to focus moreso on plasmid mutagenesis so as to increase its fitness for usage alongside our banana project.</span></p>
+				<p><span style="font-weight: 400;">The idea behind this project is to use the specific endonuclease activity of Cas9 as a screening tool in order to cleave genes that are unmutated in a region of interest. There are therefore two important aspects of this project that must be considered. First is the production of Cas9 and a compatible sgRNA molecule with a base pairing region corresponding to the region of interest within a gene. Second is the presence of the gene of interest that will have preferably undergone some form of random mutagenesis. These two elements must be encoded within separate plasmids with compatible origins of replication and differing antibiotic resistance markers. Other than this, another major consideration in terms of utilizing this system would be the proper design of the sgRNA and the assurance that a protospacer adjacent motif (PAM) exists near the region of interest.</span></p>
+				<p><span style="font-weight: 400;">We believe that the strength of this system lies in its ability to screen for mutations that do not produce an easily observed phenotypic change. However, in order to test the efficacy of the system we opted to use GFP as it is both well characterized gene and capable of producing a variety of different mutations that would allow for easier screening down the line. The known mutations for GFP have also been well studied which made it very easy for us to identify the chromophore region of the gene as the ideal site to target with our Cas9 screening system in order to show a proof of concept.</span></p>
+				<p><span style="font-weight: 400;">In terms of tweaking the system for use alongside GFP, it was relatively simple. We identified our region of interest within the GFP gene as the chromophore encoding region and proceeded to scan the nearby DNA for a PAM site. In the case of the </span><em><span style="font-weight: 400;">Streptococcus pyogenes </span></em><span style="font-weight: 400;">Cas9 that we were using, the PAM site was 5'-NGG-3'. Unfortunately, since the base pairing region for an sgRNA is limited in terms of size to about 20-25 base pairs and since there were no PAM sites near our 9 base pair region of interest, we had to improvise. We ended up making a synonymous site directed mutation within the GFP gene in order to artificially introduce a PAM site on the bottom strand. This allowed for the design of an sgRNA capable of interacting with our region of interest.</span></p>
+			</div>
+			<div class="subContent content-expC">
+				<div class="h2">Cas9 Mutagenesis Projects</div>
+				<div class="h3">Experiments</div>
+				<img src="http://2017.igem.org/wiki/images/f/fc/T--UMaryland--cas9gfp.png" class="contentImg" style="max-height: 500px;" />
+				<p>The experimental design for testing our system was relatively simple. First, we transformed DH5-Alpha cells with our Cas9/sgRNA plasmid. Expression of these elements was under the control of a tetracycline promoter. The plasmid also constitutively expressed TetR, thereby allowing for the regulation of expression. These transformants were then grown up and made chemically competent, following which they were transformed with a constitutive GFP expression plasmid library that had been previously mutated using the XL1-Red mutator strain. An alternative method of random mutagenesis such as error prone PCR could have been used, but we elected to use a mutator strain due to the availability of materials and the simplicity of its use.</p> 
+				<p>Following this second round of transformations, the cells were added to fresh liquid media and Cas9/sgRNA expression was induced with the tetracycline analogue, anhydrotetracycline. These cells were grown overnight and dilution plates were made in order to isolate colonies the next day. These colonies were then sorted through in order to identify any colonies colored differently than the non-mutated GFP. Colonies were then grown overnight, cured of the Cas9/sgRNA plasmid, and then miniprepped. These plasmids were then sequenced. Fluorescence profiles of each colony of interest were also taken.</p>
+				<p>Going forward, the goal for this project is to standardize the mutagenesis system such that it can be utilized by other iGEM teams/groups. We plan to develop sets of step by step procedures in order to guide teams through the entire process of mutating a protein in the region(s) of interest. This coupled with standardized parts and assembly methods will allow for a simple mutagenesis system that can potentially be used to further the endeavors of various iGEM projects.</p>
+				
 			</div>
 		</div>
 	</div>
 	<div id="container-diy" class="subContainer subContainerProjects">
 	</div>
 	<div id="container-metal" class="subContainer subContainerProjects">
+		<nav> 
+			<ul>
+				<li data-select-target="backgroundM">Background</li>
+				<li data-select-target="designM">Design</li>
+				<li data-select-target="resultsM">Results</li>
+				<li data-select-target="futureM">Future Efforts</li>
+			</ul>
+		</nav>
+		<div class="content">
+			<div class="subContent content-backgroundM">
+				<div class="h2">Metal Detection</div>
+				<div class="h3">Background</div>
+				<p>Over the past few years, the UMaryland iGEM team has taken particular interest in making synthetic biology more accessible to the general public, especially to high school students. This has been demonstrated in our previous efforts in 2015 to develop a DIY thermocycler made from common household appliances like a hair dryer and in 2016 to create a DIY ultra-low freezer. Our hardware project this competition, a lab-in-a-box containing many pieces of equipment necessary to molecular cloning, also works towards this goal of increasing accessibility to synthetic biology.</p>
+				<p>This year, we wanted to take our efforts one step further than finding low cost solutions to lab equipment availability. We envisioned creating an educational program capable of teaching an audience about iGEM and the basics of synthetic biology in a way that would be both meaningful and memorable. In prior years we have taught lessons at local high schools, but they often seemed lacking in terms of highlighting how useful and exciting synthetic biology can be. Speaking with the students after these lessons showed that they only remembered a small portion of the material presented. This was very disappointing to us as we wanted our audience to gain meaningful knowledge from our lessons, so this year we did things a little bit differently.</p>
+				<img src="http://2017.igem.org/wiki/images/f/f1/T--UMaryland--lesson.png" class="contentImg" style="max-height: 600px;" />
+				<p style="text-align: center;"><em><strong>Sample of material presented</strong> - This image depicts some of the hand drawn pictures created by our team in order to help teach students about synthetic biology. The watercolors are meant to be eye catching and more engaging for students than looking at typical plasmid diagrams generated using sequence design software.</em></p>
+				<p>First off, we decided to develop a project solely for the purpose of enriching our outreach to high schools. This project involved demonstrating synthetic biology's usefulness via the implementation of simple metal detection genetic circuits into our lessons. These circuits served well for our purposes in multiple ways. They were simple and easy to explain in terms of the genetics, they could produce a visible result via fluorescent reporter genes, and they had the potential to solve real world problems. Specifically, these metal detection circuits could be easily related back to the Flint, Michigan water crisis. Being able to underscore the ways in which synthetic biology could be used to solve actual issues was a must for us, so the metal detection project was ideal for incorporation into our high school lessons.</p>
+				<p>Along with developing a project that would garner the attention of students and act as the focal point of our in class presentation, we also worked hard to revise the way in which we teach our lessons. Since students were struggling to retain information from our lectures, we did some research and decided to make lesson plans based on the principles of active learning. This meant doing things such as clearly stating learning objectives prior to and after the lesson, having class wide and small group discussion, and engaging students with thought provoking questions. All of this culminated in a lesson that encouraged participation and effectively showcased the need for synthetic biology as well as some of the underlying scientific principles. Utilizing this lesson plan, the high school lectures that we led were very successful and can be read about further in the outreach section of the website.</p>
+			</div>
+			<div class="subContent content-designM">
+				<div class="h2">Design</div>
+				<p>In order to use these metal detection circuits in our lessons, we first had to design, construct, and characterize them. We decided to do this for the detection of three different types of metal: copper, lead, and zinc. Planning out the genetic circuits was relatively simple as they only required a few components. First was a constitutively expressed metal sensitive repressor, second was a promoter regulated by said repressor, and third was a fluorescent reporter gene under the control of the metal regulated promoter. In the case of our copper biosensor, the genes/elements involved include the CueR repressor, the pCopA promoter, and an RFP reporter gene. Similar systems were designed for the lead and zinc biosensors using the PbrR and ZntR systems. The fluorescent proteins used for these circuits were YFP and GFP respectively.</p>
+				<img src="http://2017.igem.org/wiki/images/f/fb/T--UMaryland--copper.png" class="contentImg" style="max-height: 450px;" />
+				<p><em><strong>Copper detection circuit</strong></br> 
+				<strong>A: Copper biosensor in the presence of copper ions</strong></br>
+				Copper ions inhibit the binding of CueR to the pCopA promoter, allowing for expression of RFP.</br>
+				<strong>B: Copper biosensor in the absence of copper ions</strong></br>
+				In the absence of copper ions, CueR binds to the pCopA promoter and inhibits RFP expression. A reduced amount of RFP is synthesized due to some leaky expression of the RFP gene.</em></p>
+				<p>Upon completing our designs and assembling our plasmids, the next step was proving that they worked. Because this was not our main project and since we were trying to effectively characterize of our parts prior to our the start of our high school visits, we decided to focus testing solely on the copper biosensor.</p>
+			</div>
+			<div class="subContent content-resultsM">
+				<div class="h2">Results</div>
+				<p>The first set of tests conducted involved inducing RFP expression using varying concentrations of copper in overnight cultures. Glycerol stocks of XL1-Blue cells transformed with the copper detection plasmid were used to inoculate 4 culture tubes containing 5 mL of LB broth. The appropriate antibiotic was added and then the cultures were induced to a final copper (II) sulfate concentration of 0 &#181;M, 5 &#181;M, 100 &#181;M, or 500 &#181;M. After incubation with shaking overnight, these cultures were spun down in a centrifuge and compared qualitatively. Clear differences in the color of the cell pellets could be seen between the 0 &#181;M, 100 &#181;M, and 500 &#181;M groups. The 5 &#181;M group appeared to be about the same coloration as the 0 &#181;M group.</p>
+				<img src="http://2017.igem.org/wiki/images/8/8b/T--UMaryland--cueR.jpg" class="contentImg" style="max-height: 450px;" />
+				<p class="caption"><em><strong>Copper sensing overnight results</strong> - XL1-Blue cells containing the copper biosensor were incubated overnight with varying concentrations of copper. The different copper concentrations induced varying levels of RFP expression. This can clearly be seen in the different coloration of the pelleted cell samples.</em></p>
+				<p>Following this qualitative proof of functionality, we proceeded to perform a more quantitative test. XL1-Blue cells containing the copper biosensor were grown overnight without induction to maximum culture density. Approximated 1 mL of this culture was then used to inoculate 20 mL of fresh LB in a 50 mL Falcon tube. This new culture was grown at 37 C with shaking until it reached an OD600 above .4. 1 mL samples of this culture were then removed and induced with copper (II) sulfate to final concentrations of 0 &#181;M, 25 &#181;M, 50 &#181;M, 100, &#181;M, 250 &#181;M, 500 &#181;M, and 1,000 &#181;M. Aliquots of each induced sample were then loaded into 5 wells of a 96 well plate. This plate was placed into a shaking/incubating plate reader set at 37 C and measured for fluorescence (584 nm excitation 612 nm emission) every 5 minutes for 180 minutes in total. OD600 readings were taken at the beginning and end of this time course and a linear regression was used to approximate the OD600 for each time point. The OD600 data was used to normalize the fluorescence data in order to generate the graph below.</p>
+				<img src="http://2017.igem.org/wiki/images/b/b0/T--UMaryland--fluorescence.png" class="contentImg" style="max-height: 500px;" />
+				<p class="caption"><em><strong>Copper induced RFP expression over time</strong> - XL1-Blue cells containing the copper biosensor plasmid were grown to log phase and induced with varying concentrations of copper. Fluorescence was then measured every 5 minutes thereafter and normalized against OD600.</em></p>
+				<p>This graph shows clear differences in terms of the expression profiles of the different experimental groups. While the cells induced with 25 &#181;M and 50 &#181;M copper show little to no difference from the non-induced sample, the other induction groups show a clear upward progression in terms of fluorescence against increasing copper concentration. Overall, this figure as well as the qualitative testing show that our copper biosensor can reliably detect copper concentrations greater than or equal to 100 uM.</p>
+				<p>From our research and after visiting the Washington Suburban Sanitation Commission Patuxent Water Treatment Plant, we found that normal drinking water typically contains around 0.01 mg/L copper. The EPA limit set on copper in drinking water is meanwhile 1.3 mg/L. When converted to &#181;M, typical drinking water copper levels are approximately 0.2 &#181;M whereas the EPA limit is set at approximately 20 &#181;M. Since our biosensor sensitivity is limited to 100 &#181;M, detection of copper levels above the EPA limit would require water samples to be concentrated prior to any form of induction. While this would not be the most convenient in terms of actually testing water for copper contamination, the functionality of this part has served our team well in terms of helping to educate high school students and the next generation of synthetic biologists.</p>
+				
+			</div>
+			<div class="subContent content-futureM">
+				<div class="h2">Future Efforts</div>
+				<p>Going forward, our team is looking to characterize our zinc and lead detection systems that were designed but not tested. Assuming that these systems function similarly to the copper biosensor, we will assemble all three detection systems into a single, master metal detection plasmid. Incorporating the design of this plasmid into our future lessons would to show students one extra way in which synthetic biology can be utilized.</p>
+				<img src="http://2017.igem.org/wiki/images/5/51/T--UMaryland--metalPlasmid.png" class="contentImg" style="max-height:600px;" />
+				<p>Along with developing this master plasmid, we plan to spend time refining our lesson designs. We got a lot of really useful feedback from our first high school visits and we hope to incorporate the comments/critiques that we received into any future high school outreach efforts. We expect that future UMaryland iGEM teams will continue to use this lesson plan as a basis for engaging the community and teaching students about the wonders of synthetic biology.</p>
+			</div>
+		</div>
 	</div>
 	<div id="container-panama" class="subContainer subContainerOutreach scrollContainer">
 		<nav> 
@@ -1150,6 +1332,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				<div class="h3" >Regulatory</div>
 				<p>To understand the regulatory hurdles, if they were to be tested in the US first, we spoke with Dr. Eric Olson and Dr. Carrie McMahon of the Federal Drug Administration and Dr. Chris Wozniack of the Environmental Protection Agency, the two organizations that would regulate the use of our system. We learned that <em>Bacillus amyloliquefaciens</em> has been used as a fungicide in the past, and that thaumatin, which is similar to TLP, has preliminary evidence to be safe for ingestion by humans. We also learned that the FDA wouldn’t regulate our system because it does not directly impact the food and that the US Department of Agriculture would not regulate our system because we are not engineering plants, leaving only the EPA as the sole regulator. Although the regulation of genetically engineered bacteria versus a symbiont is more strictly controlled, there is enough precedence to consider our project more feasible compared to the engineering of banana plants themselves.</p>
 				<img src="http://2017.igem.org/wiki/images/f/f1/T--UMaryland--fda.jpg" class="contentImg"/ style="max-height: 600px;">
+				<caption ><em style="display:block;margin-left:auto;margin-right:auto; width:851px;">Pictured (left to right): Dr. Jason Kahn (UMD), Dr. Eric Olson (FDA), SangHo Jee, Richa Beher, Dr. Carrie McMahon (FDA)</caption></em>
 				</div>
 				<div style="height:400px">
 				
@@ -1158,8 +1341,86 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		</div>
 	</div>
 	<div id="container-teaching" class="subContainer subContainerOutreach">
+		<nav> 
+			<ul>
+				<li data-select-target="high">High School Visits</li>
+			</ul>
+		</nav>
+		<div class="content contentOutreach">
+			<div class="subContent content-high">
+			<div class="h2">High School Visits</div>
+			<div class="h3">Teaching the next generation of synthetic biologists</div>
+			<p>As a team, we noticed that the synthetic biology portion of the high school biology curriculum was often skipped due to various reasons, chief among these being a lack of resources. As a result, we wanted to create a metal detection system that could be used by high school teachers as a hands-on experience to teach their students about synthetic biology. While we were unable to actually bring this detection system to the high schools due to safety restrictions, we were still able to talk to these students about iGEM, synthetic biology and its applications, basics of plasmid assembly, and basics of protein expression through a workshop that utilized active learning principles.</p> 
+			<p>For this workshop, we visited two local high schools, Rockville and Hammond High School, in central Maryland. We first visited Rockville High School, where we were presented with a small group of high school freshmen, who had a relatively limited exposure to biology. As a result, we had to modify our original presentation slightly to tailor it more to our audience. Instead of talking as much about synthetic biology, we focused more on the basics of biology, such as explaining the central dogma. By engaging these students in activities that employed the subject material we were covering, it was clear that by the end of the workshop, they understood the basic principles behind plasmid assembly and protein expression. </p>
+			<p>The next high school we visited was Hammond High School, where our audience was a larger group of mostly juniors and seniors, who had previous exposure to some basic biology concepts. As a result, we were able to use our originally created presentation. Because this was a bigger audience, we were able to break the students off into groups. This allowed one member of our team to facilitate discussion with and ask some questions about the content to the smaller group before we pulled the groups back together and continued with our workshop. </p>
+			<p>It was extremely rewarding to see these students be so engaged and interested in synthetic biology. Despite their minimal exposure to it, they were able to pick up the principles and basics of the subject extremely quickly. The students from Hammond High School even sent the team a thank-you note after the workshop.</p> 
+
+			</div>
+		</div>
 	</div>
 	<div id="container-community" class="subContainer subContainerOutreach">
+		<nav> 
+			<ul>
+				<li data-select-target="market">Farmer's Market</li>
+				<li data-select-target="bugss">BUGSS</li>
+				<li data-select-target="wssc">WSSC Visit</li>
+			</ul>
+		</nav>
+		<div class="content contentOutreach">
+			<div class="subContent content-market">
+				<div id="market">
+				<div class="h2">Reaching Out to the Community</div>
+				<p>One of the challenges facing synthetic biology is the negative stigma surroungind genetically engineered or modified organisms. Therefore, it's important that we reach out to the community as a part of iGEM to discuss synthetic biology and advocate for their use by presenting a case where synthetic biology can be used to solve an issue.</p>
+				<div class="h3" >Farmer's Market</div>
+				<p>As a result of talking with Ravdeep from Beyond the Peel, we found that one of the reasons why the Cavendish is the most popular banana is due to the lack of consumer demand. If people are not willing to buy these bananas, there will be no need for an infrastructure to be built around it. We were also interested to see if there was another banana candidate that would be able to replace the Cavendish, and if people would buy it as a result. Genetic diversity is important in protecting the population of Cavendish bananas. Crops that are more resistant will prevent the fungi from spreading more rapidly, and isolate populations where there the disease is present.</p>
+				<img src="http://2017.igem.org/wiki/images/7/75/T--UMaryland--variety.jpg" class="contentImg" style="max-height:450px;" />
+				<p style="text-align: center; margin-bottom:25px;"><caption><em >Different varities of bananas (left to right): Cavendish, Manzano, Thai, Burro, and Red</em></caption></p>
+				<p>We found from specialty grocery stores four other types of bananas that are available to be purchased, and we had participants test them out. We had bought in addition to the Cavendish: burro, manzano, thai, and red bananas. They were all ready to be eaten when ripe, which is different from the cooking bananas such as plantains. They have different flavor profiles and textures compared to the Cavendish. The flavor profiles of each banana are determined by the starch, sugar, and nutritional composition. The bitter, dry taste of unripe banana is due to the high starch content of the non-Cavendish bananas. Starch is also responsible for the crunch / hard taste. When ripening, starch breaks down into the sugars fructose, sucrose, and glucose, which give bananas their sweet taste and creamy texture. Red bananas in particular have a different color and taste due to their higher beta carotene (Vitamin A) content. Cooking the bananas (akin to plantains) helps to break down the starch.</p>
+				<img src="http://2017.igem.org/wiki/images/b/b8/T--UMaryland--market.jpg" class="contentImg" style="max-height:450px;" />
+				<p>We asked the following questions:</p>
+				<ol>
+					<li>How do each type of bananas taste? How does it compare to the Cavendish?</li>
+					<li>If ripening the bananas mean that they turn completely black, would you eat a black banana?</li>
+					<li>Would you buy one if you saw them in the grocery store?</li>
+					<li>Some of the bananas are dual-purpose, bringing out a different flavor profile when cooked. How do you feel about cooking bananas?</li>
+					<li>Did you know there were other varieties of bananas beyond the Cavendish?</li>
+					<li>Do you shop with diversity in crops in mind? Do you buy organic, non-GMO, etc.?</li>
+				</ol></br>
+				<p>We found a variety of responses to the event, a lot of participants liked the red bananas and its more complex sweet taste to be better than the Cavendish. Some liked the more tart flavors of the other bananas but it was split between the red bananas and the Cavendish. We found that the majority of participants have never heard of bananas that weren’t the Cavendish, and they mentioned that the would start looking for this in the stores.</p>
+				<p>We also talked about the project and synthetic biology, and how we can apply synthetic biology to the problem of the disappearing Cavendish banana. They were interested in learning more about it, and they preferred that we used a soil probiotic rather than genetically modifying bananas themselves.</p>
+				</div>
+			</div>
+			<div class="subContent content-bugss">
+				<div id="bugss" class="scrollCheck">
+				<div class="h2">Reaching Out to the Community</div>
+				<div class="h3" style="clear: both">BUGSS</div>
+				<img src="http://2017.igem.org/wiki/images/b/b2/T--UMaryland--buggs1.jpg" class="contentImg" style="max-height: 550px;" />
+				<p>One of our continued collaborators this year was BUGSS, the Baltimore Underground Science Space. They are a community lab based in Baltimore that provides anyone in the area interested in synthetic biology with the resources to design and conduct their own experiments.</p> 
+				<p>We reached out to them in the beginning of the summer initially regarding our hardware project. Because community labs often have limited resources, we were curious to see if they had any insight into what specific equipment we should include in our lab-in-a-box. During this visit, we received feedback regarding our hardware project, learned about what it was like to work in a community lab, and were invited to come back to visit and to collaborate with BUGSS’s own high school iGEM team.</p>
+				<img src="http://2017.igem.org/wiki/images/7/7e/T--UMaryland--buggs4.jpg" class="contentImg" style="max-height:450px;" />
+				<p>We visited BUGSS again in early October for its Open-House event. There, we presented the community with a basic description of our project and asked them to taste the Cavendish, burro, manzano, thai, and red bananas. As found at our Farmer’s Market visit, most people preferred the Cavendish and red bananas, finding that the other varieties were too bitter or starchy. In addition to this, we were able to listen to BUGSS’s high school iGEM team give a presentation on their project regarding plastic degradation and provide feedback and suggestions. </p>
+				<img src="http://2017.igem.org/wiki/images/a/a3/T--UMaryland--buggs2.jpg" class="contentImg" style="max-height: 450px;" />
+				<p>Our final visit was later in October when we were invited back to present on our projects to local synthetic biology enthusiasts. They found our projects to be very exciting and gave us feedback on the presentation formatting and content. </p>
+				</div>
+			</div>
+			<div class="subContent content-wssc">
+				<div style="clear: both; padding-top: 30px;" id="wssc" class="scrollCheck">
+				<div class="h2">Reaching Out to the Community</div>
+				<div class="h3" >WSSC Visit</div>
+					<img src="http://2017.igem.org/wiki/images/5/55/T--UMaryland--wssc1.jpg" class="contentImg" style="max-height: 550px;" />
+					<p>We went to the Patuxent Water Filtration (WSSC) in Laurel, Maryland. The purpose of this visit was to obtain an industrial outlook on methods of water purification and the deleterious effects of metal contamination in drinking water. In light of the events that occurred in Flint, Michigan with widespread lead poisoning, it was emphasized to us the importance of pre-emptive corrosion treatment in pipelines (using small amounts of orthophosphate). </p>
+					<p>From this visit, we were introduced to the various steps in the water filtration process beginning with flocculation, followed by sedimentation, granular filtration (anthracite coal), and UV sterilization for cryptosporidium. Similarly, the implication of our metal detection project is to give high school students an idea of what the entire water filtration process entails, why metal detection matters on a large scale and how metal detection plays a critical role in the purification of water. Using what we learned from this visit to the WSSC, we hope to integrate a component for metal detection in water into the overall lesson plans. </p>
+					<img src="http://2017.igem.org/wiki/images/f/f5/T--UMaryland--wssc2.jpg" class="contentImg" style="max-height: 500px;" />
+					<p>We also learned about the effects of front-end chlorination during the filtration process which leave trihalomethanes (THM) byproducts in the water, components that were suspected to be carcinogens. </p>
+					<p>Manganese dioxide coating on filtration systems to prevent corrosion, but manganese leeching causes discoloration in water. While the water may be clean (according to the standards in place), from the business perspective, consumers will not want to purchase this water simply because it is not visually appealing. This is a problem for filtration plants because in order to introduce a manganese dioxide coating into the system, they would need to shut off the water to that system and allow for the coating to form. This coating takes upwards of 7 days to form, which is an issue for business.</p>
+
+				</div>
+				<div style="height:400px">
+				
+				</div>
+				
+			</div>
+		</div>
 	</div>
 	<div id="container-students" class="subContainer subContainerAbout">
 		<nav> 
@@ -1167,11 +1428,12 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				<li class="levelOne" data-select-target="students">Students</li>
 				<div class="levelTwo">
 					<ul>
+						<li class="li-students" data-scrollTo="annie">Annie Trang</li>
 						<li data-img-src="http://2017.igem.org/wiki/images/9/92/T--UMaryland--asha.jpg" class="li-students" data-scrollTo="asha">Asha Kodan</li>
 						<li data-img-src="http://2017.igem.org/wiki/images/f/f8/T--UMaryland--cameron.jpg" class="li-students" data-scrollTo="cameron">Cameron Harner</li>
-						<li data-img-src="" data-scrollTo="deven">Deven Appel</li>
 						<li data-img-src="http://2017.igem.org/wiki/images/7/74/T--UMaryland--chunmun.jpg" class="li-students" data-scrollTo="chun">Chun Mun Loke</li>
 						<li data-img-src="http://2017.igem.org/wiki/images/6/6b/T--UMaryland--cynthia.jpg" class="li-students" data-scrollTo="cynthia">Cynthia Uzoukwu</li>
+						<li data-img-src="" data-scrollTo="deven">Deven Appel</li>
 						<li data-img-src="" class="li-students" data-scrollTo="jacob">Jacob Premo</li>
 						<li data-img-src="http://2017.igem.org/wiki/images/d/d4/T--UMaryland--joyce.jpg" class="li-students" data-scrollTo="joyce">Joyce Song</li>
 						<li data-img-src="http://2017.igem.org/wiki/images/0/0c/T--UMaryland--paula.jpg" class="li-students" data-scrollTo="paula">Paula Kleyman</li>
@@ -1180,6 +1442,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 						<li data-img-src="http://2017.igem.org/wiki/images/8/8f/T--UMaryland--sangho.jpg" class="li-students" data-scrollTo="sangho">SangHo Jee</li>
 						<li data-img-src="http://2017.igem.org/wiki/images/e/e2/T--UMaryland--seth.jpg" class="li-students" data-scrollTo="seth">Seth Cohen</li>
 						<li data-img-src="http://2017.igem.org/wiki/images/b/bf/T--UMaryland--thea.jpg" class="li-students" data-scrollTo="thea">Thea Orstein</li>
+						<li data-img-src="" class="li-students" data-scrollTo="vaidehi">Vaidehi Bhagat</li>
 						<li data-img-src="http://2017.igem.org/wiki/images/7/79/T--UMaryland--yuzhu.jpg" class="li-students" data-scrollTo="yuzhu">Yuzhu Shi</li>
 					</ul>
 				</div>
@@ -1204,6 +1467,15 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 					<table>
 					<tr>
 						<td>
+							<img src="http://2017.igem.org/wiki/images/4/4f/T--UMaryland--annie.jpg" />
+						</td>
+						<td id="annie" class="scrollCheck">
+							<p>Annie Trang</p>
+							<p>Annie is a junior studying Neurobiology &amp; Physiology major. She is interested in pursuing a career in the medical field. In addition to wet-lab work, she is involved with both the team’s high school education outreach and art work. Otherwise, she can be found discussing ethics, pursuing creative projects or working with physicians in an urgent care clinic. </p>
+						</td>
+					</tr>
+					<tr>
+						<td>
 							<img src="http://2017.igem.org/wiki/images/9/92/T--UMaryland--asha.jpg" />
 						</td>
 						<td id="asha" class="scrollCheck">
@@ -1222,20 +1494,11 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 					</tr>
 					<tr>
 						<td>
-							<img src="" />
-						</td>
-						<td id="deven" class="scrollCheck">
-							<p>Deven Appel</p>
-							<p>Deven is a junior bioengineering major on the pre-medical track. With a desire to explore synthetic biology, he found iGEM had the perfect goals for him. iGEM also provided a first-hand look at how these principles of biology and engineering could be applied to actual, beneficial goals in the world, and he was happy to see such a passionate, determined team around him at the University of Maryland. Deven is also the president of an a cappella group and assists with a biophysics lab on campus. </p>
-						</td>
-					</tr>
-					<tr>
-						<td>
 							<img src="http://2017.igem.org/wiki/images/7/74/T--UMaryland--chunmun.jpg" />
 						</td>
 						<td id="chun" class="scrollCheck">
 							<p>Chun Mun Loke</p>
-							<p></p>
+							<p>Chun Mun is majoring in Biochemistry and Cell Biology/Genetics. He is currently applying to MSTP programs, and hopes to pursue a career in medical research. Outside of class, Chun Mun enjoys playing music, watching Netflix, and sleeping.</p>
 						</td>
 					</tr>
 					<tr>
@@ -1249,11 +1512,20 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 					</tr>
 					<tr>
 						<td>
-							<img src="" />
+							<img src="http://2017.igem.org/wiki/images/5/59/T--UMaryland--deven.jpg" />
+						</td>
+						<td id="deven" class="scrollCheck">
+							<p>Deven Appel</p>
+							<p>Deven is a junior bioengineering major on the pre-medical track. With a desire to explore synthetic biology, he found iGEM had the perfect goals for him. iGEM also provided a first-hand look at how these principles of biology and engineering could be applied to actual, beneficial goals in the world, and he was happy to see such a passionate, determined team around him at the University of Maryland. Deven is also the president of an a cappella group and assists with a biophysics lab on campus. </p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/6/69/T--UMaryland--jacob.jpg" />
 						</td>
 						<td id="jacob" class="scrollCheck">
 							<p>Jacob Premo</p>
-							<p></p>
+							<p>Jacob is a Junior Biochemistry and Microbiology double major. He is particularly interested in studying genetics and the mechanisms underlying drug effectiveness. As a second year team member, Jacob has enjoyed assisting with new member training and managing the laboratory space. Outside of iGEM, Jacob spends his time reading, watching movies, and playing with his dog.</p>
 						</td>
 					</tr>
 					<tr>
@@ -1317,6 +1589,15 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 						<td id="thea" class="scrollCheck">
 							<p>Thea Orstein</p>
 							<p>Thea Orstein is a rising Junior at the University of Maryland, College Park, majoring in Bioengineering with a concentration in Biotechnology and Therapeutics Engineering. After graduating from UMD, She plans to pursue a PhD in Biophysics or Molecular Biology. This summer, she is working as a lab member and as a project developer on the UMaryland iGEM team. In her free time she enjoys running, hiking, and hanging out with friends.</p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="http://2017.igem.org/wiki/images/2/2f/T--UMaryland--vaidehi.jpg" />
+						</td>
+						<td id="vaidehi" class="scrollCheck">
+							<p>Vaidehi Bhagat</p>
+							<p>Vaidehi is a rising junior in the University Honors Program at the University of Maryland, majoring in Bioengineering on the Therapeutics Engineering and Biotechnology track. She is a researcher on the UMaryland iGEM team and aids in the various projects that are being developed. She hopes to enter the biopharmaceutical industry after graduation and then eventually pursue a Master's Degree. In her free time she enjoys relaxing, enjoying new foods, and dancing.</p>
 						</td>
 					</tr>
 					<tr>
@@ -1389,24 +1670,334 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 					</tr>
 				</table>
 			</div>
+			<div class="subContent content-funding">
+				<div class="h2">Funding</div>
+				<p>We at UMaryland iGEM would like to acknowledge the following sponsors for their generous financial and material support</p>
+				<img src="http://2017.igem.org/wiki/images/b/bb/T--UMaryland--sponsors.png" style="max-width: 100%; width:100%; max-height: 600px;"/>
+				<p>We would also like to thank the generous individual donors on our <a href="https://experiment.com/projects/saving-bananas-from-fungal-infection-using-transgenic-bacteria">Experiment.com</a> and our <a href="https://www.launch.umd.edu/project/7639">UMD Launch</a> crowdfunding campaigns.</p>
+			</div>
+			<div class="subContent content-ack">
+				<p class="h4">Special Individuals</p>
+				<p class="h5"><em>We would like to acknowledge and thank following people for providing us with the resources, advice, and connections that made our project possible</em></p>
+				<ol>
+					<li><strong>Dr. Angus Murphy</strong>, <em>UMD Plant Sciences</em> - Provided valuable advice and aided in securing funding and lab space for the team.</li>
+					<li><strong>Ravdeep</strong>, <em>Beyond the Peel</em> - Provided valuable information on the outlook of banana farmers.</li>
+					<li><strong>Dr. Juan Robalino</strong>, <em>Cronicas</em></li>
+					<li><strong>Dr. Eric Olson</strong>, <em>Federal Drug Administration</em></li>
+					<li><strong>Dr. Carrie McMahon</strong>, <em>FDA</em></li>
+					<li><strong>Dr. Chris Wozniack</strong>, <em>Environmental Protection Agency</em></li>
+					<li><strong>Dr. Caroline Nguyen</strong>, <em>Washington Suburban Sanitary Commission</em></li>
+					<li><strong>Nicole Horvath</strong>, <em>WSSC</em></li>
+					<li><strong>Teresa Moore</strong>, <em>UMD Bioengineering</em> - Helped in the management of our funds.</li>
+					<li><strong>Ron Noble</strong>, <em>UMD Bioengineering</em> - Aided in the ordering and receiving of materials.</li>
+					<li><strong>Catherine Carroll</strong>, <em>UMD Bioengineering</em></li>
+					<li><strong>Catherine Carroll</strong>, <em>UMD Bioengineering</em></li>
+					<li><strong>Fabiola Mijares</strong>, <em>UMD CMNS</em></li>
+					<li><strong>Cierra Clinkscales</strong>, <em>UMD IBBR</em></li>
+					<li><strong>Naren Bhokisham</strong>, <em>UMD Bioengineering</em> graduate student - Provided us with advice on whatever we needed help with. This included a lot of advice on equipment usage.</li>
+					<li><strong>Justin Sylvers</strong>, <em>UMD Bioengineering</em> - Highlighted UMaryland iGEM in The Catalyst</li>
+					<li><strong>Dr. Jason Kahn</strong>, <em>UMD Biochemistry</em> - Acted as a mentor to the team. Attended lab meetings, provided advice, organized an iGEM seminar, and helped to make iGEM a wonderful experience.</li>
+					<li><strong>Dr. Edward Eisenstein</strong>, <em>UMD IBBR</em> - Acted as a mentor to the team. Attended lab meetings, provided advice, organized an iGEM seminar, and helped to make iGEM a wonderful experience.</li>
+					<li><strong>Dr. Boots Quimby</strong>, <em>UNC Chapel Hill</em> - Helped to establish the team in 2014. Served as a mentor and aided in managing finances.</li>
+				</ol>
+				<p class="h4"><strong>iGEM Teams and Collaborators</strong></p>
+				<p class="h5"><em>We would like to acknowledge the students and advisors of the following groups, who contributed to the designs of our projects, and enabled us to learn through outreach efforts.</em></p>
+			<ol>
+				<li><strong>Baltimore Underground Science Space</strong>, <em>Baltimore, MD</em> - They provided suggestions to improve our lab-in-a-box project.</li>
+				<li><strong>2017 iGEM Team, College of William and Mary</strong>, <em>Williamsburg VA</em> - They collaborated with us in order to test our copper biosensor.</li>
+				<li><strong>2017 iGEM Team, University of Virginia</strong>, <em>Charlottesville VA</em> - They hosted us at the Mid-Atlantic iGEM meetup.</li>
+				<li><strong>Rockville High School</strong>, <em>Rockville, MD</em> - They acted as the first group to listen to our synthetic biology lesson.</li>
+				<li><strong>Hammond High School</strong>, <em>Columbia, MD</em> - They invited us to teach our synthetic biology lesson at their school.</li>
+				<li><strong>Broadneck High School</strong>, <em>Annapolis, MD</em> - Their students had a chance to test out and give feedback on the hardware project</li>
+				<li><strong>2015 iGEM Team, University of Glasgow</strong>, <em>Scotland, UK</em> - They provided us with sequences and information the phlF system and adapting it to <em>E. coli</em>.</li> 
+				<li><strong>2014 iGEM Team, Wageningen University</strong>, <em>Netherlands</em> - We used their information to come up with our sensing design and learn more about another synthetic biology approach to combat F. oxysporum</li>
+				<li><strong>2011 iGEM Team, Unicamp-EMSE</strong>, <em>Brazil</em> - They provided us information and parts for protein secretion. </li>
+			</ol>
+			<p class="h4"><strong>Laboratories</strong></p>
+			<p class="h5"><em>We would like to thank the following groups for their scientific advice and support.</em></p>
+			<ol>
+				<li><strong>Joseph Roberts Lab</strong>, <em>UMD Department of Plant Science and Landscape Architecture</em> - They provided us with space in their laboratory in order to conduct our work</li>
+				<li><strong>William E. Bentley Lab</strong>, <em>UMD Department of Bioengineering</em> - They allowed us to use their equipment including their shaker/incubator, nanodrop, and plate reader</li>
+				<li><strong>Eisenstein Research Group</strong>, <em>UMD IBBR</em> - They served as willing mentors for us and completed the PCR reaction and subsequent Gibson Assembly to isolate the Cas9 gene that we struggled to clone for some time. They also provided us with a His-tag antibody.</li>
+				<li><strong>Kahn Research Group</strong>, <em>UMD Department of Chemistry and Biochemistry</em> - They served as willing mentors for us, provided us with a Cas9 plasmid, and provided us with samples of several reagents.</li>
+				<li><strong>Wang Research Group</strong>,  <em>UMD Department of Chemistry and Biochemistry</em> - They aided in performing all of our sonication and SDS-PAGEs for us. An iGEM team member working in this lab conducted the procedures.</li>
+				<li><strong>Volker Briken Lab</strong>, <em>UMD Department of Cell Biology and Molecular Genetics</em> - They assisted us in running a western blot. An iGEM team member working in this lab conducted the procedure.</li>
+			</ol>
+			<p>All of the cloning, assembly, and wet lab work not mentioned above were conducted by the iGEM students</p>
+			<p class="h4"><strong>Donors and Sponsors</strong></p>
+			<p  class="h5"><em>We would like to thank the following groups for their generous contributions, either financially or materially.</em></p>
+			<ol>
+				<li>Department of Plant Sciences and Landscape Architecture, UMD</li>
+				<li>Fischell Department of Bioengineering, University of Maryland College Park (UMD)</li>
+				<li>A. James Clark School of Engineering, UMD</li>
+				<li>College of Computer, Mathematical, and Natural Sciences, UMD</li>
+				<li>Integrated Life Sciences, UMD Honors College</li>
+				<li>Institute for Bioscience and Biotechnology Research, UMD, the National Institute of Standards and Technology</li>
+				<li>iGEM Foundation, Cambridge MA</li>
+				<li>Qiagen</li>
+				<li>Integrated DNA Technologies</li>
+				<li>New England Biolabs</li>
+				<li>Agilent Technologies</li>
+			</ol>
+			<p class="h4"><strong>Wiki</strong></p>
+			<p class="h5"><em>The wiki was coded from scratch using the following plugins:</em></p>
+			<ol>
+				<li><a href="https://jquery.com/">jQuery</a></li>
+				<li><a href="https://github.com/timmywil/jquery.panzoom"> panZoom - allow drag and drop scrolling</a></li>
+				<li><a href="http://github.hubspot.com/pace/docs/welcome/">Pace - loading screen</a></li>
+				<li><a href="https://daneden.github.io/animate.css/">Animate.css - bouncing animations</a></li>
+			</ol>
+			</br><p>The font is <a href="https://fonts.google.com/specimen/Raleway">Raleway</a> obtained from Google Web Fonts. We would like to acknowledge <a href="https://www.w3schools.com/">W3Schools</a> and <a href="https://stackoverflow.com/">StackOverflow</a> as valuable references. No templates were used to code this wiki.</p>
+			</div>
 		</div>
 	</div>
-	<div id="container-advisors" class="subContainer subContainerAbout">
-	</div>
-	<div id="container-funding" class="subContainer subContainerAbout">
-	</div>
-	<div id="container-ack" class="subContainer subContainerAbout">
-	</div>
 	<div id="container-parts" class="subContainer subContainerNotebook">
+		
+		<nav> 
+			<ul>
+				<li data-select-target="parts">Parts Submitted</li>
+			</ul>
+		</nav>
+		<div class="content contentNotebook">
+			<div class="subContent content-parts">
+				<div class="h2">Parts Submitted</div>
+				<div class="h3">Basic Parts</div>
+				<table class="partsTable">
+					<thead>
+						<tr>
+							<td>Registry No.</td>
+							<td>Part Name</td>
+							<td>Description</td>
+							<td>Link</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>BBa_K2477000</td>
+							<td>iGEM GFP (E0040) mutant with added PAM site</td>
+							<td>The GFP gene was originally obtained from the iGEM 2017 DNA kit. Site directed mutagenesis was used to create a synonymous mutation at base pair 186 where a cytosine was incorporated into the top strand to replace a thymine. This acted to create a PAM site for Cas9 from S. pyogenes (5' NGG 3') on the bottom strand. This mutation was made in order to allow for the design of an sgRNA capable of interacting with the chromophore encoding region of GFP. The biobrick number of the sgRNA designed by our team for this purpose is BBa_K2477001.</td>
+							<td><a href="http://parts.igem.org/Part:BBa_K2477000">http://parts.igem.org/Part:BBa_K2477000</a></td>
+						</tr>
+						<tr>
+							<td>BBa_K2477004</td>
+							<td>Cas9</td>
+							<td>This is the Cas9 gene that was utilized in our experiments. It is capable of cleaving specific DNA sequences when expressed alongside an sgRNA. This part was taken from addgene plasmid pML107.</td>
+							<td><a href="http://parts.igem.org/Part:BBa_K2477004">http://parts.igem.org/Part:BBa_K2477004</a></td>
+						</tr>
+					<tbody>
+				</table>
+				<div class="h3">Composite Parts</div>
+				<table class="partsTable">
+					<thead>
+						<tr>
+							<td>Registry No.</td>
+							<td>Part Name</td>
+							<td>Description</td>
+							<td>Link</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>BBa_K2477003</td>
+							<td>GFP with PAM site (BBa_K2477000) expression system</td>
+							<td>This part constituitively expresses GFP. The synonymous mutation introducing a PAM site in the GFP gene allows for the interaction of this part with an sgRNA overlapping the chromophore region of GFP (BBa_K2477001). This allows for selection against non-mutants in this overlap region when expressed alongside the sgRNA and a Cas9 nuclease.</td>
+							<td><a href="http://parts.igem.org/Part:BBa_K2477003">http://parts.igem.org/Part:BBa_K2477003</a></td>
+						</tr>
+						<tr>
+							<td>BBa_K2477006</td>
+							<td>Rice TLP With 10x His-tag Expression System</td>
+							<td>Strong constitutive expression of rice antifungal thaumatin-like protein. To be used for protein extraction.</td>
+							<td><a href="http://parts.igem.org/Part:BBa_K2477006">http://parts.igem.org/Part:BBa_K2477006</a></td>
+						</tr>
+						<tr>
+							<td>BBa_K2477008</td>
+							<td>GFP based fusaric acid biosensor</td>
+							<td>This part includes constitutive production of the phlF repressor. The repressive ability of this regulator is stabilized by fusaric acid and salicylate. The PhlF protein inhibits the immediately downstream promoter which regulates the transcription of GFP. A decrease in GFP production should therefore accompanies the presence of fusaric acid/salicylate.</td>
+							<td><a href="http://parts.igem.org/Part:BBa_K2477008">http://parts.igem.org/Part:BBa_K2477008</a></td>
+						</tr>
+						<tr>
+							<td>BBa_K2477010</td>
+							<td>TLP Secretion System</td>
+							<td>This circuit constitutively expresses the antifungal agent, TLP, tagged with a 6x His-tag, a 2x GS linker, and an HlyA secretion peptide. The HlyA tag allows for secretion using the HlyB/HlyD system. Both HlyB and HlyD are also encoded on this part and are under control of an arabinose promoter. Please note that there is no scar site between the end of TLP (the GSGS linker) and the start of the HlyA tag.</td>
+							<td><a href="http://parts.igem.org/Part:BBa_K2477010">http://parts.igem.org/Part:BBa_K2477010</a></td>
+						</tr>
+						<tr>
+							<td>BBa_K2477013</td>
+							<td>Copper Biosensor</td>
+							<td>This part constitutively expresses the CueR repressor. This repressor then inhibits the expression of RFP from the downstream PcopA promoter. In the presence of copper, the repression of CueR is inhibited leading to greater RFP expression. Fluorescence of this construct has been shown to increase with increasing copper concentration in both a qualitative and quantitative manner.</td>
+							<td><a href="http://parts.igem.org/Part:BBa_K2477013">http://parts.igem.org/Part:BBa_K2477013</a></td>
+						</tr>
+					<tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 	<div id="container-modeling" class="subContainer subContainerNotebook">
 	</div>
 	<div id="container-notebook" class="subContainer subContainerNotebook">
+		<nav> 
+			<ul>
+				<li data-select-target="safety">Safety</li>
+				<li data-select-target="journal">Lab Journal</li>
+			</ul>
+		</nav>
+		<div class="content contentNotebook">
+			<div class="subContent content-safety">
+				<div class="h2">Safety</div>
+				<strong>General summary of safety protocol</strong>
+				<p>Enforcing and emphasizing laboratory safety is a crucial component in the iGEM framework and in the greater scientific community. This year the University of Maryland iGEM team abided by safety measures appropriate for biosafety level 1 as our project involves the engineering of several common E.coli strains (DH5-Alpha, BL21, BL21 DE3) to inhibit the spore germination and mycelial cell growth of a non-pathogenic strain of Fusariuam oxysporum.</p>
+				<strong>Safe project design</strong>
+				<p>A main priority of the team was to not only combat panama disease and protect the banana from extinction, but to also design an environmentally safe solution that would not involve harmful soil treatments such as fumigation. To accomplish this, we created a system that would take advantage of safe, naturally derived antifungals.  If our project was eventually applied to Banana fields, several modifications would be implemented. First, instead of using E.coli as we did for proof of concept, Bacillus amyloliquefaciens would be chosen as the chassis because of its soil compatibility. Moreover, the target of our transgenic bacteria would be the pathogenic F. oxysporum, the perpetrator of panama disease. In terms of our metal sequestration project, which was designed for outreach applications, the University of Maryland’s department for environmental safety was consulted for proper metal (copper, lead and zinc) disposal.</p>
+				<strong>Safe lab work</strong>
+				<p>To commit to the lab safety lifestyle, we enforce strict lab policies and practices ranging from waste disposal to lab techniques. Before the beginning of the summer term, each lab member completed Chemical Hygiene training and Biohazard safety training through UMD’s department of environmental safety and an additional, specific iGEM training session lead by the lab coordinator, Jacob Premo. During this training several important lab protocols were taught such as, transformation, colony picking, bacterial culturing, plasmid DNA extraction, gel electrophoresis, and waste disposal (autoclave). Appropriate lab attire was emphasized, which requires long pants, closed toed shoes, and protective eyewear at all times in the lab.</p>
+				<p>Although our team is only working with BSL1 organisms, live cultures are frequently used. To reduce the risk of contamination, team members are required to wear nitrile gloves when handling samples, work near a flame when easily contaminated samples are open and autoclave all liquid and solid waste often.</p>
+			</div>
+			<div class="subContent content-journal">
+				<div class="h2">Lab Journal</div>
+				<p><strong>May 30 - June 1</strong></p>
+				<p><span style="font-weight: 400;">School&rsquo;s out for summer! Time to relax, enjoy the summer sun, take a swim, and -oh yeah- get working in the lab. We started this short post Memorial Day week with fully organizing and setting up the lab. Moving on to our wet lab work, we transformed competent cells with parts from the kit distribution that would be necessary for our projects. The parts we needed were pTet (BBa_R0040), TetR (BBa_C0040), and a strong Anderson promoter (BBa_J23100). We also created stocks of the pSB1C3 and pSB1A3 backbones by amplifying the linearized DNA also provided in the kit with PCR. </span></p>
+				<p><span style="font-weight: 400;">Unfortunately, only the transformations of the TetR was successful. We moved on to making overnights of these cells and extracting the plasmid DNA with a miniprep kit. We checked our progress for the week by running a gel with the amplified linear backbones and digests of the transformed plasmid DNA. </span></p>
+				<p><span style="font-weight: 400;">And... Success!</span></p>
+				<p><strong>June 5 - June 9</strong></p>
+				<p><span style="font-weight: 400;">Our first full week and what a scramble - the new members were forced to fend for themselves as the returning ones weren&rsquo;t able to come in as periodically - it&rsquo;s ok though, they managed. This week we attempted transformations of the pTet and Anderson promoter parts, this time only being successful with the pTet (later on to find out that the Anderson promoter had a different antibiotic resistance than we thought). We also combined the TetR piece we had transformed last week with a double terminator piece (BBa_B0015) we had from last year. &nbsp;The successfully transformed cells were prepared as overnights and then later miniprepped. We then performed a 3A assembly of the pTet piece with the TetR/Double Terminator construct, transformed into competent cells, prepared overnights, and miniprepped the DNA. We also restocked our supply of agar plates. From this week&rsquo;s work we have assembled this piece:</span></p>
+				<p><strong>June 12- June 16</strong></p>
+				<p><span style="font-weight: 400;">We finally got the Anderson promoter transformed and miniprepped! We also put in a ribosome binding site (BBa_B0034) at the beginning of last week&rsquo;s construct using PCR reactions with primers that included the RBS sequence and inserted the product into a pSB1A3 backbone via Gibson Assembly. However, when we tried to verify this construct (both through running a gel and sequencing) we found something had failed. Suspecting there could have been an issue with the backbone we used, we tried to make more backbone stocks (pSB1A3, pSB1C3, and pSB1K3) with PCR amplification. We also transformed more plasmids from the kits into competent cells. These parts are to be used for the metal sequestration project as reporters. The parts we transformed were RFP (BBa_K518012), YFP (BBa_E0430), GFP (BBa_E0240 and BBa_I13504 ) and CFP (BBa_E0420). These parts are an assembly of a ribosome binding site, a fluorescence gene, and a double terminator. We also transformed a strong ribosome binding site part. Then we prepared overnights and did minipreps. </span></p>
+				<p><strong>June 19- June 23</strong></p>
+				<p><span style="font-weight: 400;">Ready, set, glow! With our projects being put on pause as we awaited the arrival of gblock, we decided to spend the days working on our contribution to the InterLab Study</span></p>
+				<p><span style="font-weight: 400;">Once our TLP gblock came in for our Banana Project, we attached it to an A3 backbone. We also received samples of a nonpathogenic strain of Fusarium oxysporum and streaked it onto our homemade potato dextrose agar plates. </span></p>
+				<p><span style="font-weight: 400;">Since our PCR insertion of an RBS failed, we decided to use a different approach, the 3A assembly method, to attach the RBS in front of our TetR/TT/pTet construct. Now we have this: </span></p>
+				<p><strong>June 26- July 7</strong></p>
+				<p><span style="font-weight: 400;">We tried to attach an Anderson promoter to the beginning of the TetR construct we had been working on and and RBS to the end with 3A assembly, but both kept failing. The issues were likely caused by the relative small sizes of the parts we were adding. We added a constitutive strong Anderson promoter to the TLP piece we ordered to be later used for observation of the efficacy of expressed TLP. </span></p>
+				<p><strong>July 10 - July 14</strong></p>
+				<p><span style="font-weight: 400;">We received our Cas9 project gblocks - two halves of Cas9 and an sgRNA, and performed Gibson assemblies to insert them into our backbones (the two Cas9 pieces were designed to be combined together with the backbone in a 3-part Gibson and the sgRNA was designed to combine with a backbone). The Gibson of the sgRNA was successful but the Cas9 Gibson was not. We also attempted to add on to our TetR construct by using PCR to add on an Anderson promoter in the front. We decided we would use GFP as our gene of interest that would be selected for with mutations, so we used site-directed mutagenesis to introduce a PAM sequence recognizable by the Cas9 into the chromophore region of the GFP. For our Banana project, we needed to create agar plates that would sustain both the Fusarium oxysporum and E. coli, so we tested out different combinations of potato dextrose (for the fungus) and LB (for the E. coli) and found a 0.5x solution of both worked best. We also received our phlF gblock (the sensing part), inserted it into a backbone using Gibson, and transformed it. We got a new antibiotic this week too! We created our Kanamycin stock and made some agar plates with Kanamycin.</span></p>
+				<p><span style="font-weight: 400;">Our progress on the TetR regulatory part:</span></p>
+				<p><strong>July 17 - July 21</strong></p>
+				<p><span style="font-weight: 400;">We tried again at our Cas9 Gibson assembly, but again were not successful. Our many trials of this Gibson kept failing, so we devised new ways to take action. We also tried to attach an RBS at the end of our TetR part using 3A assembly. Unfortunately this too did not work. Our gblocks for the metal detecting parts came and we successfully used Gibson assemblies to attach two of them into a backbone, the third did not successfully assemble. These plasmids are meant to make E. coli fluoresce different colors in the presence of Zinc, Copper, and Lead (one fore each). We also had our first round of testing TLP expression and function. We plated our TLP producing bacteria with the fungus and looked for zones of inhibition. As it goes, we found it did not work. We figured a disc diffusion assay with extracted TLP would be our next step. </span></p>
+				<p><strong>July 24 - July 28</strong></p>
+				<p><span style="font-weight: 400;">We ran into the same issues as we had before with our Cas9 project. The Gibson of Cas9 was not working - our gels were not producing the bands we anticipated. Additionally, we were not able to attach and RBS to the end of our TetR construct using a 3A assembly. On the bright side, we were able to extract a histidine tagged protein (which we hope is TLP) from our TLP expressing E. coli. We also attempted a 3A assembly of our phlF sensing part with a GFP marker to be used for testing. And our individual metal detecting plasmids were completed!</span></p>
+				<p><strong>July 31 - August 4</strong></p>
+				<p><span style="font-weight: 400;">The new month brought a new wet lab schedule, with some members leaving and some joining. It was also prime vacation time so we were a bit short handed but we survived&hellip;. barely. Unfortunately, this week brought many difficulties. We were having the same issues with our Cas9 project as before, our gel imaging system was not working, and there were problems with sequencing, so we were not able to make much progress this week. We decided to add a secretion part to our Banana project design and found a part in the kit that we transformed into E. coli to attach at the end of our TLP. We also made agar plates with varying concentrations of fusaric acid to test what concentrations of this toxin would cause our cells to die. We also started working on our complete Metal project plasmid and did a 3A of our lead and zinc plasmids.</span></p>
+				<p><strong>August 7- August 13</strong></p>
+				<p><span style="font-weight: 400;">This week, our Experiment.com page to fund our iGEM team got approved. We did some work with the banana project by ligating some different parts together and miniprepping. We also ran a fluorescence test to check for the RFP to make sure it was functional. Since fusaric acid killed some of the E. coli, we are testing its toxicity to normal competent cells as well. We are almost finished with the metal plasmids and should be able to start testing soon. </span></p>
+				<p><strong>August 14 - August 20 </strong></p>
+				<p><span style="font-weight: 400;">This week, we were really trying to focus on the banana project since it has encountered a number of unexpected roadblocks and has been lagging behind some of our other projects. We attempted to do some ligations to attach a secretory component and checked it by running it on a gel. We attempted to use this new plasmid with an even stronger promoter in fusaric acid. Unfortunately, all concentrations of fusaric acid killed the E. coli and only the control group grew. We may have to look at a different way to test our project since fusaric acid is not allowing us to check for phenotypic changes. </span></p>
+				<p><strong>August 21 - August 27 </strong></p>
+				<p><span style="font-weight: 400;">For the banana project, we worked on adding a secretory system in for the TLP. Our metal plasmids are all ready to be tested, but we need approval to test the lead plasmid since lead is a hazardous material. We started reaching out to local high schools that might be interestested in having us pay them a visit. We were running experiments with our hardware project to determine how fast our centrifuge will need to be to be feasible for most protocols. </span></p>
+				<p><strong>August 28 - September 3</strong></p>
+				<p><span style="font-weight: 400;">It&rsquo;s the first week back to school for a lot of us which gave us very little time to do some lab work. We attempted to assemble Cas9 once again. However, there was an issue with contamination so the experiment was invalid. We started talking about doing a writeup on the modeling that we have been doing alongside our projects. With the competition approaching, we are beginning to look for events that allow us to talk about our project and get some experience presenting. </span></p>
+				<p><strong>September 4 - September 10</strong></p>
+				<p><span style="font-weight: 400;">This week signaled the second week back to school for team. We attempted to use Gibson assembly for the Cas9 plasmid into an A3 and a C3 backbone, but it was unsuccessful. We also attempted to purify TLP using a His-tag miniprep kit, but it did not yield any significant results. Now that the semester has started, we anticipate that lab work might slow down due to time constraints. </span></p>
+				<p><strong>September 11 - September 23</strong></p>
+				<p><span style="font-weight: 400;">We made cryostocks of all three of our metal plasmids. We also completed our TLP+HLYABC plasmid. Unfortunately, our Gibson mix seems to lack efficiency so we decided to purchase a new one. We also were not successful in attaching an RBS to pAND+RBS+TetR+TT+pTet. This week, we were making lesson plans for some of our anticipated high school visits. </span></p>
+				<p><strong>September 18 - September 24</strong></p>
+				<p><span style="font-weight: 400;">This weekend, we went to a Young Researchers conference and explained our project through a poster. We noticed some flaws in our presentation and our poster and are working on fixing it. We did some preliminary shaker testing and incubation tests for our hardware project. We attempted to ligate Cas9 into a C3 backbone and a T7 promoter with RFP. We ran the Cas9 on a gel, but it was unsuccessful. We started looking at different methods to raise funds for our team and we have been planning some of our high school visits to teach students about synthetic biology. </span></p>
+				<p><strong>September 25 - October 1</strong></p>
+				<p><span style="font-weight: 400;">This week, we attempted to ligate the Cas9 with a C3 backbone using Gibson assembly, but it was unsuccessful. We performed some basic fluorescence testing with the copper and zinc plasmids. There wasn't much difference between the induced and uninduced samples of the zinc sample. There was some RFP fluorescence from the copper plasmid when induced in a 100 uM concentration of copper. For the banana project, we attempted to ligate the T7 promoter to TLP, but it was not successful. There was no detectable TLP on the gel from the TLP+Hly plasmid. We attempted to run a copper fluorescence assay, but the procedure was performed incorrectly so the data had to be thrown out. We tested the phIF controlled GFP expression with salicylate since it has similar effects to fusaric acid ( without killing the cells). However, the results weren't significantly different between the induced and uninduced samples so we will need to redo the experiment. </span></p>
+				<p><strong>October 2- October 8</strong></p>
+				<p><span style="font-weight: 400;">This week, we attempted to ligate the TLP with our promoter and ligate the Copper plasmid with the Lead and Zinc plasmids. Unfortunately, the TLP ligation was unsuccessful. We miniprepped the copper plasmid to check to make sure that it was completed. We tested the phIF+GFP part with salicylate. We received samples from William and Mary from their project to test and we sent them our copper plasmid. We made some new agar plates in preparation for their samples. Unfortunately, our fluorescence testing was delayed due to factors out of our control so we didn&rsquo;t get to complete it this week. We also went to another nearby high school to talk to them about synthetic biology and introduce them to the concepts. This weekend is the Farmer&rsquo;s Market and another meeting with BUGSS. We hope to talk to farmers about some of the work we did in relation to the banana project. We are also starting to put things together onto the website and compiling our research from the summer. Our LaunchUMD page was confirmed to launch soon to help us fundraise more money. </span></p>
+				<p><strong>October 9- October 14 </strong></p>
+				<p><span style="font-weight: 400;">We sequenced some of our plasmids this week using GeneWiz. We also started producing overnights for our constitutive TLP and normal competent cells to look for the expression of TLP using a Western blot. Once again, we tried to ligate the T7 promoter with the TLP plasmid. We made overnights of the cas9-RFP plasmid. We didn&rsquo;t have a lab meeting this week because many of our members were out visiting the WSSC. We received a positive inducible control of TLP as well as a conjugated antibody for the Western blot so it got pushed back until the next week. </span></p>
+				<p><strong>October 16- October 21</strong></p>
+				<p><span style="font-weight: 400;">We finally tested out the copper part using a fluorescence test and it is functional. We also completed the tests on the plasmids that we received from William and Mary. We were also able to isolate the Cas9 part and it is also very close to completion, it's just missing one final part and has some small mutations. We also ran our Western blot this week. Unfortunately, it was not successful and we didn't see any expression from the blot. We had another two high school visits during the week and they both went well and we talked about synthetic biology and plasmids and iGEM itself. We have another collaboration with BUGSS this weekend as well. </span></p>
+				<p><strong>October 22- October 27</strong></p>
+				<p><span style="font-weight: 400;">This week, we ran a gel on the final Cas9 samples to find one that was correctly completed to submit. The gel for the Cas9 looked good, but the sequencing did not, so we are attempting to redo it before the deadline. We didn't end up doing anything else for the banana project. Now that the year is wrapping up, we are submitting all of our parts before the deadline and making the final touches to the website. </span></p>
+			</div>
+		</div>
+	</div>
+	<div id="container-collaboration" class="subContainer subContainerNotebook">
+		<nav> 
+			<ul>
+				<li data-select-target="interlab">Interlab study</li>
+				<li data-select-target="wm">W&amp;M Testing</li>
+				<li data-select-target="meetup" >Mid-Atlantic Meetup</li>
+			</ul>
+		</nav>
+		<div class="content contentNotebook">
+			<div class="subContent content-interlab">
+				<p class="h2">Interlab Study</p>
+				<p>Expansion of synthetic biology requires collaborative work, where scientists are able to both share and reproduce constructs. However, the lack of a standard protocol for fluorescence measurements prevents direct comparison of data between teams. To propose a solution, the 2017 iGEM’s Fourth International Interlab study invited teams to contribute data towards establishing a standard measurement of fluorescence of fluorescein.. The 2017 UMaryland iGEM team has performed the interlab study with the plate reader protocol and transformation of the specified parts as directed by the Measurement Committee’s guidelines.</p>
+				<p class="h3">Procedures</p>
+				<p>Absorbance measurements were collected using a n of 3</p>
+				<p>All measurements were performed with a standard 96 well flat-bottom plate, with each well filled to a total volume of 100uL for every solution tested.</p>
+				<p>Calibration of our microplate reader used LUDOX-S40 as a single point reference to appropriately convert absorbance values into a standard OD600 measurement. Absorbances were measured for four replicates per LUDOX and deionized water at 600 nm.</p>
+				<p>Determination of the fluorescein concentration required a standard curve. A fluorescein 1x stock solution of 50uM was prepared via resuspension of 2x solution (100uM) in 1mL of 1xPBS followed by a another addition of 1mL 1xPBS solution. Four replicates of 1:2 serial dilutions were completed for a row of 11 wells, one of which contained only the prepared 1x stock. Measurements were performed at 600nm  with our standard GFP settings (excitation: 485nm, emission: 538nm).</p>
+				<p>Following our standard curve, cell measurements for fluorescence were tested with varying devices in <em>E. coli</em> K-12 DH5-&alpha;. After transformation of the plasmids into the DH5-&alpha; cells, two colonies were selected per device and inoculated in 5mL of LB medium with Chloramphenicol. The cells grew overnight for approximately 16 hours at 37 C with 220 rpm shaking. The OD600 measurement of the overnight cultures were performed immediately following the time span. Cultures were then diluted to a target OD600 of 0.02 in 12mL of LB medium and chloramphenicol in a 50mL Falcon tube prior to incubation. 500uL were retrieved from the cultures at time 0, 2, 4, and 6 hours of incubation for absorbance and fluorescence readings on the 96 well plate (consisting of 4 replicates per colony of a test device), resulting in a total of 16 sample measurements per replicate. </p>
+				<p>All measurements were inputted into the standard iGEM InterLab 2017 excel document for respective calculations.</p>
+				<p class="h3">Results</p>
+				<p>Microplate Reader</p>
+				<p>The microplate reader calibration indicated a correction factor of 5.556 to convert absorbance into the corresponding OD600 measurement.</p>
+				<p>Standard Curve</p>
+				<img src="http://2017.igem.org/wiki/images/6/6d/T--UMaryland--intcurve.png" class="contentImg" style="max-height: 400px;" />
+				<p class="caption"><em><strong>Figure 1.</strong>  Standard curve for fluorescein fluorescence measurements via 1:2 10 serial dilutions. </em></p>
+				<img src="http://2017.igem.org/wiki/images/9/90/T--UMaryland--intcurvelog.png" class="contentImg" style="max-height: 400px;" />
+				<p class="caption"><em><strong>Figure 2.</strong> Standard curve presented on a log scale for  fluorescein fluorescence measurements via 1:2 10 serial dilutions. </em></p>
+				<img src="http://2017.igem.org/wiki/images/f/f3/T--UMaryland--intod.png" class="contentImg" style="max-height: 400px;" />
+				<img src="http://2017.igem.org/wiki/images/f/f9/T--UMaryland--intefluor.png" class="contentImg" style="max-height: 500px;" />
+				<p>Our results confirm how the increase in the fluorescein concentration increases fluorescence of the cells over time. To compare the data, we reviewed the promoters and ribosome binding sites of each test device. While Test Devices 1-3 maintained the same ribosome binding site (B0032), each differed in the following promoters listed from weakest to strongest: J23101, J23106 and J23117 for 1-3 respectively. The absorbance results suggest that J23106 reflects about 25 times greater absorbance J23101 when paired with B0032. Similarly, J23117 is approximately 35 times greater in absorbance compared to J23101. After comparing to promoters, Test Devices 4-6 keep the J346100 RBS constant to compare the promoters. The listed from weakest to strongest include: J23101, J23106 and J23117 for 4-6 respectively. The absorbance graph demonstrates J23101 low level of fluorescence (with one colony demonstrating slightly higher fluorescence than expected) compared to both 5 and 6. While J23106 demonstrates 40 times the strength of J23101, J23117 indicates a slightly stronger promoter with approximately 42 times the strength of J23101.</p>
+				<p>Further review of the mean fluorescence over time that most of the test devices demonstrate sufficient fluorescence between three to four hours. Following that time span, the florescence begins to decrease. For devices with the J23106 promoter, fluorescence begins to decrease past the two hour mark.</p>
+				<p>In comparing the relative strengths of the promoters in combination with the RBS, the difference between the fluorescence measurements may be attributed to the strength of the RBS thus affecting the level of fluorescence (where J346100 may be stronger than the B0032). With data from other teams participating in the Interlab study, the UMaryland team hopes that the collection of all fluorescence data will better help with the standardization of fluorescence to account for varying promoter and RBS strengths. </p>
+			</div>
+			<div class="subContent content-wm">
+			
+			</div>
+			<div class="subContent content-meetup">
+			<p class="h2"><strong>Mid-Atlantic Meetup</strong></p>
+			<p class="h3"><em>University of Virginia, 29 July 2017</em></p>
+			<img src="http://2017.igem.org/wiki/images/6/62/T--UMaryland--uva1.jpg" class="contentImg" style="max-height: 400px;"/>
+			<p>
+				By attending the the 2017 Mid Atlantic Meet-up hosted by the University of Virginia, the UMaryland iGEM team both discovered further improvements on all three projects and established collaboration opportunities with other teams. The attendees of the event included: William & Mary, UDelaware, UNC-Asheville, and Georgia State. Following the presentations, the UMaryland team was inspired by William & Mary’s human practices and outreach efforts in education. 
+			</p>
+			<p>In addition to testing each team’s plasmids, our teams discussed collaboration opportunities on curriculum planning and methods in improving our “Lab-in-a-box” design and protocol. We had the pleasure of talking to all teams to reconsider the implementation of the banana project and revising the metal detection project with a narrower scope for education purposes. 
+			<img src="http://2017.igem.org/wiki/images/1/14/T--UMaryland--uva2.jpg" class="contentImg" style="max-height: 400px;"/>
+			<p>The Mid Atlantic Meet-up’s informative breakout sessions featured several speakers and through these talks, the UMaryland team learned about the growth of open community labs and the beginnings of commercial implementations of synthetic biology. We also met Elliot Roth, who introduced us to Dr. Robalino and his work in saving the Cavendish banana. The breakout sessions motivated us to develop a “Lab-in-a-box” focused on accessibility in small communities for students. From this meet-up, the UMaryland team gathered novel methods in both teaching synthetic biology and catering to our local communities. 
+			</p>
+			</div>
+		</div>
 	</div>
 </div>
 </body>
 <script type="text/javascript">
-
+	function targetRedir(targetClick) {
+		var targetAttr = (function(targetClick) {
+			switch (targetClick) {
+				case 'hardware':
+					return 'diy';
+					break;
+				case 'engagement':
+					return 'teaching';
+					break;
+				case 'integrated':
+					return 'panama';
+					break;
+				case 'model':
+					return 'modeling';
+					break;
+				case 'demonstrate':
+					return 'banana';
+					break;
+				case 'practices':
+					return 'panama';
+					break;
+				case 'interlab':
+					return 'collaboration';
+					break;
+				case 'attributions':
+					return 'ack';
+					break;
+				case 'collaborations':
+					return 'collaboration';
+					break;
+				case 'safety':
+					return 'notebook';
+					break;
+				default:
+					break;
+			}
+		})(targetClick);	
+		$('.block').filter(function() {
+			return $(this).attr('data-target') == targetAttr;
+		}).click();
+	}
 
 	$('.pageCanvas').css('display', 'block');
 	
@@ -1522,13 +2113,14 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	});
   });
   
-  $('.subContainerProjects li').click( function() {
+  $('.subContainerProjects ul li').click( function() {
 		color = $(this).css('background-color');
 		if (color == 'rgba(8, 113, 196, 0.5)') {
 			var target = $(this).attr('data-select-target');
 			$('.subContent').css('display', 'none');
 			$('.content-'+target).css('margin-left','100px');
 			$('.content-'+target).css('display','block');
+			$('.content-'+target+' .h2').get(0).scrollIntoView();
 			$('.content-'+target).animate({
 				'margin-left': '0px'
 			},100,'linear')
@@ -1537,7 +2129,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		};
 	})
 	
-	$('.subContainerOutreach li').click( function() {
+	$('.subContainerOutreach ul li').click( function() {
 		color = $(this).css('background-color');
 		if (color == 'rgba(180, 73, 100, 0.5)') {
 			var target = $(this).attr('data-select-target');
@@ -1546,6 +2138,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				$('.subContent').css('display', 'none');
 				$('.content-'+target).css('margin-left','100px');
 				$('.content-'+target).css('display','block');
+				$('.content-'+target+' .h2').get(0).scrollIntoView();
 				$('.content-'+target).animate({
 					'margin-left': '0px'
 				},100,'linear')
@@ -1558,13 +2151,24 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	$('.subContainerNotebook li').click( function() {
 		color = $(this).css('background-color');
 		if (color != 'transparent') {
-			$('.subContainerNotebook li').css('background-color', 'transparent')
-			$(this).css('background-color', 'rgba(134,224,125,1)');
+			var target = $(this).attr('data-select-target');
+			if (target === undefined) {
+			} else {
+				$('.subContent').css('display', 'none');
+				$('.content-'+target).css('margin-left','100px');
+				$('.content-'+target).css('display','block');
+				$('.content-'+target+' .h2').get(0).scrollIntoView();
+				$('.content-'+target).animate({
+					'margin-left': '0px'
+				},100,'linear')
+				$('.subContainerNotebook li').css('background-color', 'transparent')
+				$(this).css('background-color', 'rgba(134,224,125,1)');
+			}
 		}
 	});
 	
 	
-	$('.subContainerAbout li').click( function() {
+	$('.subContainerAbout ul li').click( function() {
 		var color = $(this).css('background-color');
 		var selected = $(this).parent().parent().prev('.levelOne').css('background-color')
 		if (selected == 'rgba(0, 0, 0, 0)') {
@@ -1572,6 +2176,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			$('.subContent').css('display', 'none');
 			$('.content-'+target).css('margin-left','100px');
 			$('.content-'+target).css('display','block');
+			$('.content-'+target+' .h2').get(0).scrollIntoView();
 			$('.content-'+target).animate({
 				'margin-left': '0px'
 			},100,'linear')
@@ -1583,6 +2188,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			$('.subContent').css('display', 'none');
 			$('.content-'+target).css('margin-left','100px');
 			$('.content-'+target).css('display','block');
+			$('.content-'+target+' .h2').get(0).scrollIntoView();
 			$('.content-'+target).animate({
 				'margin-left': '0px'
 			},100,'linear')
@@ -1683,6 +2289,10 @@ $(document).ready(function() {
 
 
 	
+  });
+  
+  $('.content-ack li').click(function() {
+	event.preventDefault();
   });
   
 </script>
