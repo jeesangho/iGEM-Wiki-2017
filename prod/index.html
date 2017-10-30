@@ -945,6 +945,10 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 		color: white;
 		border: 2px solid white;
 	}
+	
+	.secondList {
+		list-style-type: lower-latin;
+	}
 </style>
 <body>
 <div class="overlay">
@@ -1075,6 +1079,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			<ul>
 				<li data-select-target="background">Background</li>
 				<li data-select-target="design">Design</li>
+				<li data-select-target="modelB">Modeling</li>
 				<li data-select-target="results">Results</li>
 			</ul>
 		</nav>
@@ -1191,6 +1196,63 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				<p></p>
 			</div>
 		</div>
+			<div class="subContent content-modelB">
+				<div class="h2">Modeling</div>
+				<div class="h3" style="margin-top: 30px;">How Should We Design the Banana Project?</div>
+				<p>As discussed in the Design Section of the Banana project, we devised three possible designs to transduce the fusaric acid signal. Here’s a quick recap of the designs:</p>
+				<ol>
+					<li>The TetR Design places TLP expression under a pTet promoter. TetR is expressed under the phlF promoter. In the presence of fusaric acid, TetR does not express, allowing for TLP to express.</li>
+					<li>The Antisense Design places TLP expression under a constitutive promoter. An antisense RNA that binds to the TLP transcript is expressed under the phlF promoter. In the presence of fusaric acid, the antisense RNA is not produced, and the TLP transcript is liberated and translated into TLP.</li>
+					<li>The T7 Design places TLP expression under a T7 promoter. T7 polymerase is expressed under the pTet promoter. TetR is expressed under the phlF promoter. In the presence of fusaric acid, TetR does not express, allowing T7 polymerase to express, leading to the expression of TLP.</li>
+				</ol>
+				<p>The overall question we’re trying to answer is: which design is best? In order to answer this question, we broke it down into more concrete questions that we could search in the literature.</p>
+				<img src="http://2017.igem.org/wiki/images/b/b5/T--UMaryland--flow.png" class="contentImg" style="max-height: 500px;" />
+				<p>Following this roadmap, here is what we found:</p>
+				<ol>
+					<li>How do the promoters stack up in terms of strength?:
+						<ol class="secondList">
+							<li>According to the 2015 Glasgow iGEM team, the phlF promoter is slightly stronger than the pTet promoter (Figure 1). According to literature<sup>1</sup>, the T7 promoter should be about three times as strong as the phlF promoter.</br>
+							<img src="http://2017.igem.org/wiki/images/d/d7/T--UMaryland--glas.jpg" style="max-height: 400px;" /></br>
+							<em>Glasgow iGEM 2015</em>
+							</br>
+							</li>
+						</ol>
+					</li>
+					<li>
+					How fast is the signal? This question comes down to the time it takes for each of the signal molecules to degrade. The TetR Design and the T7 Design rely on the degradation of TetR to begin TLP expression. The Antisense Design relies on the degradation of an antisense RNA molecule to begin TLP expression.
+						<ol class="secondList">
+							<li>TetR degrades in ~40 minutes when fitted with an LVA tag.<sup>2</sup></li>
+							<li>Antisense RNA usually degrades in ~8 minutes.<sup>3</sup></li>
+						</ol>
+					</li>
+					<li>How toxic is fusaric acid?
+						<ol class="secondList">
+							<li>The numbers varied, but we found that fusaric acid has a strong impact on the cell. Fusaric acid inhibits growth of Bacillus Subtilis by 60% at a concentration of 200 ug/ml.<sup>4</sup> Future work of our group includes investigating the effects of fusaric acid on our chasse organism.</li>
+						</ol>
+					</li>
+					<li>
+						How much fusaric acid are the cells exposed to?
+						<ol class="secondList">
+							<li>The phlF promoter begins responding at a concentration of 46 ug/ml<sup>5</sup>. Our cells may therefore need to be exposed to a significant inhibitory concentration before responding to fusaric acid.</li>
+						</ol>
+					</li>
+				</ol>
+				<p>Based on this literature information, each design is given the following review:</p>
+				<ol>
+					<li><strong>TetR Design</strong>: This design performs worst in terms of the rate of TLP production as it expresses TLP under the weakest promoter. This design does not have a quick response time to fusaric acid, as TLP will only be expressed once TetR degrades after forty minutes.</li>
+					<li><strong>Antisense Design</strong>: This design expresses TLP under a promoter that is three times weaker that the T7 promoter. However, its response time to fusaric acid is dramatically faster. After about eight minutes, the antisense RNA will degrade, allowing the TLP transcript to be translated.</li>
+					<li><strong>T7 Design</strong>: This design expresses TLP under a significantly stronger promoter than the other designs. However, it likely has the slowest response time, as TLP production only begins once TetR degrades and T7 expresses. Furthermore, leaky expression is a big concern with this design. All the designs have the potential for leaky expression, but leaky TetR repression in this design would lead to T7 polymerase expression, and fundamentally turn on the entire expression system.</li>
+				</ol>
+				<p style="font-size: 14pt; margin-top: 30px; margin-bottom: 30px; font-weight: bold;">After our investigation, we conclude that the Antisense Design is “best.”</p>
+				<img src="http://2017.igem.org/wiki/images/7/75/T--UMaryland--decision.jpg" class="contentImg" style="max-height: 500px;" />
+				<ol>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Tegel, H., Ottosson, J., &amp; Hober, S. (2011, January 12). Enhancing the protein production levels in Escherichia&emsp;coli with a strong promoter. Retrieved October 25, 2017, from </span><a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1742-4658.2010.07991.x/full"><span style="font-weight: 400;">http://onlinelibrary.wiley.com/doi/10.1111/j.1742-4658.2010.07991.x/full</span></a></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Andersen, J. B., Sternberg, C., Poulsen, L. K., Bj&oslash;rn, S. P., Givskov, M., &amp; Molin, S. (1998, June). New Unstable Variants of Green Fluorescent Protein for Studies of Transient Gene Expression in Bacteria. Retrieved October 25, 2017, from </span><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC106306/"><span style="font-weight: 400;">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC106306/</span></a></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Philips, R. M. (n.d.). &raquo; How fast do RNAs and proteins degrade? Retrieved October 25, 2017, from </span><a href="http://book.bionumbers.org/how-fast-do-rnas-and-proteins-degrade/"><span style="font-weight: 400;">http://book.bionumbers.org/how-fast-do-rnas-and-proteins-degrade/</span></a></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Bacon, C. W., Hinton, D. M., &amp; Hinton, J. R. (2006). Growth-inhibiting effects of concentrations of fusaric acid on the growth of Bacillus mojavensis and other biocontrol Bacillus species. Retrieved October 25, 2017, from </span><a href="https://www.ncbi.nlm.nih.gov/pubmed/16405699"><span style="font-weight: 400;">https://www.ncbi.nlm.nih.gov/pubmed/16405699</span></a></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Notz, R., Maurhofer, M., Dubach, H., Haas, D., &amp; Defago, G. (2002). Fusaric Acid-Producing Strains of Fusarium oxysporum Alter 2,4-Diacetylphloroglucinol Biosynthetic Gene Expression in Pseudomonas fluorescens CHA0 In Vitro and in the Rhizosphere of Wheat. </span><em><span style="font-weight: 400;">Applied and Environmental Microbiology,68</span></em><span style="font-weight: 400;">(5), 2229-2235. Retrieved October 29, 2017.</span></li>
+</ol>
+			</div>
 			<div class="subContent content-results">
 				<p class="h2">Results</p>
 				<p>Unfortunately, we were unable to create our full, composite plasmid, but we did create it in three separate parts - a sensing part, an antisense RNA part, and a TLP export part. Our experiments involved testing the sensing and TLP export parts individually. To do this, we created a test part that combined our sensing part with a GFP reporter and another test part of constitutively expressed TLP with a histidine tag for easy isolation and detection.</p>
@@ -1784,7 +1846,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 							<td>This is the Cas9 gene that was utilized in our experiments. It is capable of cleaving specific DNA sequences when expressed alongside an sgRNA. This part was taken from addgene plasmid pML107.</td>
 							<td><a href="http://parts.igem.org/Part:BBa_K2477004">http://parts.igem.org/Part:BBa_K2477004</a></td>
 						</tr>
-					<tbody>
+					</tbody>
 				</table>
 				<div class="h3">Composite Parts</div>
 				<table class="partsTable">
@@ -1827,12 +1889,57 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 							<td>This part constitutively expresses the CueR repressor. This repressor then inhibits the expression of RFP from the downstream PcopA promoter. In the presence of copper, the repression of CueR is inhibited leading to greater RFP expression. Fluorescence of this construct has been shown to increase with increasing copper concentration in both a qualitative and quantitative manner.</td>
 							<td><a href="http://parts.igem.org/Part:BBa_K2477013">http://parts.igem.org/Part:BBa_K2477013</a></td>
 						</tr>
-					<tbody>
+					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
 	<div id="container-modeling" class="subContainer subContainerNotebook">
+		<nav> 
+			<ul>
+				<li data-select-target="cas9M">Global Mutagenesis</li>
+			</ul>
+		</nav>
+		<div class="content contentNotebook">
+			<div class="subContent content-cas9M">
+				<div class="h2">Modeling</div>
+				<div class="h3">The Math Behind Global Mutagenesis and Cas9 Selection</div>
+				<p>Random mutagenesis is a valuable technique because it produces novel protein structures with potentially useful functions. Unfortunately, global mutagenesis operations also generate a vast array of fruitless changes. In our project we define potentially useful mutations as mutations that occur within a small region of interest in a gene. To determine the ratio of potentially-useful-mutations to definitely-useless-mutations produced by a global mutagenesis operation, we take a dive into probability theory.</p>
+				<img src="http://2017.igem.org/wiki/images/f/f8/T--UMaryland--model.jpg" class="contentImg" style="max-height: 400px;" />
+				<p>Consider the following scenario:</p>
+				<ol>
+					<li>We grow a colony of cells from a single cell.</li>
+					<li>At each cell division, there is a probability <em>p</em> that the cell will mutate desirably.</li>
+					<li>The cell divides <em>d</em> number of times before being mini-prepped.</li>
+				</ol>
+				<p>Our goal is to find the density of cells that have mutated desirably at the end of <em>d</em> divisions. To do so, we find the probability that any given cell has mutated desirably. Finding this probability is tricky because desirable mutations propagate throughout generations. We must therefore find the probability that any given cell in the final generation is NOT desirably mutated. The graphic below more readily demonstrates the math involved to analyze the cell population at the end of <em>d</em> divisions.</p>
+				<p>If the probability that any given cell is NOT desirably mutated is (1-p)<sup>d</sup>, the probability that any given cell IS desirably mutated is 1-(1-p)<sup>d</sup>. Rather than being concerned with cell mutations, we remember that we are truly interested in mutations of individual bases. Multiplying 1-(1-p)<sup>d</sup> by the size of our region, r, yields the probability that any given cell contains a potentially useful mutation.</p>
+				<p>We reach the following result:</p>
+				<img src="http://2017.igem.org/wiki/images/6/6d/T--UMaryland--eq1.png" type="contentImg" style="max-width: 250px; margin-bottom: 20px;" />
+				<p>Where M is the density of cells that have potentially useful mutations.</p>
+				<p>This model assumes that:</p>
+				<ol>
+					<li>Cas9 always cuts the on-target site;</li>
+					<li>any off-target cuts are inconsequential;</li>
+					<li>all mutations are non-lethal.</li>
+				</ol>
+				<p>The following describes a realistic application of our project:</p>
+				<p style="margin-left: 20px;">
+					Using XL-1 Red cells, 1 in 1,000,000 bases is mutated at every cell division.<sup>1</sup> We grow a colony of XL-1 Red cells for 30 generations, and are investigating a plasmid region that’s 20 bases large.</br>
+					<img src="http://2017.igem.org/wiki/images/9/9d/T--UMaryland--eq0.png" style="max-height: 60px;" /></br>
+					<span style="color: red">Therefore 0.06% of plasmids will have a selectable mutation at the end of the mutagenesis operation</span>
+				</p>
+				<p>At the end of 30 divisions, 1 cell will have become over half a billion. By implementing Cas9 screening on our globally mutagenized cells, we will transform a mixture of only 300,000 genetically unique circularized plasmids. Each of these plasmids has mutations in the region of interest.</p>
+				<p>Furthermore, finding the partial derivatives of our expression for M gives us a better idea of how this technique works. The following equations demonstrate the relative importance of each variable.</p>
+				<img src="http://2017.igem.org/wiki/images/3/3a/T--UMaryland--eq2.png" type="contentImg" style="max-height: 60px; margin-bottom: 20px;" /></br>
+				<img src="http://2017.igem.org/wiki/images/8/88/T--UMaryland--eq3.png" type="contentImg" style="max-height: 60px; margin-bottom: 20px;" /></br>
+				<img src="http://2017.igem.org/wiki/images/a/a5/T--UMaryland--eq4.png" type="contentImg" style="max-height: 60px; margin-bottom: 20px;" />
+				<p>where <em>M</em> is the potentially-useful-mutant density, <em>p</em> is the mutation rate, <em>d</em> is the number of divisions, and <em>r</em> is the target region size.</p>
+				<p>Since <em>p</em> is usually on the order of one one-millionth; <em>d</em> is usually on the order of twenty or thirty; and <em>r</em> is usually twenty, we can see the typical contribution of changing each term. For coarse adjustment of the M value, the mutation rate should be altered. For fine adjustment of the M value, the generation number <em>d</em> should be altered. This foresight is useful for synthetic biologists who want to plan their lab work around the results of the mutagenesis operation.</p>
+				<p>Thus, our concise mathematical model and its derivatives are a guide for how to use the project. They inform the synthetic biologist about the variables that will impact their success with the technique, and they tell the synthetic biologist how to change those variables in order to ensure a better outcome.</p>
+				<p><span style="font-weight: 400;">1. Competent Cells For Random Mutagenesis - Details &amp; Specifications. (n.d.). Retrieved October 29, 2017, from http://www.genomics.agilent.com/article.jsp?crumbAction=push&amp;pageId=648</span></p>
+			</div>
+		</div>
 	</div>
 	<div id="container-notebook" class="subContainer subContainerNotebook">
 		<nav> 
@@ -2111,6 +2218,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	$('.overlay').animate({
 		left: '-100vw'
 	});
+	$('.contentContainer').prepend( $('.overlay .subContainer'));
   });
   
   $('.subContainerProjects ul li').click( function() {
