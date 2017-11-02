@@ -873,6 +873,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	
 	.content .h2:nth-child(1) {
 		margin-top: 60px;
+		padding-top: 20px;
 	}
 	
 	.h3 {
@@ -974,6 +975,10 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	
 	.caption {
 		text-align: center;
+		font-size: 10pt;
+		max-width: 650px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 	
 	.partsTable td {
@@ -1155,6 +1160,8 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				</p>
 				<p>As a result, we propose to transform BA to produce an antifungal TLP. Then we will again combine this with compost to create a fertilizer that is even more potent. Since TLPs are known to actually be able to kill the fungus in addition to being able to inhibit spore germination, this transformed BA has the potential to be more effective against <em>F. oxysporum</em>. 
 				</p>
+				<img src="http://2017.igem.org/wiki/images/5/5d/T--UMaryland--overview.png" class="contentImg" style="max-height: 550px;" />
+				<p class="caption">Bacillus amyloliquefaciens, a bacterium that grows synergistically with the roots of the Cavendish banana plant, senses Fusarium oxysporum, the fungus causing Panama disease. In response, B. amyloliquefaciens produces TLP, an antifungal, to fight off the pathogen.</p>
 				<div class="h3">Why Choose Our Approach</div>
 				<p>There is currently a lot of stigma around and distrust of genetically modified foods. As a result, we wanted to focus on creating a genetically modified organism that would serve as a probiotic treatment for banana plants. </p>
 			</div>
@@ -1314,24 +1321,27 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			</div>
 			<div class="subContent content-results">
 				<p class="h2">Results</p>
-				<p>Unfortunately, we were unable to create our full, composite plasmid, but we did create it in three separate parts - a sensing part, an antisense RNA part, and a TLP export part. Our experiments involved testing the sensing and TLP export parts individually. To do this, we created a test part that combined our sensing part with a GFP reporter and another test part of constitutively expressed TLP with a histidine tag for easy isolation and detection.</p>
-				<p class="h3">Sensing Results</p>
-				<p>To test how our sensing system responded to the presence of fusaric acid, we created a construct with our constitutively expressed fusaric acid activated repressor (phlF), respective promoter (PphlF), and a GFP reporter. We grew our construct in different molarities of fusaric acid (0&#181;M, 100&#181;M, and 500 &#181;M) along with a negative control without a GFP reporter and a positive control with a constitutive GFP reporter. We found that sensing-reporting bacteria did not grow in any concentrations of fusaric acid, while our controls did. Therefore, we were unable to characterize our proposed sensing mechanism. Had our test worked, we expected to see decreased fluorescence with the presence of fusaric acid, with a more dramatic lowering than our positive control. We tried this test again using salicylate, another compound found to stabilize the phlF repressor, in hopes to get results of sensing. Fortunately, this compound was not toxic to the cells, but our results showed no significant decrease in fluorescence upon addition of salicylate.</p>
+				<p>We were unfortunately unable to create our full, composite plasmid, but we did create it in three separate parts - a sensing part, an antisense RNA part, and a TLP secretion part. Our experiments involved testing the sensing and TLP export parts individually. To do this, we created a test part that combined our sensing part with a GFP reporter and another test part of constitutively expressed TLP with a histidine tag for easy isolation and detection.</p>
+				<p class="h3">Sensing Results</p>&#181;
+				<p>To test how our sensing system responded to the presence of fusaric acid, we created a construct with our constitutively expressed fusaric acid activated repressor (phlF), respective promoter (PphlF), and a GFP reporter (BBa_K2477008). We grew our construct in different molarities of fusaric acid (0&#181;M, 100&#181;M, and 500 &#181;M) along with a negative control without a GFP reporter and a positive control with a constitutive GFP reporter. We found that sensing-reporting bacteria did not grow in any concentrations of fusaric acid, while our controls did. Therefore, we were unable to characterize our proposed sensing mechanism. Had our test worked, we expected to see decreased fluorescence with the presence of fusaric acid, with a more dramatic lowering than our positive control. We tried this test again using salicylate, another compound found to stabilize the phlF repressor, in hopes to get results of sensing. Fortunately, this compound was not toxic to the cells, but our results showed no significant decrease in fluorescence upon addition of salicylate.
+</p>
 				<p class="h3">TLP Expression</p>
-				<p>We planned several tests to see if TLP was being produced and if it was working properly. Our first set of tests were assays for basic TLP expression. Had these tests been successful, we planned to move on to test the ability to TLP to act as an antifungal, and ultimately the ability of our <em>E. coli</em> to kill <em>F. oxysporum.</em></p>
-				<p><strong>SDS-PAGE</strong></p>
-				<p>Our initial basic proof of concept to test was to analyze whether our TLP was being expressed. To do this, we created a part that constitutively expressed TLP with a 10x histidine tag allowing for column purification. We first tested to see if TLP was expressed by sonicating our TLP producing cells and running the product through a column that would purify the histidine tagged TLP.</p>
+				<p>We planned several tests to determine the expression and activity of TLP. Our first set of tests were assays for basic TLP expression. Had these tests been successful, we planned to move on to test the ability to TLP to act as an antifungal, and ultimately the ability of our E. coli to kill F. oxysporum. </p>
+				<p><strong>SDS-PAGE of TLP</strong></p>
+				<p>To test expression of TLP in a bacterial cell, we created a part to constitutively expressed TLP with a 10x histidine tag (BBa_K2477006). Cells were grown overnight to full OD then sonicated. The cell lysate was purified with a Zymo Reserach His-Spin Protein Miniprep Kit.</p>
 				<img src="http://2017.igem.org/wiki/images/f/fe/T--UMaryland--page.png" class="contentImg" style="max-height:550px;" />
-				<p class="caption"><em><strong>SDS PAGE of purified protein</strong> - An SDS PAGE of the product from his-tag purification was performed. The left lane is a standard ladder and the right lane is our purified product. We expected to see a thick band around 18kDa but saw no significant banding at any location.</em></p>
-				<p>We tried again with different conditions and different cell fractions, and again were not seeing the band we anticipated to see. We decided to try to test for expression in two other ways - performing a Western Blot using anti-histidine antibodies and creating a T7 promoter controlled TLP part where expression would be obvious with the induction of T7 polymerase expression. We were not able to assemble the part described in time.</p>
+				<p class="caption"><em><strong>SDS PAGE of purified protein</strong> - An SDS PAGE of the product from his-tag purification was performed. The left lane is the ladder and the right lane is eluate from the column purification, determined by nanodrop to have 12.5 ug of protein. We expected to see a band around 18 kDa but saw no significant banding at any location.</em></p>
+				<p>Several other SDS PAGE gels were ran (not shown) with different conditions. To account for the possibility that the TLP is insoluble, cell extract was boiled in SDS and loaded onto a gel. No significant difference in protein expression was found between the control and TLP culture.</p>
+				<p>A bacterial secretion system was created (BBa_K2477009) to attempt to secrete TLP. The culture supernatant was concentrated and loaded onto a gel along with boiled cell extract. Again, no significant banding difference could be visualized with SDS-PAGE.</p>
+				<p>From these results, we considered that the TLP expression could have been too low to be visualized on a gel. We then pursued two options--creating a new part with TLP under the control of a T7 promoter, and running a Western Blot. Due to time constraints, we were unable to assemble the T7 controlled TLP part in time for testing.</p>
 				<p><strong>Western Blot</strong></p>
-				<p>Using anti-histidine antibodies, we performed a Western Blot to see if our TLP was being expressed. We used a positive control of GFP with a histidine tag and a negative control of a construct without a histidine tag. We did not see any expression of TLP.</p>
+				<p>Using anti-His tag antibodies, we performed a Western Blot to see if our TLP was being expressed. We used a positive control of GFP with a histidine tag and a negative control of a construct without a histidine tag. We did not see any expression of TLP.</p>
 				<p><strong>Efficacy of TLP as an antifungal</strong></p>
 				<p>We planned to test the ability of TLP and the TLP-producing <em>E. coli</em> to inhibit fungal growth or cause fungal death. To do this, we initially planned to perform a disc-diffusion assay with our purified protein product and <em>F. oxysporum</em> and qualitatively measure difference in fungal growth between that and a control. We planned to plate the fungus and add a drop of either a purified protein product or control (positive and negative) onto filter paper around the edge of the fungal growth (for growth inhibition) and in the fungal culture (for death). </p>
 				<p>Our next step would have been to repeat this procedure, but use a cell lysate instead of protein product. This test would be to determine if our bacteria could produce enough TLP to have an effect on <em>F. oxysporum</em>.</p>
 				<p>Following that, our final test would be to grow <em>E. coli</em> with the <em>F. oxysporum</em> on plates and observe any fungal growth inhibition or death beyond that observed in a negative control. This test would be to determine if our bacteria had antifungal properties.</p>
 				<img src="http://2017.igem.org/wiki/images/1/1f/T--UMaryland--oxy.png" class="contentImg" style="max-height: 500px;" />
-				<p>A sample of our bacteria and fungus test. The fungus was spread vertically in columns one third of the way to the center. The bacteria was spread horizontally across the center.</p>
+				<p class="caption">A sample of our bacteria and fungus test. The fungus was spread vertically in columns one third of the way to the center. The bacteria was spread horizontally across the center.</p>
 			</div>
 		</div>
 	</div>
@@ -1341,34 +1351,69 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				<li data-select-target="background">Background</li>
 				<li data-select-target="designC">Design</li>
 				<li data-select-target="expC">Experiments</li>
-				<li>Results</li>
+				<li data-select-target="resultsC">Results</li>
 			</ul>
 		</nav>
 		<div class="content">
 			<div class="subContent content-background">
 				<div class="h2">Cas9 Mutagenesis Projects</div>
 				<div class="h3">Background</div>
-				<p><span style="font-weight: 400;">During our research for the fight against </span><em><span style="font-weight: 400;">Fusarium oxysporum, </span></em><span style="font-weight: 400;">we encountered literature that suggested the PhlF protein was weakly active without the presence of its inducer. PhlF is a repressor induced by compounds such as fusaric acid and salicylate. In our circuit, its activation triggers a TLP-producing response through a system that represses the off-switch to TLP production. Constitutive weak repressing activity causes the unnecessary metabolic strain of producing TLP in conditions without </span><em><span style="font-weight: 400;">F. oxysporum</span></em><span style="font-weight: 400;">. In the interest of reducing this metabolic stress placed upon our bacterial strain of choice, we decided to pursue efforts to modify this protein in order to alter its repression profile. The hope was to create a PhlF protein that would only have repressive activity in the presence of its inducer.</span></p>
-				<p><span style="font-weight: 400;">Typically, mutating a protein in hopes of increasing its aptitude for a particular task is difficult and likely to fail. In all likelihood, the selective pressures of evolution will have already selected for the most streamlined, functional variant(s) long ago. The PhlF protein, however, is a multifunctional repressor capable of performing a variety of tasks and responding to multiple stimuli. As such, we reasoned that it may be possible to mutate the protein in such a way that it would be unfit for use in the natural environment, &nbsp;but ideally suited for our particular application of it in our genetic circuit.</span></p>
+				<p>During our research for the fight against Fusarium oxysporum, we encountered literature that suggested the PhlF protein was weakly active without the presence of its inducer. PhlF is a repressor induced by compounds such as fusaric acid and salicylate. In our circuit, its activation triggers a TLP-producing response through a system that represses the off-switch to TLP production. Constitutive weak repressing activity causes the unnecessary metabolic strain of producing TLP in conditions without F. oxysporum. In the interest of reducing this metabolic stress placed upon our bacterial strain of choice, we decided to pursue efforts to modify this protein in order to alter its repression profile. The hope was to create a PhlF protein that would only have repressive activity in the presence of its inducer.</p>
+				<p>Typically, mutating a protein in hopes of increasing its aptitude for a particular task is difficult and likely to fail. In all likelihood, the selective pressures of evolution will have already selected for the most streamlined, functional variant(s) long ago. The PhlF protein, however, is a multifunctional repressor capable of performing a variety of tasks and responding to multiple stimuli. As such, we reasoned that it may be possible to mutate the protein in such a way that it would be unfit for use in the natural environment,  but ideally suited for our particular application of it in our genetic circuit.</p>
+
 			</div>
 			<div class="subContent content-designC">
 				<div class="h2">Cas9 Mutagenesis Projects</div>
 				<div class="h3">Design</div>
-				<img src="http://2017.igem.org/wiki/images/d/db/T--UMaryland--cas9Schematic.png" class="contentImg" style="max-height: 500px" />
-				<p class="caption"><strong><em>Cas9 screening method &nbsp;- &nbsp;A. </em></strong><em><span style="font-weight: 400;">A target sequence is mutated &nbsp;in a plasmid containing an antibiotic resistance. </span></em><strong><em>B.</em></strong><em><span style="font-weight: 400;"> The plasmid of interest is transformed &nbsp;into competent cells with the Cas9/ sgRNA machinery. </span></em><strong><em>C.</em></strong><em><span style="font-weight: 400;"> Expression of Cas9 and its sgRNA that compliments the wild type target sequence is induced. Plasmids mutated in the target region evade Cas9 cleavage. Plasmids retaining the wild type, non-mutated sequence are cleaved by Cas9 and degraded. </span></em><strong><em>D. </em></strong><em><span style="font-weight: 400;">The transformed bacteria are plated with the selected antibiotic. Cells with mutations in the region of interest maintain antibiotic resistance and survive. Cells without mutations lose their resistance and do not grow. </span></em></p>
-				<p><span style="font-weight: 400;">For the actual process of mutating the </span><em><span style="font-weight: 400;">phlF </span></em><span style="font-weight: 400;">gene, we set our sights on altering the operator binding region. This was a small section within the gene and to select for mutants within it we decided to adapt a side project that we had been mulling over. The goal of this project was to utilize Cas9 and an sgRNA with a base pairing region corresponding to a region of interest within a gene in order to select against non-mutants in that particular domain. This Cas9 selected mutagenesis project was originally going to be geared towards screening genomic mutants, but we elected to alter the project design to focus moreso on plasmid mutagenesis so as to increase its fitness for usage alongside our banana project.</span></p>
-				<p><span style="font-weight: 400;">The idea behind this project is to use the specific endonuclease activity of Cas9 as a screening tool in order to cleave genes that are unmutated in a region of interest. There are therefore two important aspects of this project that must be considered. First is the production of Cas9 and a compatible sgRNA molecule with a base pairing region corresponding to the region of interest within a gene. Second is the presence of the gene of interest that will have preferably undergone some form of random mutagenesis. These two elements must be encoded within separate plasmids with compatible origins of replication and differing antibiotic resistance markers. Other than this, another major consideration in terms of utilizing this system would be the proper design of the sgRNA and the assurance that a protospacer adjacent motif (PAM) exists near the region of interest.</span></p>
-				<p><span style="font-weight: 400;">We believe that the strength of this system lies in its ability to screen for mutations that do not produce an easily observed phenotypic change. However, in order to test the efficacy of the system we opted to use GFP as it is both well characterized gene and capable of producing a variety of different mutations that would allow for easier screening down the line. The known mutations for GFP have also been well studied which made it very easy for us to identify the chromophore region of the gene as the ideal site to target with our Cas9 screening system in order to show a proof of concept.</span></p>
-				<p><span style="font-weight: 400;">In terms of tweaking the system for use alongside GFP, it was relatively simple. We identified our region of interest within the GFP gene as the chromophore encoding region and proceeded to scan the nearby DNA for a PAM site. In the case of the </span><em><span style="font-weight: 400;">Streptococcus pyogenes </span></em><span style="font-weight: 400;">Cas9 that we were using, the PAM site was 5'-NGG-3'. Unfortunately, since the base pairing region for an sgRNA is limited in terms of size to about 20-25 base pairs and since there were no PAM sites near our 9 base pair region of interest, we had to improvise. We ended up making a synonymous site directed mutation within the GFP gene in order to artificially introduce a PAM site on the bottom strand. This allowed for the design of an sgRNA capable of interacting with our region of interest.</span></p>
+				<img src="http://2017.igem.org/wiki/images/d/da/T--UMaryland--cas9scheme.jpg" class="contentImg" style="max-height: 550px;" />
+				<p class="caption"><strong>Cas9 screening method.</strong>  <strong>(A)</strong> A target sequence is mutated  in a plasmid containing an antibiotic resistance. <strong>(B)</strong> The plasmid of interest is transformed  into competent cells with the Cas9/ sgRNA machinery. <strong>(C)</strong> Expression of Cas9 and its sgRNA that compliments the wild type target sequence is induced. Plasmids mutated in the target region evade Cas9 cleavage. Plasmids retaining the wild type, non-mutated sequence are cleaved by Cas9 and degraded. <strong>(D)</strong> The transformed bacteria are plated with the selected antibiotic. Cells with mutations in the region of interest maintain antibiotic resistance and survive. Cells without mutations lose their resistance and do not grow. </p>
+				<p>For the actual process of mutating the phlF gene, we set our sights on altering the operator binding region. This was a small section within the gene and to select for mutants within it we decided to adapt a side project that we had been mulling over. The goal of this project was to utilize Cas9 and an sgRNA with a base pairing region corresponding to a region of interest within a gene in order to select against non-mutants in that particular domain. This Cas9 selected mutagenesis project was originally going to be geared towards screening genomic mutants, but we elected to alter the project design to focus moreso on plasmid mutagenesis so as to increase its fitness for usage alongside our banana project.</p>
+				<p>The idea behind this project is to use the specific endonuclease activity of Cas9 as a screening tool in order to cleave genes that are unmutated in a region of interest. There are therefore two important aspects of this project that must be considered. First is the production of Cas9 and a compatible sgRNA molecule with a base pairing region corresponding to the region of interest within a gene. Second is the presence of the gene of interest that will have preferably undergone some form of random mutagenesis. These two elements would then be encoded on separate plasmids with compatible origins of replication and differing antibiotic resistance markers. Other than this, another major consideration in terms of utilizing this system would be the proper design of the sgRNA and the assurance that a protospacer adjacent motif (PAM) exists near the region of interest.</p>
+				<p>We believe that the strength of this system lies in its ability to screen for mutations that do not produce an easily observed phenotypic change. However, in order to test the efficacy of the system we opted to use GFP as it is both well characterized gene and capable of producing a variety of different mutations that would allow for easier screening down the line. The known mutations for GFP have also been well studied which made it very easy for us to identify the chromophore region of the gene as the ideal site to target with our Cas9 screening system in order to show a proof of concept.</p>
 			</div>
 			<div class="subContent content-expC">
 				<div class="h2">Cas9 Mutagenesis Projects</div>
 				<div class="h3">Experiments</div>
-				<img src="http://2017.igem.org/wiki/images/f/fc/T--UMaryland--cas9gfp.png" class="contentImg" style="max-height: 500px;" />
-				<p>The experimental design for testing our system was relatively simple. First, we transformed DH5-Alpha cells with our Cas9/sgRNA plasmid. Expression of these elements was under the control of a tetracycline promoter. The plasmid also constitutively expressed TetR, thereby allowing for the regulation of expression. These transformants were then grown up and made chemically competent, following which they were transformed with a constitutive GFP expression plasmid library that had been previously mutated using the XL1-Red mutator strain. An alternative method of random mutagenesis such as error prone PCR could have been used, but we elected to use a mutator strain due to the availability of materials and the simplicity of its use.</p> 
-				<p>Following this second round of transformations, the cells were added to fresh liquid media and Cas9/sgRNA expression was induced with the tetracycline analogue, anhydrotetracycline. These cells were grown overnight and dilution plates were made in order to isolate colonies the next day. These colonies were then sorted through in order to identify any colonies colored differently than the non-mutated GFP. Colonies were then grown overnight, cured of the Cas9/sgRNA plasmid, and then miniprepped. These plasmids were then sequenced. Fluorescence profiles of each colony of interest were also taken.</p>
-				<p>Going forward, the goal for this project is to standardize the mutagenesis system such that it can be utilized by other iGEM teams/groups. We plan to develop sets of step by step procedures in order to guide teams through the entire process of mutating a protein in the region(s) of interest. This coupled with standardized parts and assembly methods will allow for a simple mutagenesis system that can potentially be used to further the endeavors of various iGEM projects.</p>
-				
+				<p>In order to tweak our system for use alongside GFP, we first identified our region of interest within the GFP gene as the chromophore encoding region and proceeded to scan the nearby DNA for a PAM site. In the case of the Streptococcus pyogenes Cas9 that we were using, the PAM site was 5'-NGG-3'. Unfortunately, since the base pairing region for an sgRNA is limited in terms of size to about 20-25 base pairs and since there were no PAM sites near our 9 base pair region of interest, we had to improvise. We ended up making a synonymous site directed mutation within the GFP gene in order to artificially introduce a PAM site on the bottom strand. This allowed for the design of an sgRNA capable of interacting with our region of interest.</p>
+				<img src="http://2017.igem.org/wiki/images/0/00/T--UMaryland--gfpsdm.jpg" class="contentImg" style="max-height: 450px;" />
+				<p class="caption"><strong>GFP targeting.</strong> GFP was targeted for Cas9 cleavage. A silent point mutation was introduced into a wild type GFP at the 183rd base pair. This mutation created a PAM sequence recognizable by Cas9. An sgRNA was designed and introduced to complement a 20 base pair segment downstream of the PAM site.</p>
+				<p>Upon constructing all of the genetic components of our project, we set about testing our system's functionality. We first transformed DH5α cells with our Cas9/sgRNA plasmid. Expression of these elements was under the control of a tetracycline promoter and the plasmid backbone was pSB1C3. The plasmid also constitutively expressed TetR, thereby allowing for the regulation of Cas9/sgRNA expression. The part number for this Cas9/sgRNA/TetR plasmid is BBa_K2477014. These cells containing the Cas9/sgRNA expression cassette were made into chemically competent cells.</p>
+				<p>The XL1-Red strain of E. Coli was used to generate GFP mutants. BBa_K2477003 (GFP  (with artificial PAM site) plasmids in pSB3K3 were transformed into XL1-Red cells and cultured overnight. Part of the culture was subjected to a plasmid prep, yielding a library of mutant GFP plasmids. The rest of the culture was subcultured overnight, and the subsequent culture underwent plasmid prep, yielding another library of mutant GFP plasmids. These plasmid libraries are dubbed “Mutant GFP P1” and “Mutant GFP P2” for 1 or 2 days of passage in the XL1-red mutator strain. Alternative methods of generating mutants such as error prone PCR could have been used, but we elected to use a mutator strain due to the availability of materials and the simplicity of its use.</p>
+				<p>The resulting plasmid libraries were transformed into the Cas9 competent cells. Alongside the GFP mutant library, we also transformed our Cas9/sgRNA competent cells with a plasmid constitutively expressing non-mutagenized GFP containing a PAM site (BBa_K2477000) as well as a plasmid containing a constitutive RFP expression system. Both of these plasmid backbones were also pSB3K3. The non-mutagenized GFP served as a negative control as we expected it to be cleaved completely by our Cas9/sgRNA system. The RFP would meanwhile serve as a positive control that should not be cleaved by Cas9/sgRNA as it lacks sequence similarity to the sgRNA base pairing region.</p>
+				<p>After transformation and rescue, each culture was inoculated into LB cultures containing Kanamycin and Chloramphenicol. Each group contained cultures that were either induced, or not induced with a tetracycline analogue, anhydrotetracycline (ATC), to a final concentration of 400 ng/mL. These cultures were grown overnight and diluted by a factor of 10<sup>-5</sup>, 10<sup>-6</sup>, and 10<sup>-7</sup> before being plated on LB agar plates with kanamycin. </p>
+			</div>
+			<div class="subContent content-resultsC">
+				<div class="h2">Cas9 Mutagenesis Projects</div>
+				<div class="h3">Results</div>
+				<strong>Plating Results</strong>
+				<img src="http://2017.igem.org/wiki/images/1/18/T--UMaryland--gfpwt.jpg" class="contentImg" style="max-height: 350px;" />
+				<p class="caption">LB+agar+kanamycin plates of GFP wild type uninduced (left) with ATC and induced (right) with ATC. Fewer colonies by a magnitude are seen on the plate where Cas9 expression is activated.</p>
+				<img src="http://2017.igem.org/wiki/images/a/aa/T--UMaryland--gfpp2.jpg" class="contentImg" style="max-height: 350px;" />
+				<p class="caption">LB+agar+kanamycin plates of GFP Mutant P2 uninduced (left) with ATC and induced (right) with ATC. Fewer colonies by a magnitude are seen on the plate where Cas9 expression is activated.</p>
+				<img src="http://2017.igem.org/wiki/images/9/92/T--UMaryland--cas9colonies.png" class="contentImg" style="max-height: 450px;" />
+				<p class="caption">The number of colonies on each plate were counted. Colony counts were multiplied by the dilution factor to obtain CFU/mL for each group. Error bars represent standard error between the three plates for each group.</p>
+				<img src="http://2017.igem.org/wiki/images/4/4f/T--UMaryland--cas9activity.png" class="contentImg" style="max-height: 450px;" />
+				<p class="caption">The number of colonies on the (+) ATC plates were divided by the number of colonies on the (-) ATC with the same transformation conditions and dilution factors. Error bars represent the standard error between the three different plates for each group.</p>
+				<p>From the figures above, we generally observe a lower amount of colonies on plates where the Cas9 cassette was induced compared to when it was not induced. Of all groups, the non-mutant GFP sample has the lowest percentage of colonies in the induced group, which matches our expectations, as the non-mutant should be cleaved by the Cas9/sgRNA complex.</p>
+				<p>Once the plasmid is cleaved, kanamycin resistance is not passed down to daughter cells, thereby leading to cell death and lower culture density. The Mutant GFP P1 group did not show any significant different decrease in colony count, but the Mutant GFP P2 showed a significant decrease. We expected mutants to show an increase in colony survival due to the procurement of mutations that do not match the sgRNA base pairing region over time. However, we only see a slight increase from GFP to Mutant GFP P2. The RFP control did not have any significant decrease in colony count, but there was wide variation in the system. We expected to see no decrease in colony count because RFP is not targeted by the GFP sgRNA. It is possible that the slight difference observed between the two groups could be due to the added stress of induction, but the difference was not significant for us to conclude that Cas9 activation itself lowers colony count.</p>
+				<p>The conclusions that can be drawn from this data are limited as the distinction between the non-mutant GFP group and the other groups are not definitive. This data suggests that our system is somewhat functional, but more trials will have to be conducted for more reliable results.</p>
+				<strong>Sequencing Results</strong>
+				<p>From the plating tests, we searched for colonies with interesting phenotypes indicative of a change in the chromophore region of GFP. We were hoping to see several different colors, or absence of color, but only ended up encountering green and white colonies. We would have preferred to run this test several times over, but were unable to complete all desired testing due to time constraints.</p>
+				<p>We selected 10 mutant GFP P1 induced colonies, 15 mutant GFP P2 induced colonies, 2 mutant GFP P1 non-induced colonies, 2 mutant GFP P2 non-induced colonies, 2 non-mutant GFP induced colonies, and 3 uninduced non-mutant GFP non-induced colonies for sequence analysis. These colonies were grown overnight in kanamycin and then miniprepped. It should be noted that only kanamycin was included in these overnight cultures in order to reduce the prevalence of the Cas9/sgRNA plasmid, while retaining the GFP plasmid. Given enough time we would have preferred to cure these cells entirely of the Cas9/sgRNA plasmid before miniprepping, but this was unfortunately not an option. These samples were then sequenced using primers specific to GFP.</p>
+				<p>Upon analyzing the sequencing data, we found that many of the colonies selected lacked mutations within the region of interest. In particular, all of the non-mutant/wild type GFP samples and all of the mutant GFP P1 samples (induced and uninduced) lacked any mutations whatsoever in the region of interest. The mutant GFP P2 induced and uninduced groups on the other hand possessed mutations at the PAM site. The PAM site that we had purposefully introduced in order to allow for sgRNA interaction with the chromophore region of the GFP gene was mutated in 1 out of 2 uninduced mutant GFP P2 samples and 7 out of 15 induced mutant GFP P2 samples. These findings are summarized in the images/charts below.</p>
+				<img src="http://2017.igem.org/wiki/images/3/37/T--UMaryland--sequencing.jpg" class="contentImg" style="max-height: 450px;" />
+				<p class="caption">Reverse Point Mutation in GFP - A silent mutation was created with site-directed mutagenesis in a GFP protein to introduce a PAM sequence adjacent to the region we targeted. This sequence allows for successful Cas9 targeting and cleavage. After two rounds of random mutagenesis using cells from a mutator strain, a reverse mutation was observed that eliminated the PAM sequence. </p>
+				<img src="http://2017.igem.org/wiki/images/7/79/T--UMaryland--mutation.jpg" class="contentImg" style="max-height: 450px;" /> 
+				<img src="http://2017.igem.org/wiki/images/b/b9/T--UMaryland--cas9table.png" class="contentImg" style="max-height: 300px;" /> 
+				<p class="caption"><strong>PAM Site Mutation Frequency.</strong> This graph shows the percentage of sequenced samples that contained a mutation resulting in the loss of the PAM site within the GFP gene. No PAM site mutation losses were observed within the wild type/non-mutant GFP or within the mutant GFP P1 group. 1 out of 2 uninduced mutant GFP P2 samples contained a lost PAM site while 7 out of 15 induced mutant GFP P2 samples contained a lost PAM site.</p>
+				<p>From this data, we can extrapolate some interesting information. First, the Cas9/sgRNA mutagenesis method is not entirely effective in cleaving non-mutated plasmid DNA. This is demonstrated by the fact that most of the sequenced colonies were non-mutants in the region of interest. We expected that some non-mutant plasmids would escape cleavage by Cas9 simply by chance, so this finding did not come as a particular surprise.</p><p>
+				Along with this, it can be seen that the Cas9/sgRNA system is selecting for some particular types of mutations. That is, in this case, mutations within the PAM sequence. It makes sense that Cas9 would select for mutants lacking a PAM site as it would be impossible for the Cas9/sgRNA complex to cleave this sequence. As such, plasmids losing the PAM site would escape cleavage and be propagated. Hence, there would be significant selective pressure for the loss of the PAM site. This is an issue that will need to be considered in future iterations of the project.</p><p>
+				Additionally, comparison between the non-induced and the induced groups seems to suggest that there might be some background expression of Cas9/sgRNA despite being under the regulation of a tetracycline based promoter. Assuming that Cas9/sgRNA expression is being properly inhibited, we should see a stark difference between the number of mutants within the PAM site of the induced and uninduced samples. Of course, the sample size difference between the mutant GFP P2 induced versus uninduced groups is large (15 versus 2). Therefore, the comparable PAM site mutation rates observed in the induced and uninduced samples is not significant enough to conclude that there is leaky expression of Cas9/sgRNA.</p><p>
+				One final conclusion that can be drawn from the data gathered is that the density of mutants within the region of interest achieved by this system is rather low. In this case, it is actually zero. A major concern in the development of this project was that the activity of Cas9 was sometimes non-specific. If significant sequence similarity is present, Cas9 is capable of cleaving off target sites. The worry here was that this would lead to point mutants in the region of interest being cleaved even though they were, in fact, mutants. To counteract this issue, we tried to obtain a high fidelity version of Cas9 which had been mutated to reduce off target cleavage. We attempted to obtain this gene from two sources, but ended up empty handed in the end. We were forced to settle for using a normal fidelity Cas9 gene provided to us by a professor on campus. This could potentially be the reason why we see a lack of mutations in the region of interest. Of course, the lack of mutants could also be due to the fact that not enough colonies were screened. Ideally, we would've preferred to screen many times more colonies than we actually did, but due to time constraints and limited resources, this was not an option.</p><p>
+				Overall, the data collected for the Cas9/sgRNA mutant screening system seems to indicate that it is somewhat effective. The reduced culture density of non-mutant/wild type GFP with induction seems to suggest that non-mutant plasmids are being cut to some degree. Additionally, the prevalence of PAM site destroying mutations within the mutagenized GFP samples supports the notion that the screening system is selecting for plasmids that can avoid cleavage. While we had hoped that these cleavage avoiding plasmids would contain mutations within the region of interest rather than at the PAM site, the findings presented here at least point to the potential for this system to be used in mutant screening. Incorporating a higher fidelity Cas9 gene into our system could greatly improve its effectiveness as a whole.</p>
+				<strong>Future Plans</strong>
+				<p>Going forward, we would like to continue to characterize our Cas9 based mutant screening system. We plan to collect more data on its implementation and effectiveness and would like to demonstrate that it can be used in lab to effectively aid in screening mutants. We also plan to make efforts towards obtaining a higher fidelity version of Cas9 for incorporation into our mutagenesis selection system. Comparing the effectiveness of this enzyme against the effectiveness of the normal fidelity variant could help to show that the system effectiveness increases with increasing Cas9 fidelity. </p><p>
+				Our end goal for this project is to standardize the system such that it can be utilized by other laboratories as a tool to screen for mutants. We would like to develop sets of step by step procedures in order to guide iGEM teams through the entire process of mutating a protein in the region(s) of interest and screening with our Cas9 system. The hope is that we will be able to produce a simple and well characterized mutagenesis system that can be used to further the endeavors of future iGEM projects.</p>
 			</div>
 		</div>
 	</div>
@@ -1494,10 +1539,18 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				<img src="http://2017.igem.org/wiki/images/8/8a/T--UMaryland--fluorgraph.png" class="contentImg" style="max-height: 400px;"/>
 				<img src="http://2017.igem.org/wiki/images/9/9c/T--UMaryland--odgraph.png" class="contentImg" style="max-height: 400px;"/>
 				<p>Measuring the RFP fluorescence and the optical density, it was clear that the cells did not fluoresce at all compared to the commercial shaker, but still had half of the optical density. This shows that while there was growth, it was not in log phase, when the promoter of the RFP cassette would have been activated.</p>
-				<p>We miniprepped the cultures in a commercial centrifuge to test if the optical density may have been due to contamination, which could have increased optical density but would not have the plasmid DNA that matched our RFP expression vector. We found that plasmid DNA recovery proportionally matched the optical density, and the gel confirmed that our expression system was replicated in culture.</p>
+				<p>We miniprepped the cultures in a commercial centrifuge to test if the optical density may have been due to contamination, which could have increased optical density but would not have the plasmid DNA that matched our RFP expression vector. We found that plasmid DNA recovery proportionally matched the optical density.</p>
 				<img src="http://2017.igem.org/wiki/images/c/c3/T--UMaryland--miniprep2.png" class="contentImg" style="max-height: 400px;"/>
-				<!--<img src="http://2017.igem.org/wiki/images/0/08/T--UMaryland--gel.jpg" class="contentImg" style="max-height: 500px;"/>-->
 				<p>While our shaker did not result in strong RFP expression and log phase growth, we believe that other methods of induction such as IPTG would cause fluorescence because it does not depend on log phase growth. It would also be beneficial for replication of plasmid DNA for sequencing and other assembly procedures.</p>
+				<strong>
+					<p>We have demonstrated that:</p>
+					<ol>
+						<li>The miniprep protocol requires only 10,000 RCF to isolate plasmid DNA effectively.</li>
+						<li>The lab-in-a-box centrifuge can reach up to 12,000 RPM, generating 11,290 RCF</li>
+						<li>The thermsister responds linearly to changes in temperature to maintain a constant temperature.</li>
+						<li>The shaker can induce some expression of genes under a log phase promoter, and grow culture with around 50% plasmid DNA recovery.</li>
+					</ol>
+				</strong>
 			</div>
 			<div class="subContent content-outreachD">
 				<div class="h2">Hardware - DIY Lab-in-a-box</div>
@@ -1833,7 +1886,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 						</td>
 						<td id="sangho" class="scrollCheck">
 							<p>SangHo Jee</p>
-							<p>He is currently coding the wiki for the team.....</p>
+							<p>SangHo is a junior biochemistry and cell biology major at UMD. He coded the wiki, led the hardware project, and led the outreach efforts of the banana project. He is interested in synthetic biology of eukaroytic systems, and is pushing for UMaryland iGEM to move beyond single E. coli to thinking about interacting populations and engineering yeast.</p>
 						</td>
 					</tr>
 					<tr>
@@ -2090,6 +2143,12 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 							<td>This part constitutively expresses the CueR repressor. This repressor then inhibits the expression of RFP from the downstream PcopA promoter. In the presence of copper, the repression of CueR is inhibited leading to greater RFP expression. Fluorescence of this construct has been shown to increase with increasing copper concentration in both a qualitative and quantitative manner.</td>
 							<td><a href="http://parts.igem.org/Part:BBa_K2477013">http://parts.igem.org/Part:BBa_K2477013</a></td>
 						</tr>
+						<tr>
+							<td>BBa_K2477014</td>
+							<td>Cas9/sgRNA GFP Mutant Selection System</td>
+							<td>This part contains the machinery to express Cas9 and an sgRNA targeting the chromophore region of GFP (E0040). The expression of both components of this system are under control of tetracycline promoters. The part also encodes for constitutive expression of the TetR repressor. This thereby allows for tight regulation of Cas9 and sgRNA expression for controlled mutant selection. This part is meant for use alongside a GFP variant containing an artificially induced PAM site (BBa_K2477003).</td>
+							<td><a href="http://parts.igem.org/Part:BBa_K2477014">http://parts.igem.org/Part:BBa_K2477014</a></td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
@@ -2246,7 +2305,32 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				<p>In comparing the relative strengths of the promoters in combination with the RBS, the difference between the fluorescence measurements may be attributed to the strength of the RBS thus affecting the level of fluorescence (where J346100 may be stronger than the B0032). With data from other teams participating in the Interlab study, the UMaryland team hopes that the collection of all fluorescence data will better help with the standardization of fluorescence to account for varying promoter and RBS strengths. </p>
 			</div>
 			<div class="subContent content-wm">
-			
+				<p class="h2">Collaboration</p>
+				<p class="h3">College of William and Mary </p>
+				<strong>Background</strong>
+				<p>While attending the Mid-Atlantic iGEM meetup, we got the chance to speak with the William and Mary team about their efforts to control gene expression speed. We thought that the idea to use a non-endogenous protease/protein degradation tag system in order to establish reliable control over the rate at which genes are expressed was a really interesting idea. We ended up discussing how our teams could provide assistance to one another and came to the agreement to collaborate on several fronts.</p>
+				<strong>Testing by UMaryland</strong>
+				<p>Our team took on the task of testing several constructs sent to us by William and Mary. In total, they sent us six plasmids termed A through F. Plasmids A-E consisted of the fluorescent protein gene mScarlet under the control of a tetracycline induced promoter. The mScarlet gene on each plasmid was tagged with a different protein degradation sequence of varying strength. Plasmid F contained the genetic circuitry for expression of the non-endogenous mf-Lon protease under the control of a lactose inducible promoter. Both plasmids also contained constitutive expression systems for their respective repressor proteins (TetR and LacI).</p>
+				<p>Upon receiving the DNA samples from William and Mary, plasmids A-E were cotransformed alongside plasmid F. Colonies from these plates were grown overnight to maximum culture density and then reinoculated into fresh LB broth at a 1:20 dilution. These cultures were grown at 37 C 220 rpm for about two hours to allow for the cells to reach log phase. Following this, each cotransformant culture was split in half with one half being induced with anhydrotetracycline (ATC) to a final concentration of 50 ng/mL while the other half was induced with ATC and IPTG to final concentrations of 50 ng/mL and 0.1 mM respectively. This meant that for each system (A-E + F) there were two testing groups. One where only mScarlet expression was induced and one where mScarlet was induced alongside the mf-Lon protease.</p>
+				<p>Following induction, samples were loaded into a 96 well plate and placed into an incubated plate reader set at 37 C. Fluorescence at an excitation of 569 nm with emission at 593 nm was measured every 10 minutes over a three hour time course. Shaking occurred between measurements. Fluorescence readings were then normalized against OD700 readings taken prior to and after the sampling period with the OD700 readings in the middle time points being approximated via linear regression.</p>
+				<img src="http://2017.igem.org/wiki/images/5/5b/T--UMaryland--af.png" class="contentImg" style="max-height: 450px;" />
+				<img src="http://2017.igem.org/wiki/images/2/27/T--UMaryland--bf.png" class="contentImg" style="max-height: 450px;" />
+				<img src="http://2017.igem.org/wiki/images/f/f3/T--UMaryland--cf.png" class="contentImg" style="max-height: 450px;" />
+				<img src="http://2017.igem.org/wiki/images/e/e2/T--UMaryland--df.png" class="contentImg" style="max-height: 450px;" />
+				<img src="http://2017.igem.org/wiki/images/1/1a/T--UMaryland--ef.png" class="contentImg" style="max-height: 450px;" />
+				<p>Based on these graphs, we can see that steady states of fluorescence were achieved in several of the test groups after approximately 2 hours. These findings agree with the data collected by William and Mary, thereby acting to support the notion that their system is effective in controlling gene expression speed. It should be noted that the data collected for the B + F test does not appear to be reliable. Normalized fluorescence at time point 0 should have been identical between the two induction groups. The fact that it is not points to a high likelihood of experimental error in the testing of this particular device. Time was not available for the conduction of another test.</p>
+				<strong>Testing Done by William and Mary</strong>
+				<p>In return for the testing conducted by our team, William and Mary agreed to alter our copper biosensor part (BBa_K2477013) for use with their mf-Lon protease system. After sending our part to them, William and Mary created several variations on the biosensor by adding different protein degradation tags onto the end of the RFP gene. These protein degradation tags are termed A through F. By incorporating these modified parts into cells along with their mf-Lon system, they were able to show that gene expression speed could be altered. The results for the different tags they tested with our part can be seen in the graphs below.</p>
+				<img src="http://2017.igem.org/wiki/images/3/38/T--UMaryland--copperMax.png" class="contentImg" style="max-height: 450px;" />
+				<p class="caption"><strong>Normalized Fluorescence of Protein Degradation Tagged Copper Biosensor Collected Using FACS.</strong> Time course assay of Copper Sensor pdt parts, values are steady state normalized geometric means of three biological replicates taken on the FL3 channel. Shaded region represents one geometric std above and below mean.</p>
+				<img src="http://2017.igem.org/wiki/images/1/18/T--UMaryland--timecourse.jpg" class="contentImg" style="max-height: 450px;" />
+				<p class="caption"><strong>Fluorescence of Protein Degradation Tagged Copper Biosensor Collected Using Plate Reader.</strong> Functional plate reader assay of Copper Sensor pdt parts, values are geometric means of the fluorescence/OD600 of three biological replicates, excitation/emission 584/612.</p>
+				<p>The first graph above shows that, when induced with 1 mM copper, the modified copper biosensor constructs are capable of reaching steady protein levels at a faster rate than the original copper biosensor. While the increase in speed/stability is not drastic, it should be enough to improve the part in terms its original purpose. With the system being somewhat faster and more consistent, it will allow the part to be used in an educational setting where it can serve as a demonstration of synthetic biology's potential. For more on the potential uses of our copper biosensor, please refer to our metal detection page.</p>
+				<p>The second figure above consists of the plate reader data from a fluorescence time course of the modified copper biosensors induced with .5 mM copper and .01 mM IPTG to induce mf-Lon expression. Copper induction occurred about 240 minutes into the time course while IPTG induction occurred around 360 minutes into the time course. It can be seen that all variants reached steady state approximately 120-150 minutes after this. The final fluorescence levels vary across the different constructs showing the versatility of the system.</p>
+				<strong>Collaboration Conclusions</strong>
+				<p>Overall, the collaboration between the UMaryland and William and Mary iGEM teams has been very successful. We were able to help characterize their project while they were able to improve the function of one of our parts. This mutually beneficial relationship helped to further the efforts of both projects and served to highlight the importance of collaboration within iGEM and across science in general.</p>
+				<p>For further reading on the collaboration between UMaryland and William and Mary, take a look at <a href="http://2017.igem.org/Team:William_and_Mary/Collaborations">William and Mary's collaboration page.</a></p>
+				
 			</div>
 			<div class="subContent content-meetup">
 			<p class="h2"><strong>Mid-Atlantic Meetup</strong></p>
@@ -2429,7 +2513,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			$('.subContent').css('display', 'none');
 			$('.content-'+target).css('margin-left','100px');
 			$('.content-'+target).css('display','block');
-			$('.content-'+target+' .h2').get(0).scrollIntoView();
+			$('.content-'+target+' .h2').get(0).scrollIntoView(true);
 			$('.content-'+target).animate({
 				'margin-left': '0px'
 			},100,'linear')
@@ -2447,7 +2531,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				$('.subContent').css('display', 'none');
 				$('.content-'+target).css('margin-left','100px');
 				$('.content-'+target).css('display','block');
-				$('.content-'+target+' .h2').get(0).scrollIntoView();
+				$('.content-'+target+' .h2').get(0).scrollIntoView(true);
 				$('.content-'+target).animate({
 					'margin-left': '0px'
 				},100,'linear')
@@ -2466,7 +2550,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 				$('.subContent').css('display', 'none');
 				$('.content-'+target).css('margin-left','100px');
 				$('.content-'+target).css('display','block');
-				$('.content-'+target+' .h2').get(0).scrollIntoView();
+				$('.content-'+target+' .h2').get(0).scrollIntoView(true);
 				$('.content-'+target).animate({
 					'margin-left': '0px'
 				},100,'linear')
@@ -2485,7 +2569,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			$('.subContent').css('display', 'none');
 			$('.content-'+target).css('margin-left','100px');
 			$('.content-'+target).css('display','block');
-			$('.content-'+target+' .h2').get(0).scrollIntoView();
+			$('.content-'+target+' .h2').get(0).scrollIntoView(true);
 			$('.content-'+target).animate({
 				'margin-left': '0px'
 			},100,'linear')
@@ -2497,7 +2581,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 			$('.subContent').css('display', 'none');
 			$('.content-'+target).css('margin-left','100px');
 			$('.content-'+target).css('display','block');
-			$('.content-'+target+' .h2').get(0).scrollIntoView();
+			$('.content-'+target+' .h2').get(0).scrollIntoView(true);
 			$('.content-'+target).animate({
 				'margin-left': '0px'
 			},100,'linear')
@@ -2518,7 +2602,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	
 	$('.li-students').click( function() {
 		var scrollTo = $(this).attr('data-scrollTo');
-		$("#"+scrollTo).get(0).scrollIntoView();
+		$("#"+scrollTo).get(0).scrollIntoView(true);
 	});
 	$('.contentAbout').scroll(function() {
 		var selected = $('.levelTwo li').filter( function() {
@@ -2542,7 +2626,7 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	
 	$('.scrollContainer li').click( function() {
 		var scrollTo = $(this).attr('data-scrollTo');
-		$("#"+scrollTo).get(0).scrollIntoView();
+		$("#"+scrollTo).get(0).scrollIntoView(true);
 		$('.scrollContainer li').css('background-color', 'transparent')
 		$(this).css('background-color', 'rgba(180, 73, 100, 1)');
 	});
@@ -2574,9 +2658,11 @@ mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.
 	
 $(document).ready(function() {
 	$('#overruled').css('overflow', 'visible');
-    $('.pageCanvas').panzoom({
-		cursor: "-webkit-grab"
-	});
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|Windows Phone/i.test(navigator.userAgent)) {
+		$('#scScrollFlow').remove();
+	} else {$('.pageCanvas').panzoom({
+			cursor: "-webkit-grab"
+		});}
 	
 	//define block array
 	blockArray = [
